@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template
 
 from static.python.functions import *
 from static.python.conn_functions import *
@@ -15,7 +15,8 @@ def index():  # put application's code here
 def generate_db():
     create_table()
     create_school('sup', 'hello', 222)
-    create_school_account('name@test', 'hello', 2, 200, 'sup')
+    create_school_account('name@test', 'hello', 1, 'sup')
+    create_account('test@feu', 'user1', 'edu', 'bassani', 1, 'pass')
     return 'created'
 
 
