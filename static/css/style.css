@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+
+body {
+    font-family: 'Carter One', cursive;
+    background-color: #ffd500;
+    margin: 0;
+}
+
+.content {
+    margin: auto;
+    max-width: 800px;
+    min-width: 300px;
+    background-color: snow;
+    padding: 1rem;
+}
+
+h2, h1, .biggerSpan {
+    margin: 1rem;
+}
+
+.biggerSpan {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.dashboard {
+    margin-bottom: 1rem;
+}
+
+.dashboard__selection {
+    display: none;
+}
+
+.dashboard__slider {
+    width: 20rem;
+    height: 0.5rem;
+    display: block;
+    background: lightgray;
+    border-radius: 5px;
+}
+
+.dashboard__slider .dashboard__slider__bar {
+    width: 50%;
+    height: 0.5rem;
+    background: black;
+    border-radius: 5px;
+}
+
+.dashboard #dashboard__option_myschool:checked ~ .dashboard__slider .dashboard__slider__bar {
+    margin-left: 0;
+}
+
+.dashboard #dashboard__option_myschool:checked ~ .dashboard__page .dashboard__page__myschool {
+    left: 0;
+}
+
+.dashboard #dashboard__option_myschool:checked ~ .dashboard__page .dashboard__page__myprogress {
+    left: 100%;
+}
+
+.dashboard #dashboard__option_myprogress:checked ~ .dashboard__slider .dashboard__slider__bar {
+    margin-left: 50%;
+}
+
+.dashboard #dashboard__option_myprogress:checked ~ .dashboard__page .dashboard__page__myschool {
+    left: -100%;
+}
+
+.dashboard #dashboard__option_myprogress:checked ~ .dashboard__page .dashboard__page__myprogress {
+    left: -100%;
+}
+
+.dashboard label, .dashboard__slider .dashboard__slider__bar {
+    transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+}
+
+.dashboard label, .dashboard__page .dashboard__page__myschool {
+    transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+}
+
+.dashboard label, .dashboard__page .dashboard__page__myprogress {
+    transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+}
+
+.dashboard__page {
+    display: flex;
+    overflow: hidden;
+}
+
+.dashboard__page__myschool {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: 0;
+}
+
+.dashboard__page__myprogress {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: 100%;
+}
+
+.myschool__content {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding-top: 1rem;
+    overflow: hidden;
+}
+
+.menu {
+    position: sticky;
+    top: 0;
+    display: flex;
+    width: 100%;
+    background-color: lightgray;
+    z-index: 2;
+    box-shadow: 0 0.4rem 2rem;
+}
+
+.menu__link {
+    padding: 0.8rem 0.8rem 0.4rem;
+    -webkit-transition: background 0.6s;
+    transition: background 0.6s;
+}
+
+.menu__link--color-darkorange {
+    background: linear-gradient(lightgray, lightgray 50%, #bd620c 50%, #bd620c);
+    background-size: 100% 200% ;
+    border-bottom: solid 0.4rem #bd620c;
+}
+
+.menu__link--color-orange {
+    background: linear-gradient(lightgray, lightgray 50%, #d78034 50%, #d78034);
+    background-size: 100% 200% ;
+    border-bottom: solid 0.4rem #d78034;
+}
+
+.menu__link--color-lightorange {
+    background: linear-gradient(lightgray, lightgray 50%, #e88e48 50%, #e88e48);
+    background-size: 100% 200% ;
+    border-bottom: solid 0.4rem #e88e48;
+}
+
+.menu__link--color-darkyellow {
+    background: linear-gradient(lightgray, lightgray 50%, #e8b048 50%, #e8b048);
+    background-size: 100% 200% ;
+    border-bottom: solid 0.4rem #e8b048;
+}
+
+.menu__link:hover {
+    background-position: 100% 100%;
+    padding-bottom: 0.8rem;
+    border: 0;
+}
+
+.hover__pointer:hover {
+    cursor: pointer;
+}
