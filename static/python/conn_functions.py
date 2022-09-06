@@ -21,8 +21,20 @@ def create_school(name, city, num_students):
     cur = conn.cursor()
 
     cur.execute("insert into schools (name, city, num_students) values (?, ?, ?)",
-                (name, city, num_students)
-                )
+                (name, city, num_students))
+
+    conn.commit()
+    conn.close()
+
+
+def create_school_account(email, username, school_id, carbon_emission, password):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+
+    cur.execute("insert into accounts "
+                "(email, username, school_id, is_school, carbon_emission, password)"
+                "values (?, ?, ?, ?, ?, ?)",
+                (email, username, school_id, True, carbon_emission, password))
 
     conn.commit()
     conn.close()

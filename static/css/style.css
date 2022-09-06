@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Carter One', cursive;
-    background-color: #ffd500;
+    background-color: #ddebf6;
     margin: 0;
 }
 
@@ -35,14 +35,14 @@ h2, h1, .biggerSpan {
     width: 20rem;
     height: 0.5rem;
     display: block;
-    background: lightgray;
+    background: #ddebf6;
     border-radius: 5px;
 }
 
 .dashboard__slider .dashboard__slider__bar {
     width: 50%;
     height: 0.5rem;
-    background: black;
+    background: #008fff;
     border-radius: 5px;
 }
 
@@ -117,6 +117,8 @@ h2, h1, .biggerSpan {
 
 .menu {
     position: sticky;
+    align-items: center;
+  justify-content: center;
     top: 0;
     display: flex;
     width: 100%;
@@ -130,29 +132,31 @@ h2, h1, .biggerSpan {
     -webkit-transition: background 0.6s;
     transition: background 0.6s;
 }
-
+/*
 .menu__link--color-darkorange {
-    background: linear-gradient(lightgray, lightgray 50%, #bd620c 50%, #bd620c);
+    background: linear-gradient(lightgray, lightgray 50%, #008fff 50%, #008fff);
     background-size: 100% 200% ;
-    border-bottom: solid 0.4rem #bd620c;
+    border-bottom: solid 0.4rem #008fff;
 }
 
 .menu__link--color-orange {
-    background: linear-gradient(lightgray, lightgray 50%, #d78034 50%, #d78034);
+    background: linear-gradient(lightgray, lightgray 50%, #008fff 50%, #008fff);
     background-size: 100% 200% ;
-    border-bottom: solid 0.4rem #d78034;
+    border-bottom: solid 0.4rem #008fff;
 }
 
 .menu__link--color-lightorange {
-    background: linear-gradient(lightgray, lightgray 50%, #e88e48 50%, #e88e48);
+    background: linear-gradient(lightgray, lightgray 50%, #008fff 50%, #008fff);
     background-size: 100% 200% ;
-    border-bottom: solid 0.4rem #e88e48;
+    border-bottom: solid 0.4rem #008fff;
 }
 
-.menu__link--color-darkyellow {
-    background: linear-gradient(lightgray, lightgray 50%, #e8b048 50%, #e8b048);
+Menu button color
+*/
+.menu__link--color-primary {
+    background: linear-gradient(lightgray, lightgray 50%, #008fff 50%, #008fff);
     background-size: 100% 200% ;
-    border-bottom: solid 0.4rem #e8b048;
+    border-bottom: solid 0.4rem #008fff;
 }
 
 .menu__link:hover {
