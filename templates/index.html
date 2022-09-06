@@ -2,12 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{url_for ('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Demo page</title>
 </head>
 <body>
-    <h1>Sup</h1>
+
+<div class="menu">
+    <div class="menu__link menu__link--color-darkorange hover__pointer">
+        <span>Dashboard</span>
+    </div>
+    <div class="menu__link menu__link--color-orange hover__pointer" onclick="window.location='{{ url_for('hello')}}'">
+        <span>Dashboard</span>
+    </div>
+    <div class="menu__link menu__link--color-lightorange hover__pointer" onclick="window.location='/sqrt'">
+        <span>Dashboard</span>
+    </div>
+    <div class="menu__link menu__link--color-darkyellow hover__pointer">
+        <span>Dashboard</span>
+    </div>
+</div>
+
+<div class="content">
+    <div class="dashboard">
+        <h1>Dashboard</h1>
+
+        <!--
+        Radio menu with a slide animation on the bar below it
+        -->
+
+        <input type="radio" id="dashboard__option_myschool" class="dashboard__selection slide-toggle" name="radio">
+        <label for="dashboard__option_myschool"><span class="biggerSpan hover__pointer">My school</span></label>
+
+        <input type="radio" id="dashboard__option_myprogress" class="dashboard__selection slide-toggle" name="radio">
+        <label for="dashboard__option_myprogress"><span class="biggerSpan hover__pointer">My progress</span></label>
+
+        <div class="dashboard__slider">
+            <div class="dashboard__slider__bar"></div>
+        </div>
+
+        <!--
+        Div containing pages, these pages should be separate as they are supposed to appear one at a time.
+        -->
+
+        <div class="dashboard__page">
+            <!--
+            All page 1 should be inside div page1
+            -->
+            <div class="dashboard__page__myschool">
+                <div class="myschool__content">
+                    <h2>//TEXT//TEXT//TEXT//</h2>
+                    <img src="/plot.png" alt="">
+                </div>
+            </div>
+
+            <!--
+            Following the principle of page 1, page 2 and all possible next pages should put their content in
+            different divs. The css, until this point, only works with page 1 and 2, in case of more pages
+            more additions will be necessary these additions being proper positioning for the page
+            and more animations.
+            -->
+            <div class="dashboard__page__myprogress">
+                <div class="myschool__content">
+                    <h2>//TEXT//TEXT//TEXT//2</h2>
+                    <img src="{{ url_for('static', filename= 'images/photo.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
