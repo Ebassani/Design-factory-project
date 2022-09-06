@@ -1,6 +1,7 @@
-#Traffic variables 
 #Common variables, used in multiple classes
 AverageElectricity = 281.00
+
+#Traffic variables 
 
 class flights:
     #kgCO2e/hkm
@@ -28,28 +29,6 @@ class businessAndClassTrips:
     hotelStays = 0.18
     taxi = 0.18
 
-class acquisitions:
-    #kgCO2e/kpl
-    phone = 60
-    laptop = 350
-    computerScreen = 510
-    tablet = 100
-    desktopComputer = 199.8
-    multifunctionPrinter = 410
-    printer = 77.8
-
-    officeChair = 34
-    chair = 9
-    metalFrameTable = 218
-    electricDesk = 254
-    paperKg = 0.905
-    #kgCO2e/item
-    eBook = 0.08
-    book = 1.2
-
-    Cleaning = 0.1
-    internetAndPhones = 0.28
-    postal = 0.5
 class otherVehicles:
     #kgCO2e/hkm
     Motorcycle = 0.112*1.2
@@ -75,6 +54,33 @@ class publicTransport:
     #kgCO2e/€
     TrainAbroad = 0.100
     BusAbroad = 0.180
+
+#Acqusition variables
+
+class acquisitions:
+    #kgCO2e/kpl
+    phone = 60
+    laptop = 350
+    computerScreen = 510
+    tablet = 100
+    desktopComputer = 199.8
+    multifunctionPrinter = 410
+    printer = 77.8
+
+    officeChair = 34
+    chair = 9
+    metalFrameTable = 218
+    electricDesk = 254
+    paperKg = 0.905
+    
+    #kgCO2e/item
+    eBook = 0.08
+    book = 1.2
+
+    Cleaning = 0.1
+    internetAndPhones = 0.28
+    postal = 0.5
+
 
 #Infrastructure variables
 
@@ -123,6 +129,7 @@ class energy:
     ElectricityRecycable = 0.720
     ProblemWaste = 1.410
 
+<<<<<<< Updated upstream
 class food:
     #kgCO2e/kg
     #Meats
@@ -156,5 +163,28 @@ class food:
     wheatBread = 1.7
 
 
+=======
+#Food variables
+
+#Desserts / kgCO2/kg
+class kisel:
+    PotatoFlour = 0.396
+    Berries = 0.200
+    Sugar = 1.100
+    PortionOfKisel = (Berries/1000*400)+(Sugar/1000*63.75)+(PotatoFlour/1000*20)/4 
+
+class pancakes:
+    Flour = 1.130
+    Milk = 1.100
+    Eggs = 2.500
+    Sugar = 1.100
+    aPortionOfPancakes = ((Flour/1000*195)+(Milk/1000*500)+(Eggs/1000*180)+(Sugar/1000*12))/6
+
+class salad:
+    Cucumber = 2.000
+    Carrot = 0.300
+    Tomato = 3.000
+    aPortionOfSalad = (Cucumber/1000*50)+(Carrot/1000*50)+(Tomato/1000*50)
+>>>>>>> Stashed changes
 
 
