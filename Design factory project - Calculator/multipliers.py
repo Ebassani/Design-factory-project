@@ -1,7 +1,6 @@
+ #Traffic variables 
 #Common variables, used in multiple classes
 AverageElectricity = 281.00
-
-#Traffic variables 
 
 class flights:
     #kgCO2e/hkm
@@ -29,7 +28,7 @@ class businessAndClassTrips:
     hotelStays = 0.18
     taxi = 0.18
 
-class otherVehicles:
+    class otherVehicles:
     #kgCO2e/hkm
     Motorcycle = 0.112*1.2
     Moped = 0.068*1.2
@@ -54,33 +53,6 @@ class publicTransport:
     #kgCO2e/€
     TrainAbroad = 0.100
     BusAbroad = 0.180
-
-#Acqusition variables
-
-class acquisitions:
-    #kgCO2e/kpl
-    phone = 60
-    laptop = 350
-    computerScreen = 510
-    tablet = 100
-    desktopComputer = 199.8
-    multifunctionPrinter = 410
-    printer = 77.8
-
-    officeChair = 34
-    chair = 9
-    metalFrameTable = 218
-    electricDesk = 254
-    paperKg = 0.905
-    
-    #kgCO2e/item
-    eBook = 0.08
-    book = 1.2
-
-    Cleaning = 0.1
-    internetAndPhones = 0.28
-    postal = 0.5
-
 
 #Infrastructure variables
 
@@ -129,7 +101,32 @@ class energy:
     ElectricityRecycable = 0.720
     ProblemWaste = 1.410
 
-<<<<<<< Updated upstream
+class acquisitions:
+    #kgCO2e/kpl
+    phone = 60
+    laptop = 350
+    computerScreen = 510
+    tablet = 100
+    desktopComputer = 199.8
+    multifunctionPrinter = 410
+    printer = 77.8
+
+    officeChair = 34
+    chair = 9
+    metalFrameTable = 218
+    electricDesk = 254
+    paperKg = 0.905
+    #kgCO2e/item
+    eBook = 0.08
+    book = 1.2
+
+    Cleaning = 0.1
+    internetAndPhones = 0.28
+    postal = 0.5
+
+
+    #Food variables
+
 class food:
     #kgCO2e/kg
     #Meats
@@ -162,10 +159,6 @@ class food:
     ryeBread = 1.3
     wheatBread = 1.7
 
-
-=======
-#Food variables
-
 #Desserts / kgCO2/kg
 class kisel:
     PotatoFlour = 0.396
@@ -185,6 +178,3 @@ class salad:
     Carrot = 0.300
     Tomato = 3.000
     aPortionOfSalad = (Cucumber/1000*50)+(Carrot/1000*50)+(Tomato/1000*50)
->>>>>>> Stashed changes
-
-
