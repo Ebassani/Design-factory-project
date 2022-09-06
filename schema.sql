@@ -17,5 +17,6 @@ create table accounts (
     school_id integer,
     is_school boolean default 0,
     carbon_emission float default 0,
+    password char(60),
     foreign key(school_id) references schools(id)
 );
