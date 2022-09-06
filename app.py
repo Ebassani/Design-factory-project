@@ -10,10 +10,12 @@ app = Flask(__name__)
 def index():  # put application's code here
     return render_template('index.html')
 
+
 @app.route('/create')
 def generate_db():
     create_table()
     create_school('sup', 'hello', 222)
+    create_school_account('name@test', 'hello', 2, 200, 'sup')
     return 'created'
 
 
