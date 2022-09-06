@@ -1,4 +1,6 @@
 #Traffic variables 
+#Common variables, used in multiple classes
+AverageElectricity = 281.00
 
 class flights:
     #kgCO2e/hkm
@@ -32,4 +34,56 @@ class publicTransport:
     #kgCO2e/€
     TrainAbroad = 0.100
     BusAbroad = 0.180
+
+#Infrastructure variables
+
+class energy:
+    #Electricity consumption
+    #kgCO2e/MWh
+    AverageElectricity = 281.00
+    ZeroEmissionGreenElectricity = 0
+    #Sellers emissionmultiplier!!
+
+    #Heating
+    DistrictHeating = 267.00
+    ZeroEmissionDistrictHeating = 0
+    #Sellers emissionmultiplier!!
+    ElectricityHeating = 400.00
+
+    #Cooling
+    DistrictCooling = 72*1.2
+    ZeroEmissionCooling = 0
+    #Sellers emissionmultiplier!!
+    ElectricityCooling = AverageElectricity
+
+    #Ventilation kWh/(m3/s)
+    EntryAndExit = 2.00
+    OnlyExit = 1.00
+    #(m3/s)/m2
+    OutdoorAirFlow = 0.00035
+
+    #Cafeteria energy consumption
+    #MWh/day
+    PrepationAndCentralKitchen = 0.258
+    PrepationAndHeatingKitchen = 0.179
+    #MVh a portion/meal
+    PreparationAndCentralKitchenPerMeal = 0.00031
+    PreparationAndHeatingKitchenPerMeal = 0.00061
+
+    #Trash / kgCO2e/kg
+    mixedWaste = 0.410
+    energyWaste = 0.411
+    bioWaste = 0.069
+    Cardboard = 0.060
+    Glass = 0.570
+    Metal = 0.130
+    Plastic = 0.070
+    Paper = 1.050
+    ElectricityRecycable = 0.720
+    ProblemWaste = 1.410
+
+
+
+
+
 
