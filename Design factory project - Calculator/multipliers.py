@@ -123,7 +123,37 @@ class energy:
     ElectricityRecycable = 0.720
     ProblemWaste = 1.410
 
-
+class food:
+    #kgCO2e/kg
+    #Meats
+    cow = 15
+    kala = 1.5
+    chicken = 5
+    pig = 5
+    makkara = 5.62
+    #Vegeterian/Vegan
+    soyGrits = 1.2
+    broadBean = 0.89
+    tofu = 2
+    vegetables = 0.2
+    #Drinks
+    oatDrink = 0.23
+    milk = 1.1
+    coffee = 0.6
+    tea = 0.3
+    #Carbohydrates
+    pasta = 0.034
+    rice = 5
+    potato = 0.2
+    rootVegetables = 0.3
+    #Other
+    cheese = 10
+    egg = 2.5
+    cream = 3.181
+    cucumber = 2
+    tomato = 3
+    ryeBread = 1.3
+    wheatBread = 1.7
 
 
 
