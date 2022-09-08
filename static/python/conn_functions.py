@@ -31,11 +31,10 @@ def get_schools():
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
 
-    schools = cur.execute('select * from schools')
-    schools.fetchall()
+    cur.execute('select * from schools')
+    schools = cur.fetchall()
 
     conn.close()
-
     return schools
 
 

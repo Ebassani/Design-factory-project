@@ -63,6 +63,11 @@ def verifies_login():
         return "Log in failed"
 
 
+@app.route('/schools')
+def schools():
+    return render_template('registrationPage.html', schools=get_schools())
+
+
 @app.route('/test')
 @login_required
 def test():
