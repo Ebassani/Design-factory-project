@@ -27,6 +27,18 @@ def create_school(name, city, num_students):
     conn.close()
 
 
+def get_schools():
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+
+    schools = cur.execute('select * from schools')
+    schools.fetchall()
+
+    conn.close()
+
+    return schools
+
+
 def create_school_account(email, username, school_id, password):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
