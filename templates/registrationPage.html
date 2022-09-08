@@ -5,10 +5,29 @@
     <title>Title</title>
 </head>
 <body>
-    <div>
-        {%  for school in schools %}
-            <span>school: {{ school[1] }}</span>
-        {% endfor %}
-    </div>
+<div>
+    <form method="post" id="schoolForm" name="schoolForm" action="/create_account">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+        <label for="forename">Forename:</label>
+        <input type="text" name="forename" id="forename">
+        <label for="surname">Surname:</label>
+        <input type="text" name="surname" id="surname">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+        <label for="password">Password:</label>
+        <input type="text" name="password" id="password">
+
+        <label for="school">Select your school</label>
+        <select name="school" id="school" form="schoolForm">
+            {% for school in schools %}
+                <option value="{{ school[0] }}">{{ school[1] }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit">
+    </form>
+
+</div>
 </body>
 </html>

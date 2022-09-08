@@ -40,6 +40,7 @@ def generate_db():
     return 'created'
 
 
+
 @app.route('/login')
 def login():
     return render_template('loginPage.html')
@@ -63,9 +64,21 @@ def verifies_login():
         return "Log in failed"
 
 
-@app.route('/schools')
+@app.route('/register')
 def schools():
     return render_template('registrationPage.html', schools=get_schools())
+
+
+@app.route('/create_account', methods=['POST'])
+def create_user_account():
+    email = request.form.get('email')
+    username = request.form.get('username')
+    forename = request.form.get('forename')
+    surname = request.form.get('surname')
+    school_id = request.form.get('school')
+    password = request.form.get('password')
+    create_account(email, username, forename, surname, school_id, password)
+    return redirect('/login')
 
 
 @app.route('/test')
