@@ -10,7 +10,8 @@ CREATE TABLE schools (
 drop table if exists accounts;
 
 create table accounts (
-    email varchar(255) primary key not null,
+    id integer primary key autoincrement,
+    email varchar(255) not null,
     forename varchar(50),
     surname varchar(100),
     username varchar(50) not null,

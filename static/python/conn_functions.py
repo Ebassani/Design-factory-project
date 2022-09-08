@@ -32,8 +32,7 @@ def create_school_account(email, username, school_id, password):
     cur = conn.cursor()
 
     cur.execute("insert into accounts (email, username, school_id, is_school, password) values (?, ?, ?, ?, ?)",
-                (email, username, school_id, True, password)
-                )
+                (email, username, school_id, True, password))
 
     conn.commit()
     conn.close()
@@ -43,10 +42,20 @@ def create_account(email, username, forename, surname, school_id, password):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
 
-    cur.execute("insert into accounts (email, username, school_id, password, forename, surname) values (?, ?, ?, ?, ?, ?)",
-                (email, username, school_id, password, forename, surname)
-                )
+    cur.execute("insert into accounts (email, username, school_id, password, forename, surname) "
+                "values (?, ?, ?, ?, ?, ?)",
+                (email, username, school_id, password, forename, surname))
 
     conn.commit()
     conn.close()
 
+
+def login(username, password):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+
+    cur.execute("select id from accounts where username = ? and password = ?", (username, password))
+    ret = cur.fetchall()
+    conn.close()
+
+    return ret

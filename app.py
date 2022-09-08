@@ -20,5 +20,18 @@ def generate_db():
     return 'created'
 
 
+@app.route('/login', methods=['POST'])
+def verifies_login():
+    try:
+        user = login('user1', 'pass')
+        if len(user) > 1:
+            return "something"
+        global user_id
+        user_id = int(user[0][0])
+        return "logged in"
+    except:
+        return "not logged in"
+
+
 if __name__ == '__main__':
     app.run(debug=True)
