@@ -1,4 +1,4 @@
- #Traffic variables 
+#Traffic variables 
 #Common variables, used in multiple classes
 AverageElectricity = 281.00
 
@@ -28,7 +28,7 @@ class businessAndClassTrips:
     hotelStays = 0.18
     taxi = 0.18
 
-    class otherVehicles:
+class otherVehicles:
     #kgCO2e/hkm
     Motorcycle = 0.112*1.2
     Moped = 0.068*1.2
