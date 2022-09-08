@@ -50,7 +50,7 @@ def create_account(email, username, forename, surname, school_id, password):
     conn.close()
 
 
-def login(username, password):
+def finds_user(username, password):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
 

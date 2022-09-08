@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 
 from flask_login import LoginManager,UserMixin, login_required, login_user, logout_user, current_user
 
@@ -7,7 +7,7 @@ from static.python.conn_functions import *
 from static.python.classes import Accounts
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '123123123'
+app.config['SECRET_KEY'] = 'password'
 
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
@@ -18,7 +18,6 @@ login_manager.session_protection = "strong"
 def load_user(user_id):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
-    print(type(user_id))
     cur.execute("SELECT * from accounts where id = (?)", (user_id,))
     info = cur.fetchone()
     if info is None:
@@ -42,11 +41,19 @@ def generate_db():
 
 
 @app.route('/login')
+def login():
+    return render_template('loginPage.html')
+
+
+@app.route('/login-authentication', methods=['POST'])
 def verifies_login():
+    username = request.form.get('username')
+    password = request.form.get('password')
     try:
-        user = login('user1', 'pass')
+        user = finds_user(username, password)
+
         if len(user) != 1:
-            return "something"
+            return user
         user_id = int(user[0][0])
 
         login_user(load_user(user_id), remember=True)
