@@ -24,14 +24,14 @@ class veganmeal:
     Co2OfVeganMeal = amountOfPortions * (veganmealProtein + veganmealSide)
 
 class dessert:
-    pancake = amountOfPortions# + pancakes from multipliers
-    kisel = amountOfPortions# + kisel from multipliers
+    pancake = amountOfPortions * 0.206
+    kisel = amountOfPortions * 0.040
     Co2OfDessert = amountOfPortions * (pancake + kisel)
 
 class others:
-    ryeBread = amountOfPortions# + ryebread from multipliers/1000*30
-    wheatBread = amountOfPortions# + wheatBread from multipliers/1000*30
-    salad = amountOfPortions# + salad from multipliers
+    ryeBread = (amountOfPortions * 1.3/1000*30)
+    wheatBread = (amountOfPortions * 1.7/1000*30)
+    salad = amountOfPortions * 0.265
     Co2OfOthers = amountOfPortions * (ryeBread + wheatBread + salad)
 
 #The next couple classes use complicated formulas in excel which I have no motivation to do right now because they look like hell on earth :DDDDDD
