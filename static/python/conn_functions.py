@@ -24,7 +24,12 @@ def create_school(name, city, num_students):
                 (name, city, num_students))
 
     conn.commit()
+
+    cur.execute("select id from schools where name = ?", (name,))
+    school_id = cur.fetchone()
+
     conn.close()
+    return school_id[0]
 
 
 def get_schools():
@@ -38,8 +43,10 @@ def get_schools():
     return schools
 
 
-def create_school_account(email, username, school_id, password):
+def create_school_account(email, username, password, city, num_students):
     conn = sqlite3.connect('database.db')
+
+    school_id = create_school(username, city, num_students)
     cur = conn.cursor()
 
     cur.execute("insert into accounts (email, username, school_id, is_school, password) values (?, ?, ?, ?, ?)",
