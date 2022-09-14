@@ -31,6 +31,16 @@ class userInputs:
     #€
     hotelStaysUserInput = float(input("Euros"))
     taxiUserInput = float(input("Euros"))
+    #Other vehicles(km)
+    MopedUserInput = float(input("Distance"))
+    MopedCarUserInput = float(input("Distance"))
+    MotorcycleUserInput = float(input("Distance"))
+    #Liters
+    ATVUserInput = float(input("Liters consumed"))
+    TractorUserInput = float(input("Liters consumed"))
+    SnowMobile = float(input("Liters consumed"))
+
+
 
 
 
@@ -66,6 +76,15 @@ class userEmissionsCarTraffic:
     chargingHybridEmission = userInputs.chargingHybridUserInput*multipliers.carTraffic.chargingHybrid
     
 class userEmissionsBusinessAndClassTrips:
+    #kgCO2e
     rentalBusEmission = userInputs.rentalBusUserInput*multipliers.businessAndClassTrips.rentalBus
     hotelStaysEmission = userInputs.hotelStaysUserInput*multipliers.businessAndClassTrips.hotelStays
     taxiEmission = userInputs.taxiUserInput*multipliers.businessAndClassTrips.taxi
+
+class userEmissionsOtherVehicles:
+    #kgCO2e
+    MopedEmission = userInputs.MopedUserInput*multipliers.otherVehicles.Moped
+    MopedCarEmission = userInputs.MopedCarUserInput*multipliers.otherVehicles.MopedCar
+    MotorcycleEmission = userInputs.MotorcycleUserInput*multipliers.otherVehicles.Motorcycle
+
+print userEmissionsOtherVehicles
