@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, request
 
-from flask_login import LoginManager,UserMixin, login_required, login_user, logout_user, current_user
+from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 
 from static.python.functions import *
 from static.python.conn_functions import *
@@ -40,7 +40,6 @@ def generate_db():
     return 'created'
 
 
-
 @app.route('/login')
 def login():
     return render_template('loginPage.html')
@@ -65,8 +64,13 @@ def verifies_login():
 
 
 @app.route('/register')
-def schools():
+def register_page():
     return render_template('registrationPage.html', schools=get_schools())
+
+
+@app.route('/register_school')
+def school_register_page():
+    return  render_template('newSchool.html')
 
 
 @app.route('/create_account', methods=['POST'])
@@ -80,6 +84,16 @@ def create_user_account():
     create_account(email, username, forename, surname, school_id, password)
     return redirect('/login')
 
+
+@app.route('/create_school_account', methods=['POST'])
+def new_school():
+    email = request.form.get('email')
+    name = request.form.get('name')
+    city = request.form.get('city')
+    num_student = request.form.get('num_student')
+    password = request.form.get('password')
+    create_school_account(email, name, password, city,num_student)
+    return "worked"
 
 @app.route('/test')
 @login_required
