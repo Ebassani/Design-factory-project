@@ -10,8 +10,8 @@
 
 {% include 'menu.html' %}
 
-
-
+<div class= "login">
+<h1>Log in</h1>
 <form method="post" action="/login-authentication">
     <label for="username">Username:</label>
     <input type="text" placeholder="Ex. user1" name="username">
@@ -19,7 +19,7 @@
     <input type="password" placeholder="Ex. 12345" name="password">
     <input type="submit">
 </form>
-
+<p>Don't have an account yet? Sign up <a href="registrationPage.html">here. </p></div>
 <script>
     function myFunction() {
       var x = document.getElementById("myInput");
