@@ -9,12 +9,25 @@
 
 {% include 'menu.html' %}
 
+
+
 <form method="post" action="/login-authentication">
     <label for="username">Username:</label>
     <input type="text" placeholder="Ex. user1" name="username">
     <label for="password">Password</label>
-    <input type="text" placeholder="Ex. 12345" name="password">
+    <input type="password" placeholder="Ex. 12345" name="password">
     <input type="submit">
 </form>
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("myInput");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+</script>
 </body>
 </html>
