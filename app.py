@@ -1,8 +1,7 @@
 from flask import Flask, render_template, redirect, request
 
-from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
+from flask_login import LoginManager, login_required, login_user, logout_user
 
-from static.python.functions import *
 from static.python.conn_functions import *
 from static.python.classes import Accounts
 
@@ -35,8 +34,8 @@ def index():  # put application's code here
 def generate_db():
     create_table()
     create_school('sup', 'hello', 222)
-    create_school_account('name@test', 'hello', 1, 'sup')
-    create_account('test@feu', 'user1', 'edu', 'bassani', 1, 'pass')
+    create_school_account('name@test', 'hello', 'password', 'sup', 654)
+    create_account('test@feu', 'user1', 'edu', 'Bassani', 1, 'pass')
     return 'created'
 
 
@@ -53,14 +52,14 @@ def verifies_login():
         user = finds_user(username, password)
 
         if len(user) != 1:
-            return user
+            return redirect('/login')
         user_id = int(user[0][0])
 
         login_user(load_user(user_id), remember=True)
 
         return redirect('/test')
-    except:
-        return "Log in failed"
+    except Exception:
+        return redirect('/login')
 
 
 @app.route('/register')
@@ -70,7 +69,7 @@ def register_page():
 
 @app.route('/register_school')
 def school_register_page():
-    return  render_template('newSchool.html')
+    return render_template('newSchool.html')
 
 
 @app.route('/create_account', methods=['POST'])
@@ -82,7 +81,7 @@ def create_user_account():
     school_id = request.form.get('school')
     password = request.form.get('password')
     create_account(email, username, forename, surname, school_id, password)
-    return redirect('/login')
+    return verifies_login()
 
 
 @app.route('/create_school_account', methods=['POST'])
@@ -92,8 +91,9 @@ def new_school():
     city = request.form.get('city')
     num_student = request.form.get('num_student')
     password = request.form.get('password')
-    create_school_account(email, name, password, city,num_student)
+    create_school_account(email, name, password, city, num_student)
     return "worked"
+
 
 @app.route('/test')
 @login_required
@@ -105,7 +105,7 @@ def test():
 @login_required
 def logout():
     logout_user()
-    return "redirect(somewhere)"
+    return redirect('/')
 
 
 if __name__ == '__main__':
