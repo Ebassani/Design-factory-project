@@ -3,7 +3,7 @@ import multipliers
 class userInputs:
     #Electricity(Megawatts)
     ElectricityconsumptionMWhUserInput=float(input("MegaWattsHour"))
-    PercentageThatIsRenewableInput=float(input("Percantage"))
+    ZeroEmissionGreenElectricityUserInput=float(input("Percantage"))
     #heating(Megawatts)
     ElectricHeatinginput=float(input("MegaWattsHour"))
     DistrictHeatinginput=float(input("MegaWattsHour"))
@@ -48,8 +48,11 @@ class userInputs:
     InternetPhoneAmount=float(input("Euros"))
     PostiAmount=float(input("Euros"))
 
-class userEmissionWaste(multipliers.energy):
+class userEmissionEnergy(multipliers.energy):
     #kgCO2e
     ElectricityconsumptionEmission = userInputs.ElectricityconsumptionMWhUserInput*multipliers.energy.AverageElectricity
+    ZeroEmissionGreenElectricityEmission = userInputs.ZeroEmissionGreenElectricityUserInput*multipliers.energy.ZeroEmissionGreenElectricity
+
     
+
     
