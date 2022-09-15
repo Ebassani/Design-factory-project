@@ -35,10 +35,23 @@ class userInputs:
     MopedUserInput = float(input("Distance"))
     MopedCarUserInput = float(input("Distance"))
     MotorcycleUserInput = float(input("Distance"))
+    ElectricKickboardRentUserInput = float(input("Distance"))
+    ElectricBicycleUserInput = float(input("Distance"))
+
     #Liters
     ATVUserInput = float(input("Liters consumed"))
     TractorUserInput = float(input("Liters consumed"))
     SnowMobile = float(input("Liters consumed"))
+    #Public transport
+    #pkm
+    BusLongDistanceUserInput = float(input("Distance * Amount of passengers"))
+    BusShortDistanceUserInput = float(input("Distance * Amount of passengers"))
+
+    TrainLongDistanceUserInput = float(input("Distance * Amount of passengers"))
+    TrainShortDistanceUserInput = float(input("Distance * Amount of passengers"))
+    
+    MetroUserInput = float(input("Distance * Amount of passengers"))
+    TramUserInput = float(input("Distance * Amount of passengers"))
 
 
 
@@ -86,5 +99,18 @@ class userEmissionsOtherVehicles:
     MopedEmission = userInputs.MopedUserInput*multipliers.otherVehicles.Moped
     MopedCarEmission = userInputs.MopedCarUserInput*multipliers.otherVehicles.MopedCar
     MotorcycleEmission = userInputs.MotorcycleUserInput*multipliers.otherVehicles.Motorcycle
+    ElectricKickboardRentEmission = userInputs.ElectricKickboardRentUserInput*multipliers.otherVehicles.ElectricKickboardRent
+    ElectricBicycleEmission = userInputs.ElectricBicycleUserInput*multipliers.otherVehicles.ElectricBicycle
 
-print userEmissionsOtherVehicles
+
+
+class publicTransport:
+    #kgCO2e
+    BusLongDistanceEmission = 0.053*1.2
+    BusShortDistanceEmission = 0.053*1.2
+
+    TrainLongDistanceEmission = 0
+    TrainShortDistanceEmission = 0
+
+    MetroEmission = 0
+    TramEmission = 0
