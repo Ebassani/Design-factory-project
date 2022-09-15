@@ -87,12 +87,12 @@ def create_user_account():
 @app.route('/create_school_account', methods=['POST'])
 def new_school():
     email = request.form.get('email')
-    name = request.form.get('name')
+    name = request.form.get('username')
     city = request.form.get('city')
     num_student = request.form.get('num_student')
     password = request.form.get('password')
     create_school_account(email, name, password, city, num_student)
-    return "worked"
+    return verifies_login()
 
 
 @app.route('/test')
