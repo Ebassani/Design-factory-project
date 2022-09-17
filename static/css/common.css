@@ -3,10 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
-body {
+html, body {
     font-family: 'Fredoka One', cursive;
-    background-color: #ddebf6;
+    background: linear-gradient(#0ea4a4, #45c595) no-repeat;
     margin: 0;
+    height: 100%;
 }
 
 .content {
