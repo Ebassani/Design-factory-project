@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/introduction.css') }}">
+    <title>Introduction</title>
+</head>
+<body>
+
+{% include 'menu.html' %}
+
+<div class="content">
+    <div class="content__title">
+        <h1>ITXTTXTXTXT</h1>
+        <p class="paragraph">Text for introduction</p>
+    </div>
+
+    <div class="content__cards">
+        <div class="content__cards__card card__grid1 hover__pointer">
+            <div class="content__card__title">
+                <h2 class="subtitle">Food</h2>
+            </div>
+            <p class="paragraph">Text for food</p>
+        </div>
+        <div class="content__cards__card card__grid2 hover__pointer">
+            <div class="content__card__title">
+                <h2 class="subtitle">Infrastructure</h2>
+            </div>
+            <p class="paragraph">Text for infrastructure</p>
+        </div>
+        <div class="content__cards__card card__grid3 hover__pointer">
+            <div class="content__card__title">
+                <h2 class="subtitle">Motion</h2>
+            </div>
+            <p class="paragraph">Text for motion</p>
+        </div>
+        <div class="content__cards__card card__grid4 hover__pointer">
+            <div class="content__card__title">
+                <h2 class="subtitle">Attitude</h2>
+            </div>
+            <p class="paragraph">Text for attitude</p>
+        </div>
+        <div class="content__cards__card card__grid5 hover__pointer">
+            <div class="content__card__title">
+                <h2 class="subtitle">Current State</h2>
+            </div>
+            <p class="paragraph">https://koulunkorjausopas.fi/en/but-together/current-state/e</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

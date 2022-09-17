@@ -2,25 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/dashboard.css') }}">
     <title>Demo page</title>
 </head>
 <body>
 
-<div class="menu">
-    <div class="menu__link menu__link--color-darkorange hover__pointer">
-        <span>Dashboard</span>
-    </div>
-    <div class="menu__link menu__link--color-orange hover__pointer">
-        <span>Dashboard</span>
-    </div>
-    <div class="menu__link menu__link--color-lightorange hover__pointer">
-        <span>Dashboard</span>
-    </div>
-    <div class="menu__link menu__link--color-darkblue hover__pointer">
-        <span>Dashboard</span>
-    </div>
-</div>
+{% include 'menu.html' %}
 
 <div class="content">
     <div class="dashboard">

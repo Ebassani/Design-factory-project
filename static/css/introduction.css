@@ -1,0 +1,48 @@
+.content__cards__card {
+  position: relative;
+  border: 2px solid black;
+  margin: 0.2rem;
+  padding: 0.5rem 1em;
+  border-radius: 1rem;
+}
+
+.content__card__title {
+  position: relative;
+}
+
+.subtitle:before {
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  content: "";
+  display: block;
+  width: 0;
+  height: 1rem;
+  transform: skew(-15deg);
+  background: rgba(106, 167, 245, 0.4);
+  background-size: 5rem 1rem;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+
+.content__cards__card:hover .subtitle::before {
+  width:4rem;
+}
+
+.content__cards__card:hover {
+  box-shadow: 0 0.2rem 1rem;
+}
+
+.content__cards{
+  display: grid;
+
+  grid-template-areas:
+          "one one two"
+          "three four two"
+          "three five five";
+}
+
+.card__grid1 {grid-area: one;}
+.card__grid2 {grid-area: two;}
+.card__grid3 {grid-area: three;}
+.card__grid4 {grid-area: four;}
+.card__grid5 {grid-area: five;}

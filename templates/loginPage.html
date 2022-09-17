@@ -2,16 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/login.css') }}">
     <title>Login</title>
 </head>
 <body>
-    <form method="post" action="/login-authentication">
-        <label for="username">Username:</label>
-        <input type="text" placeholder="Ex. user1" name="username">
-        <label for="password">Password</label>
-        <input type="text" placeholder="Ex. 12345" name="password">
-        <input type="submit">
-    </form>
+
+{% include 'menu.html' %}
+
+<div class= "login">
+<h1>Log in</h1>
+<form method="post" action="/login-authentication">
+   
+    <label for="username">Username:</label>
+    <div class="text_field">
+    <input type="text" placeholder="Ex. user1" name="username"></div>
+    <span></span>
+    <label for="password">Password</label>
+    <div class="text_field">
+    <input type="password" placeholder="Ex. 12345" name="password"><div>
+    <span></span>
+    <input type="submit">
+    <div class="signup_link">
+<p>Don't have an account yet? Sign up <a href="registrationPage.html">here. </p></div>
+</div>
+</form>
+<script>
+    function myFunction() {
+      var x = document.getElementById("myInput");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+</script>
 </body>
 </html>
