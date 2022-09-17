@@ -31,6 +31,10 @@ def index():  # put application's code here
     return render_template('index.html')
 
 
+@app.route('/introduction')
+def introduction():
+    return render_template('introduction.html')
+
 @app.route('/create')
 def generate_db():
     create_table()
@@ -94,6 +98,7 @@ def new_school():
     password = request.form.get('password')
     create_school_account(email, name, password, city,num_student)
     return "worked"
+
 
 @app.route('/test')
 @login_required

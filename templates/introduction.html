@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/introduction.css') }}">
+    <title>Introduction</title>
+</head>
+<body>
+
+{% include 'menu.html' %}
+
+<div class="content">
+    <div class="content__title">
+        <h1>ITXTTXTXTXT</h1>
+        <p class="paragraph">Text for introduction</p>
+    </div>
+
+    <div class="content__card">
+        <div class="content__card__title">
+            <h2 class="subtitle">Food</h2>
+        </div>
+        <p class="paragraph">Text for food</p>
+    </div>
+    <div class="content__card">
+        <div class="content__card__title">
+            <h2 class="subtitle">infrastructure</h2>
+        </div>
+        <p class="paragraph">Text for infrastructure</p>
+    </div>
+    <div class="content__card">
+        <div class="content__card__title">
+            <h2 class="subtitle">motion</h2>
+        </div>
+        <p class="paragraph">Text for motion</p>
+    </div>
+    <div class="content__card">
+        <div class="content__card__title">
+            <h2 class="subtitle">attitude</h2>
+        </div>
+        <p class="paragraph">Text for attitude</p>
+    </div>
+
+</div>
+
+</body>
+</html>
