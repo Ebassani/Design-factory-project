@@ -44,9 +44,10 @@ def get_schools():
 
 
 def create_school_account(email, username, password, city, num_students):
+    school_id = create_school(username, city, num_students)
+
     conn = sqlite3.connect('database.db')
 
-    school_id = create_school(username, city, num_students)
     cur = conn.cursor()
 
     cur.execute("insert into accounts (email, username, school_id, is_school, password) values (?, ?, ?, ?, ?)",
