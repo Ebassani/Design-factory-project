@@ -4,10 +4,12 @@
     margin: 0.2rem;
     padding: 0.5rem 1em;
     border-radius: 1rem;
+    transition: 0.2s;
 }
 
 .content__card__title {
     position: relative;
+    width: fit-content;
 }
 
 .subtitle:before {
@@ -25,7 +27,7 @@
 }
 
 .content__cards__card:hover .subtitle::before {
-    width: 4rem;
+    width: 100%;
 }
 
 .content__cards__card:hover {
@@ -41,26 +43,6 @@
           "three five five";
 
     padding: 1rem;
-}
-
-.card__grid1 {
-    grid-area: one;
-}
-
-.card__grid2 {
-    grid-area: two;
-}
-
-.card__grid3 {
-    grid-area: three;
-}
-
-.card__grid4 {
-    grid-area: four;
-}
-
-.card__grid5 {
-    grid-area: five;
 }
 
 .content__title img {

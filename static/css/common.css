@@ -19,14 +19,20 @@ html, body {
 
 .menu {
     position: sticky;
-    align-items: center;
-    justify-content: center;
     top: 0;
-    display: flex;
+    display: grid;
+    grid-template-areas:
+        "one one two two two two three three";
+    grid-auto-columns: 1fr;
     width: 100%;
     background-color: lightgray;
     z-index: 2;
     box-shadow: 0 0.4rem 2rem;
+}
+
+.menu__items {
+    display: flex;
+    justify-content: center;
 }
 
 .menu__link {
@@ -37,35 +43,69 @@ html, body {
 
 .menu__link--color-darkorange {
     background: linear-gradient(lightgray, lightgray 50%, #CAF0F8 50%, #CAF0F8);
-    background-size: 100% 200% ;
+    background-size: 100% 200%;
     border-bottom: solid 0.4rem #CAF0F8;
 }
 
 .menu__link--color-orange {
     background: linear-gradient(lightgray, lightgray 50%, #0096C7 50%, #0096C7);
-    background-size: 100% 200% ;
+    background-size: 100% 200%;
     border-bottom: solid 0.4rem #0096C7;
 }
 
 .menu__link--color-lightorange {
     background: linear-gradient(lightgray, lightgray 50%, #0077B6 50%, #0077B6);
-    background-size: 100% 200% ;
+    background-size: 100% 200%;
     border-bottom: solid 0.4rem #0077B6;
 }
 
 
 .menu__link--color-darkblue {
     background: linear-gradient(lightgray, lightgray 50%, #023E8A 50%, #023E8A);
-    background-size: 100% 200% ;
+    background-size: 100% 200%;
     border-bottom: solid 0.4rem #023E8A;
 }
 
 .menu__link:hover {
-    background-position: 100% 100%;
-    padding-bottom: 0.8rem;
-    border: 0;
+    background-position: 100% 98%;
 }
 
 .hover__pointer:hover {
     cursor: pointer;
+}
+
+.menu__log {
+    margin: auto 0;
+    border: black solid 0.05rem;
+    background-color: #2691d9;
+    padding: 0.4rem;
+    border-radius: 1rem;
+}
+
+.menu__log:hover {
+    border: black solid 0.2rem;
+}
+
+.logRegister{
+    display: flex;
+}
+
+.card__grid1 {
+    grid-area: one;
+}
+
+.card__grid2 {
+    grid-area: two;
+}
+
+.card__grid3 {
+    grid-area: three;
+}
+
+.card__grid4 {
+    grid-area: four;
+}
+
+.card__grid5 {
+    grid-area: five;
 }
