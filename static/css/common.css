@@ -7,15 +7,14 @@ html, body {
     font-family: 'Fredoka One', cursive;
     background: linear-gradient(#0ea4a4, #45c595) no-repeat;
     margin: 0;
-    height: 100%;
+    min-height: 100%;
 }
 
 .content {
     margin: auto;
-    max-width: 800px;
+    max-width: 1000px;
     min-width: 300px;
     background-color: snow;
-    padding: 1rem;
 }
 
 .menu {
