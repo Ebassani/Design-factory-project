@@ -1,6 +1,6 @@
 <header class="menu">
     <div class="card__grid1 menu__items">
-        <span>idk Yet</span>
+
     </div>
 
     <div class="menu__items card__grid2">
@@ -19,11 +19,11 @@
     </div>
 
     {% if current_user.is_authenticated %}
-        <div class="menu__log hover__pointer card__grid menu__items3">
+        <div class="menu__log hover__pointer card__grid menu__items3" onclick="window.location.href = '/logout';">
             <span>Logout</span>
         </div>
     {% else %}
-        <div class="logRegister card__grid3 menu__items">
+        <div class="logRegister card__grid3">
             <div class="menu__log hover__pointer" onclick="window.location.href = '/login';">
                 <span>login</span>
             </div>

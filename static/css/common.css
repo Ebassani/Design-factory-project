@@ -5,7 +5,10 @@
 
 html, body {
     font-family: 'Fredoka One', cursive;
-    background: linear-gradient(#0ea4a4, #45c595) no-repeat;
+    background-image: url("/static/images/maybe.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     margin: 0;
     min-height: 100%;
 }
@@ -15,6 +18,8 @@ html, body {
     max-width: 1000px;
     min-width: 300px;
     background-color: snow;
+    border: solid 0;
+    border-radius: 2rem;
 }
 
 .menu {
@@ -80,7 +85,7 @@ html, body {
     border: 1px solid rgba(1, 133, 173, 1);
     box-shadow: 0 0 0.6rem rgba(104, 85, 224, 0.2);
     transition: 0.4s;
-    margin: auto auto;
+    margin: auto 0.5rem;
     padding: 0.5rem;
 }
 
@@ -92,6 +97,7 @@ html, body {
 
 .logRegister {
     display: flex;
+    justify-content: center;
 }
 
 .card__grid1 {

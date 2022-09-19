@@ -60,9 +60,10 @@
 }
 
 .content__title {
-    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
+    min-height: 20rem;
 }
 
 .content__title h1 {
