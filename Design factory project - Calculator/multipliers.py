@@ -6,7 +6,7 @@ AverageElectricity = 281.00
 
 
 #flights:
-    #kgCO2e/hkm
+#kgCO2e/hkm
 shortFlightUnder463km = 0.2595*2+0.2595*2
 longFligtsOverHomelandOver463km = (0.178*2)+(0.178*0.2)
 longFlightsAbroadOver463km = (0,149*2)+(0.149*0.2)
