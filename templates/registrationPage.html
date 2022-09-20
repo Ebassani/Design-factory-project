@@ -2,30 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/registration.css') }}">
+    <title>Register</title>
 </head>
 <body>
-<div>
+
+    {% include 'menu.html' %}
+
+    <div class= "register">
+        <h1>Create account</h1>
     <form method="post" id="schoolForm" name="schoolForm" action="/create_account">
         <label for="email">Email:</label>
-        <input type="text" name="email" id="email">
+        <div class="text_field">
+        <input type="text" name="email" id="email"></div>
         <label for="forename">Forename:</label>
-        <input type="text" name="forename" id="forename">
+        <div class="text_field">
+        <input type="text" name="forename" id="forename"></div>
         <label for="surname">Surname:</label>
-        <input type="text" name="surname" id="surname">
+        <div class="text_field">
+        <input type="text" name="surname" id="surname"></div>
         <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
+        <div class="text_field">
+        <input type="text" name="username" id="username"></div>
         <label for="password">Password:</label>
-        <input type="text" name="password" id="password">
+        <div class="text_field">
+        <input type="text" name="password" id="password"></div>
 
         <label for="school">Select your school</label>
-        <select name="school" id="school" form="schoolForm">
+        <div class="text_field">
+        <select name="school" id="school" form="schoolForm"></div>
             {% for school in schools %}
                 <option value="{{ school[0] }}">{{ school[1] }}</option>
             {% endfor %}
         </select>
 
         <input type="submit">
+    
     </form>
 
 </div>
