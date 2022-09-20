@@ -1,12 +1,31 @@
+from audioop import mul
 import multipliers
-amountOfPortions = input("How many portions we're made")
 
+
+
+amountOfPortions = input("How many portions we're made")
+meatMealProtein = input("Which protein does the meal have? Fish, Pig, Cow, Chicken or Sausage?")
+veggiemealProtein = input("Which protein does the meal have? Soybean, Tofu, vegetables or horse bean?")
+veganmealProtein = input("Which protein does the meal have? Soybean, Tofu, vegetables or horse bean?")
 # SCHOOL INFORMATION -- FOOD
+
+def meatMealProtein(meatAns):
+
+    meatAns = input("Which protein does the meal have? Fish, Pig, Cow, Chicken or Sausage?")
+
+    if (meatAns == "Fish"):
+        return multipliers.fish
+    elif (meatAns == "Pig"):
+        return multipliers.pig
+    elif (meatAns == "Cow"):
+        return multipliers.cow
+    elif (meatAns == "Chicken"):
+        return multipliers.chicken
+    elif (meatAns == "Sausage"):
+        return multipliers.sausage
 
 def meatmeal():
 
-    
-    meatMealProtein = input("Which protein does the meal have? Fish, Pig, Cow, Chicken or Sausage?")
     meatMealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
     Egg = input("Does the meal have eggs?")
     Dairy = input ("Does the meal have dairy products?")
@@ -14,14 +33,14 @@ def meatmeal():
     return Co2OfMeatMeal
 
 def veggiemeal():
-    veggiemealProtein = input("Which protein does the meal have? Soybean, Tofu, vegetables or horse bean?")
+
     veggiemealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
     Egg = input("Does the meal have eggs?")
     Dairy = input ("Does the meal have dairy products?")
     return (amountOfPortions * (veggiemealProtein + veggiemealSide + Egg + Dairy))
 
 def veganmeal():
-    veganmealProtein = input("Which protein does the meal have? Soybean, Tofu, vegetables or horse bean?")
+   
     veganmealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
     return (amountOfPortions * (veganmealProtein + veganmealSide))
 
@@ -41,9 +60,9 @@ def others():
 
 def surplusFood():
     amountKG = input("The amount of surplus in KG")
-    meat = amountKG #=(=VLOOKUP(E7,Kertoimet!B126:C130,2,FALSE)/1000*170)/170)*1000*amountKG
-    veggie = amountKG #=(=VLOOKUP(E13,Kertoimet!B133:C136,2,FALSE)/1000*170)/170)*amountKG*1000
-    vegan = amountKG #=(=VLOOKUP(E19,Kertoimet!B133:C136,2,FALSE)/1000*170)/170)*amountKG*1000
+    meat = (((meatMealProtein) /1000*170)/170)*1000*amountKG
+    veggie = (((veggiemealProtein)/1000*170)/170)*1000*amountKG
+    vegan = (((veganmealProtein)/1000*170)/170)*amountKG*1000
     sides = amountKG #=((=VLOOKUP(E8,Kertoimet!B145:C148,2,FALSE)/1000*150)/150+(=VLOOKUP(E14,Kertoimet!B145:C148,2,FALSE)/1000*150)/150+(=VLOOKUP(E20,Kertoimet!B145:C148,2,FALSE)/1000*150)/150)/3*amountKG*1000
     salad = multipliers.aPortionOfSalad / 150 * 1000 * amountKG
     bread = (multipliers.ryeBread + multipliers.wheatBread) / 2 * amountKG
@@ -51,12 +70,14 @@ def surplusFood():
     return meat + veggie + vegan + sides + salad + bread + dessert
 
 def foodDistribution():
-    costOfaMeal =  input("Cost of the meal in €")
-    amountOfMeals = input("The amount of meals sold")
-    meat = "temp"#=IF(I19<>"",I19/J17*(F7+F8+F9+F10+Kertoimet!C178+1.5/1000*30),J19*(F7+F8+F9+F10+Kertoimet!C178+1.5/1000*30))
-    veggie = "temp"#=IF(I22<>"",I22/J17*(F13+F14+F15+F16+Kertoimet!C178+1.5/1000*30),J22*(F13+F14+F15+F16+Kertoimet!C178+1.5/1000*30))
-    vegan = "formula"#=IF(I25<>"",I25/J17*(F19+F20+Kertoimet!C178+1.5/1000*30),J25*(F19+F20+Kertoimet!C178+1.5/1000*30))
-    return costOfaMeal + amountOfMeals + meat + veggie + vegan
+    costOfaMeal =  str(input("Cost of the meal in €"))
+    meatMealsSold = str(input("The amount of meat meals sold"))
+    veggieMealsSold = str(input("The amount of veggie meals sold"))
+    veganMealsSold = str(input("The amount of vegan meals sold"))
+    meat = meatMealsSold/costOfaMeal #* (F7+F8+F9+F10+Kertoimet!C178+1.5/1000*30),J19*(F7+F8+F9+F10+Kertoimet!C178+1.5/1000*30))
+    veggie = veggieMealsSold/costOfaMeal #* (F13+F14+F15+F16+Kertoimet!C178+1.5/1000*30),J22*(F13+F14+F15+F16+Kertoimet!C178+1.5/1000*30))
+    vegan = veganMealsSold/costOfaMeal #*(F19+F20+Kertoimet!C178+1.5/1000*30),J25*(F19+F20+Kertoimet!C178+1.5/1000*30))
+    return costOfaMeal + meatMealsSold + veggieMealsSold + veganMealsSold + meat + veggie + vegan
 
 def electricity():
     cookingAndCentralKitchen = foodDistribution.amountOfMeals or foodDistribution.costOfaMeal + "formula" #=IF(Kertoimet!D58<>"",Kertoimet!C58*Kertoimet!C82*I30,Kertoimet!C56*Kertoimet!C82*I30)
@@ -96,11 +117,11 @@ def foodWaste(ans):
     
     elif ans:
         ans = "Half a plate"
-        return (personalLunch + drinks.drinkTotal + others.othersTotal)/1.5
+        return (personalLunch + drinks + others)/1.5
 
     elif ans:
         ans = "Over a half a plate"
-        return (personalLunch + drinks.drinkTotal + others.othersTotal)/2.5
+        return (personalLunch + drinks + others)/2.5
 
 def proteins():
     fish = amountOfPortions * ((multipliers.fish/1000)*170)
