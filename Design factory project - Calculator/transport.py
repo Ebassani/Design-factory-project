@@ -1,6 +1,9 @@
 import multipliers
 
 def userInputs():
+    #Car
+    carUserInput = float(input("Distance"))
+    carFuelUserInput = input("Which fuel was used in car (unknown, diesel, petrol, natural gas, bio gas, electric car, hybrid, charging hybrid")
     #Fligts
     shortFlightUnder463kmUserInput = float(input("Distance * Amount of passengers"))
     longFligtsOverHomelandOver463kmUserInput = float(input("Distance * Amount of passengers"))
@@ -55,15 +58,35 @@ def userInputs():
     MetroAbroadUserInput = float(input("Distance * Amount of passengers"))
     TramAbroadUserInput = float(input("Distance * Amount of passengers"))
 
-    return shortFlightUnder463kmUserInput + longFligtsOverHomelandOver463kmUserInput + longFlightsAbroadOver463kmUserInput + longFlightsOver3700kmUserInput + BusShortDistanceUserInput + BusLongDistanceUserInput + TrainLongDistanceUserInput + TrainShortDistanceUserInput + MetroUserInput + TramUserInput + TrainAbroadUserInput + BusAbroadUserInput + unknownFuelUserInput + dieselUserInput + petrolUserInput + naturalGasUserInput + bioGasUserInput + electricCarUserInput + hybridUserInput + chargingHybridUserInput + rentalBusUserInput + hotelStaysUserInput + taxiUserInput + MopedUserInput + MopedCarUserInput + MotorcycleUserInput + ElectricKickboardRentUserInput + ElectricBicycleUserInput + BicycleUserInput + KickboardUserInput + ATVUserInput + TractorUserInput + SnowMobile + BusAbroadLongDistanceUserInput + BusAbroadShortDistanceUserInput + TrainAbroadLongDistanceUserInput + TrainAbroadShortDistanceUserInput + MetroAbroadUserInput + TramAbroadUserInput
+    return shortFlightUnder463kmUserInput + longFligtsOverHomelandOver463kmUserInput + longFlightsAbroadOver463kmUserInput + longFlightsOver3700kmUserInput + BusShortDistanceUserInput + BusLongDistanceUserInput + TrainLongDistanceUserInput + TrainShortDistanceUserInput + MetroUserInput + TramUserInput + TrainAbroadUserInput + BusAbroadUserInput + unknownFuelUserInput + dieselUserInput + petrolUserInput + naturalGasUserInput + bioGasUserInput + electricCarUserInput + hybridUserInput + chargingHybridUserInput + rentalBusUserInput + hotelStaysUserInput + taxiUserInput + MopedUserInput + MopedCarUserInput + MotorcycleUserInput + ElectricKickboardRentUserInput + ElectricBicycleUserInput + BicycleUserInput + KickboardUserInput + ATVUserInput + TractorUserInput + SnowMobile + BusAbroadLongDistanceUserInput + BusAbroadShortDistanceUserInput + TrainAbroadLongDistanceUserInput + TrainAbroadShortDistanceUserInput + MetroAbroadUserInput + TramAbroadUserInput + carUserInput + carFuelUserInput
     
-
+def carFuelUserInput(carFuelAnswer):
+    if (carFuelAnswer == "unknown"):
+        return multipliers.unknownFuel
+    elif (carFuelAnswer == "diesel"):
+        return multipliers.diesel
+    elif (carFuelAnswer == "petrol"):
+        return multipliers.petrol
+    elif (carFuelAnswer == "natural gas"):
+        return multipliers.naturalGas
+    elif (carFuelAnswer == "bio gas"):
+        return multipliers.bioGas
+    elif (carFuelAnswer == "electric car"):
+        return multipliers.electricCar
+    elif (carFuelAnswer == "hybrid"):
+        return multipliers.hybrid
+    elif (carFuelAnswer == "chargingHybrid"):
+        return multipliers.chargingHybrid
 
 
 
 
 
 #TRANSPORT
+def car():
+    carEmission = userInputs.carUserInput*userInputs.carFuelUserInput
+    return carEmission
+
 def userEmissionsFlights():
     #kgCO2e
     shortFlightUnder463kmEmission = userInputs.shortFlightUnder463kmUserInput*multipliers.flights.shortFlightUnder463km
