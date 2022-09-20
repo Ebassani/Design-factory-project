@@ -37,6 +37,8 @@ class userInputs:
     MotorcycleUserInput = float(input("Distance"))
     ElectricKickboardRentUserInput = float(input("Distance"))
     ElectricBicycleUserInput = float(input("Distance"))
+    BicycleUserInput = float(input("Distance"))
+    KickboardUserInput = float(input("Distance"))
 
     #Liters
     ATVUserInput = float(input("Liters consumed"))
@@ -44,14 +46,14 @@ class userInputs:
     SnowMobile = float(input("Liters consumed"))
     #Public transport
     #pkm
-    BusLongDistanceUserInput = float(input("Distance * Amount of passengers"))
-    BusShortDistanceUserInput = float(input("Distance * Amount of passengers"))
+    BusAbroadLongDistanceUserInput = float(input("Distance * Amount of passengers"))
+    BusAbroadShortDistanceUserInput = float(input("Distance * Amount of passengers"))
 
-    TrainLongDistanceUserInput = float(input("Distance * Amount of passengers"))
-    TrainShortDistanceUserInput = float(input("Distance * Amount of passengers"))
+    TrainAbroadLongDistanceUserInput = float(input("Distance * Amount of passengers"))
+    TrainAbroadShortDistanceUserInput = float(input("Distance * Amount of passengers"))
     
-    MetroUserInput = float(input("Distance * Amount of passengers"))
-    TramUserInput = float(input("Distance * Amount of passengers"))
+    MetroAbroadUserInput = float(input("Distance * Amount of passengers"))
+    TramAbroadUserInput = float(input("Distance * Amount of passengers"))
 
 
 
@@ -101,16 +103,19 @@ class userEmissionsOtherVehicles:
     MotorcycleEmission = userInputs.MotorcycleUserInput*multipliers.otherVehicles.Motorcycle
     ElectricKickboardRentEmission = userInputs.ElectricKickboardRentUserInput*multipliers.otherVehicles.ElectricKickboardRent
     ElectricBicycleEmission = userInputs.ElectricBicycleUserInput*multipliers.otherVehicles.ElectricBicycle
+    BicycleEmission = userInputs.BicycleUserInput*0
+    Kickboard = userInputs.KickboardUserInput*0
+
 
 
 
 class publicTransport:
     #kgCO2e
-    BusLongDistanceEmission = 0.053*1.2
-    BusShortDistanceEmission = 0.053*1.2
+    BusAbroadLongDistanceEmission = userInputs.BusShortDistanceUserInput*multipliers.publicTransport.BusShortDistance
+    BusAbroadShortDistanceEmission = userInputs.BusLongDistanceUserInput*multipliers.publicTransport.BusLongDistance
+    TrainAbroadLongDistanceEmission = userInputs.TrainLongDistanceUserInput*multipliers.publicTransport.TrainLongDistance
+    TrainAbroadShortDistanceEmission = userInputs.TrainShortDistanceUserInput*multipliers.publicTransport.TrainShortDistance
 
-    TrainLongDistanceEmission = 0
-    TrainShortDistanceEmission = 0
+    MetroAbroadEmission = userInputs.MetroUserInput*multipliers.publicTransport.Metro
+    TramAbroadEmission = userInputs.TramUserInput*multipliers.publicTransport.Tram
 
-    MetroEmission = 0
-    TramEmission = 0
