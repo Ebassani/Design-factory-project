@@ -4,9 +4,7 @@ import multipliers
 
 
 amountOfPortions = input("How many portions we're made")
-meatMealProtein = input("Which protein does the meal have? Fish, Pig, Cow, Chicken or Sausage?")
-veggiemealProtein = input("Which protein does the meal have? Soybean, Tofu, vegetables or horse bean?")
-veganmealProtein = input("Which protein does the meal have? Soybean, Tofu, vegetables or horse bean?")
+
 # SCHOOL INFORMATION -- FOOD
 
 def meatMealProtein(meatAns):
@@ -23,6 +21,34 @@ def meatMealProtein(meatAns):
         return multipliers.chicken
     elif (meatAns == "Sausage"):
         return multipliers.sausage
+
+def veggieMealProtein(veggieAns):
+
+    veggieAns = input("Which protein does the meal have? Soygrits, Tofu, Vegetables or Broad bean?")
+
+    if (veggieAns == "Soygrits"):
+        return multipliers.soyGrits
+    elif (veggieAns == "Tofu"):
+        return multipliers.tofu
+    elif (veggieAns == "Vegetables"):
+        return multipliers.vegetables
+    elif (veggieAns == "Broad bean"):
+        return multipliers.broadBean
+
+def veganMealProtein(veganAns):
+
+    veganAns = input("Which protein does the meal have? Soygrits, Tofu, Vegetables or Broad bean?")
+
+    if (veganAns == "Soygrits"):
+        return multipliers.soyGrits
+    elif (veganAns == "Tofu"):
+        return multipliers.tofu
+    elif (veganAns == "Vegetables"):
+        return multipliers.vegetables
+    elif (veganAns == "Broad bean"):
+        return multipliers.broadBean
+
+
 
 def meatmeal():
 
