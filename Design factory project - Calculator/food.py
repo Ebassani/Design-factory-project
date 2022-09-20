@@ -3,32 +3,32 @@ amountOfPortions = input("How many portions we're made")
 
 # SCHOOL INFORMATION -- FOOD
 
-class meatmeal:
+def meatmeal():
 
+    Co2OfMeatMeal = amountOfPortions * (meatMealProtein + meatMealSide + Egg + Dairy)
     meatMealProtein = input("Which protein does the meal have? Fish, Pig, Cow, Chicken or Sausage?")
     meatMealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
     Egg = input("Does the meal have eggs?")
     Dairy = input ("Does the meal have dairy products?")
-    Co2OfMeatMeal = amountOfPortions * (meatMealProtein + meatMealSide + Egg + Dairy)
 
-class veggiemeal:
+def veggiemeal():
     veggiemealProtein = input("Which protein does the meal have? Soybean, Tofu, vegetables or horse bean?")
     veggiemealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
     Egg = input("Does the meal have eggs?")
     Dairy = input ("Does the meal have dairy products?")
     Co2OfVeggieMeal = amountOfPortions * (veggiemealProtein + veggiemealSide + Egg + Dairy)
 
-class veganmeal:
+def veganmeal():
     veganmealProtein = input("Which protein does the meal have? Soybean, Tofu, vegetables or horse bean?")
     veganmealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
     Co2OfVeganMeal = amountOfPortions * (veganmealProtein + veganmealSide)
 
-class dessert:
+def dessert():
     pancake = amountOfPortions * 0.206
     kisel = amountOfPortions * 0.040
     Co2OfDessert = amountOfPortions * (pancake + kisel)
 
-class others:
+def others():
     ryeBread = (amountOfPortions * 1.3/1000*30)
     wheatBread = (amountOfPortions * 1.7/1000*30)
     salad = amountOfPortions * 0.265
@@ -37,7 +37,7 @@ class others:
 #The next couple classes use complicated formulas in excel which I have no motivation to do right now because they look like hell on earth :DDDDDD
 #Includes surplusfood foodDistribution and electricity
 
-class surplusFood:
+def surplusFood():
     amountKG = input("The amount of surplus in KG")
     meat = amountKG #=(=VLOOKUP(E7,Kertoimet!B126:C130,2,FALSE)/1000*170)/170)*1000*amountKG
     veggie = amountKG #=(=VLOOKUP(E13,Kertoimet!B133:C136,2,FALSE)/1000*170)/170)*amountKG*1000
@@ -47,18 +47,18 @@ class surplusFood:
     bread = (multipliers.ryeBread + multipliers.wheatBread) / 2 * amountKG
     dessert = ((multipliers.kisel + multipliers.pancakes)/2)/150*1000*amountKG
 
-class foodDistribution:
+def foodDistribution():
     costOfaMeal =  input("Cost of the meal in €")
     amountOfMeals = input("The amount of meals sold")
     meat = "temp"#=IF(I19<>"",I19/J17*(F7+F8+F9+F10+Kertoimet!C178+1.5/1000*30),J19*(F7+F8+F9+F10+Kertoimet!C178+1.5/1000*30))
     veggie = "temp"#=IF(I22<>"",I22/J17*(F13+F14+F15+F16+Kertoimet!C178+1.5/1000*30),J22*(F13+F14+F15+F16+Kertoimet!C178+1.5/1000*30))
     vegan = "formula"#=IF(I25<>"",I25/J17*(F19+F20+Kertoimet!C178+1.5/1000*30),J25*(F19+F20+Kertoimet!C178+1.5/1000*30))
 
-class electricity:
+def electricity():
     cookingAndCentralKitchen = foodDistribution.amountOfMeals or foodDistribution.costOfaMeal + "formula" #=IF(Kertoimet!D58<>"",Kertoimet!C58*Kertoimet!C82*I30,Kertoimet!C56*Kertoimet!C82*I30)
     cookingAndHeatingKitchen =  foodDistribution.costOfaMeal or foodDistribution.amountOfMeals + "formula" #=IF(Kertoimet!D58<>"",Kertoimet!C58*Kertoimet!C83*I31,Kertoimet!C56*Kertoimet!C83*I31)
 
-class overview:
+def overview():
     cafeteriaConsumption = electricity.cookingAndCentralKitchen + electricity.cookingAndHeatingKitchen
     surplusFoodCO2Footprint = surplusFood.meat + surplusFood.veggie + surplusFood.vegan + surplusFood.sides + surplusFood.salad + surplusFood.bread + surplusFood.dessert
     foodDistributionCO2Footprint = foodDistribution.meat + foodDistribution.veggie + foodDistribution.vegan
@@ -68,7 +68,7 @@ class overview:
 #Food info - Personal
 
 
-class drinks:
+def drinks():
     water = amountOfPortions * 0
     milk = amountOfPortions * ((multipliers.milk/1000)*170)
     oatMilk = amountOfPortions * ((multipliers.oatDrink/1000)*170)
@@ -76,11 +76,12 @@ class drinks:
     tea = amountOfPortions * ((multipliers.tea/1000)*170)
     drinkTotal = water + milk + oatMilk + coffee + tea 
 
-class others:
+def others():
     ryeBread = amountOfPortions * ((multipliers.ryeBread/1000)*30)
     wheatBread = amountOfPortions * ((multipliers.wheatBread/1000)*30)
     salad = amountOfPortions * multipliers.salad
-    othersTotal = ryeBread + wheatBread + salad
+
+    return ryeBread + wheatBread + salad
 
 def foodWaste(ans):
     ans = input("How much did you throw away? (Not at all | Half a plate | Over half a plate)")
@@ -96,7 +97,7 @@ def foodWaste(ans):
         ans = "Over a half a plate"
         return (personalLunch + drinks.drinkTotal + others.othersTotal)/2.5
 
-class proteins:
+def proteins():
     fish = amountOfPortions * ((multipliers.fish/1000)*170)
     cow = amountOfPortions * ((multipliers.cow/1000)*170)
     pig = amountOfPortions * ((multipliers.pig/1000)*170)
@@ -110,17 +111,17 @@ class proteins:
     cream = amountOfPortions * (multipliers.cream/1000*60)
     proteinsTotal = fish + cow + pig + chicken + sausage + soy + broadBean + tofu + vegetables + Egg + cream
 
-class carboHydrates:
+def carboHydrates():
     potato = amountOfPortions * (multipliers.potato/1000*150)
     rice = amountOfPortions * (multipliers.rice/1000*100)
     pasta = amountOfPortions * (multipliers.pasta/1000*120)
     rootVegetables = amountOfPortions * (multipliers.rootVegetables/1000*150)
     totalCarboHydrates = potato + rice + pasta + rootVegetables
 
-class dessert: 
+def dessert(): 
     pancakes = amountOfPortions * multipliers.pancakes
     kisel = amountOfPortions * multipliers.kisel
     totalDessert = pancakes + kisel
 
-personalLunch = amountOfPortions * (proteins.proteinsTotal + carboHydrates.totalCarboHydrates + dessert.totalDessert)
-total = (personalLunch + drinks.drinkTotal + others.othersTotal + foodWaste)
+personalLunch = amountOfPortions * (proteinsTotal + totalCarboHydrates + totalDessert)
+total = (personalLunch + drinkTotal + othersTotal + foodWaste)
