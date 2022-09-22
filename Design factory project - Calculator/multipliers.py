@@ -103,7 +103,7 @@ Metal = 0.130
 Plastic = 0.070
 Paper = 1.050
 ElectricityRecycable = 0.720
-ProblemWaste = 1.410
+Hazardous = 1.410
 
 #class acquisitions:
     #kgCO2e/kpl
