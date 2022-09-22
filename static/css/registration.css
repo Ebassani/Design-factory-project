@@ -41,7 +41,7 @@ text-align: center;
     border: 1px solid transparent;
 
   }
-  .form-label {
+  .form label {
     display: block;
     z-index: 1;
     position: relative;
