@@ -167,7 +167,7 @@ wheatBread = 1.7
 PotatoFlour = 0.396
 Berries = 0.200
 Sugar = 1.100
-PortionOfKisel = (Berries/1000*400)+(Sugar/1000*63.75)+(PotatoFlour/1000*20)/4 
+aPortionOfKisel = (Berries/1000*400)+(Sugar/1000*63.75)+(PotatoFlour/1000*20)/4 
 
 #pancakes
 Flour = 1.130

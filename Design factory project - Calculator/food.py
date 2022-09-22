@@ -7,6 +7,7 @@ amountOfPortions = input("How many portions we're made")
 
 # SCHOOL INFORMATION -- FOOD
 
+# WORKING
 def meatMealProtein():
 
     meatAns = input("Which protein does the meal have? Fish, Pig, Cow, Chicken or Sausage?")
@@ -21,7 +22,7 @@ def meatMealProtein():
         return multipliers.chicken
     elif (meatAns == "Sausage"):
         return multipliers.sausage
-
+# WORKING
 def veggieMealProtein():
 
     veggieAns = input("Which protein does the meal have? Soygrits, Tofu, Vegetables or Broad bean?")
@@ -34,7 +35,7 @@ def veggieMealProtein():
         return multipliers.vegetables
     elif (veggieAns == "Broad bean"):
         return multipliers.broadBean
-
+# WORKING
 def veganMealProtein():
 
     veganAns = input("Which protein does the meal have? Soygrits, Tofu, Vegetables or Broad bean?")
@@ -49,9 +50,9 @@ def veganMealProtein():
         return multipliers.broadBean
 
 
-
+#Needs A LOOP. Currently only runs meatmealside variable. Same thing will be done to functions veggiemeal and veganmeal
 def meatmeal():
-    #Needs to be looped through. Currently only runs meatmealside variable. Same thing will be done to functions veggiemeal and veganmeal
+    
     meatMealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
     
     if (meatMealSide == "Rice"):
@@ -78,7 +79,7 @@ def meatmeal():
     Co2OfMeatMeal = amountOfPortions * (meatMealProtein + meatMealSide + Egg + Dairy)
     return Co2OfMeatMeal
 
-
+# Needs a loop
 def veggiemeal():
 
     veggiemealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
@@ -87,16 +88,19 @@ def veggiemeal():
     Co2OfVeggieMeal = (amountOfPortions * (veggieMealProtein + veggiemealSide + Egg + Dairy))
     return Co2OfVeggieMeal
 
+# In progress
 def veganmeal():
    
     veganmealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
     return (amountOfPortions * (veganMealProtein + veganmealSide))
 
+# WORKING
 def dessert():
     pancake = int(amountOfPortions) * 0.206
     kisel = int(amountOfPortions) * 0.040
     return (int(amountOfPortions) * (pancake + kisel))
 
+# WORKING
 def others():
     ryeBread = (int(amountOfPortions) * 1.3/1000*30)
     wheatBread = (int(amountOfPortions) * 1.7/1000*30)
@@ -106,6 +110,7 @@ def others():
 #The next couple classes use complicated formulas in excel which I have no motivation to do right now because they look like hell on earth :DDDDDD
 #Includes surplusfood foodDistribution and electricity
 
+# IN PROGRESS
 def surplusFood():
     amountKG = input("The amount of surplus in KG")
     meat = (((meatMealProtein) /1000*170)/170)*1000*amountKG
@@ -117,6 +122,7 @@ def surplusFood():
     dessert = ((multipliers.PortionOfKisel + multipliers.aPortionOfPancakes)/2)/150*1000*amountKG
     return meat + veggie + vegan + sides + salad + bread + dessert
 
+# IN PROGRESS
 def foodDistribution():
     costOfaMeal =  str(input("Cost of the meal in €"))
     meatMealsSold = str(input("The amount of meat meals sold"))
@@ -127,11 +133,13 @@ def foodDistribution():
     vegan = veganMealsSold/costOfaMeal #*(F19+F20+Kertoimet!C178+1.5/1000*30),J25*(F19+F20+Kertoimet!C178+1.5/1000*30))
     return costOfaMeal + meatMealsSold + veggieMealsSold + veganMealsSold + meat + veggie + vegan
 
+# IN PROGRESS
 def electricity():
     cookingAndCentralKitchen = foodDistribution.amountOfMeals or foodDistribution.costOfaMeal + "formula" #=IF(Kertoimet!D58<>"",Kertoimet!C58*Kertoimet!C82*I30,Kertoimet!C56*Kertoimet!C82*I30)
     cookingAndHeatingKitchen =  foodDistribution.costOfaMeal or foodDistribution.amountOfMeals + "formula" #=IF(Kertoimet!D58<>"",Kertoimet!C58*Kertoimet!C83*I31,Kertoimet!C56*Kertoimet!C83*I31)
     return cookingAndCentralKitchen + cookingAndHeatingKitchen
 
+# IN PROGRESS
 def overview():
     cafeteriaConsumption = electricity.cookingAndCentralKitchen + electricity.cookingAndHeatingKitchen
     surplusFoodCO2Footprint = surplusFood.meat + surplusFood.veggie + surplusFood.vegan + surplusFood.sides + surplusFood.salad + surplusFood.bread + surplusFood.dessert
@@ -141,22 +149,23 @@ def overview():
     
 #Food info - Personal
 
-
+# WORKING
 def drinks():
-    water = amountOfPortions * 0
+    water = int(amountOfPortions) * 0
     milk = int(amountOfPortions) * ((multipliers.milk/1000)*170)
     oatMilk = int(amountOfPortions) * ((multipliers.oatDrink/1000)*170)
     coffee = int(amountOfPortions) * ((multipliers.coffee/1000)*170)
     tea = int(amountOfPortions) * ((multipliers.tea/1000)*170)
     return water + milk + oatMilk + coffee + tea 
 
+#Working
 def others():
     ryeBread = int(amountOfPortions) * ((multipliers.ryeBread/1000)*30)
     wheatBread = int(amountOfPortions) * ((multipliers.wheatBread/1000)*30)
-    salad = int(amountOfPortions) * multipliers.salad
-
+    salad = int(amountOfPortions) * (multipliers.aPortionOfSalad)
     return ryeBread + wheatBread + salad
 
+# Works when personallunch works
 def foodWaste(ans):
     ans = input("How much did you throw away? (Not at all | Half a plate | Over half a plate)")
     if ans:
@@ -171,6 +180,7 @@ def foodWaste(ans):
         ans = "Over a half a plate"
         return (personalLunch + drinks + others)/2.5
 
+# Working
 def proteins():
     fish = int(amountOfPortions) * ((multipliers.fish/1000)*170)
     cow = int(amountOfPortions) * ((multipliers.cow/1000)*170)
@@ -186,7 +196,7 @@ def proteins():
     proteinsTotal = fish + cow + pig + chicken + sausage + soy + broadBean + tofu + vegetables + Egg + cream
     return proteinsTotal
 
-
+# Working
 def carboHydrates():
     potato = int(amountOfPortions) * (multipliers.potato/1000*150)
     rice = int(amountOfPortions) * (multipliers.rice/1000*100)
@@ -195,12 +205,13 @@ def carboHydrates():
     carboHydratesTotal = potato + rice + pasta + rootVegetables
     return carboHydratesTotal
 
+# Working
 def dessert(): 
-    pancakes = int(amountOfPortions) * multipliers.pancakes
-    kisel = int(amountOfPortions) * multipliers.kisel
+    pancakes = int(amountOfPortions) * multipliers.aPortionOfPancakes
+    kisel = int(amountOfPortions) * multipliers.aPortionOfKisel
     dessertTotal = pancakes + kisel
     return dessertTotal
 
-
-personalLunch = amountOfPortions * ( + carboHydrates + dessert)
+#In progress (Cannot sum functions for some reason)
+personalLunch = amountOfPortions * (drinks + carboHydrates + dessert)
 total = (personalLunch + drinks + others + foodWaste)
