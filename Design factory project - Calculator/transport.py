@@ -1,11 +1,20 @@
-import multipliers
+from multipliers import *
+
+shortFlightUnder463kmUserInput = (input("Distance * Amount of passengers"))
+shortFlightUnder463kmUserInput = float(shortFlightUnder463kmUserInput)
+shortFlightUnder463kmEmission = shortFlightUnder463kmUserInput*shortFlightUnder463km
+
+
+
+
 
 def userInputs():
     #Car
+    shortFlightUnder463kmUserInput = float(input("Distance * Amount of passengers"))
     carUserInput = float(input("Distance"))
     carFuelUserInput = input("Which fuel was used in car (unknown, diesel, petrol, natural gas, bio gas, electric car, hybrid, charging hybrid")
     #Fligts
-    shortFlightUnder463kmUserInput = float(input("Distance * Amount of passengers"))
+
     longFligtsOverHomelandOver463kmUserInput = float(input("Distance * Amount of passengers"))
     longFlightsAbroadOver463kmUserInput = float(input("Distance * Amount of passengers"))
     longFlightsOver3700kmUserInput = float(input("Distance * Amount of passengers"))  
@@ -83,55 +92,55 @@ def carFuelUserInput(carFuelAnswer):
 
 
 #TRANSPORT
-def car():
+def car(userInputs):
     carEmission = userInputs.carUserInput*userInputs.carFuelUserInput
     return carEmission
 
 def userEmissionsFlights():
     #kgCO2e
-    shortFlightUnder463kmEmission = userInputs.shortFlightUnder463kmUserInput*multipliers.flights.shortFlightUnder463km
-    longFligtsOverHomelandOver463kmEmission = userInputs.shortFlightUnder463kmUserInput*multipliers.flights.shortFlightUnder463km
-    longFlightsAbroadOver463kmEmission = userInputs.shortFlightUnder463kmUserInput*multipliers.flights.shortFlightUnder463km
-    longFlightsOver3700kmEmission = userInputs.shortFlightUnder463kmUserInput*multipliers.flights.shortFlightUnder463km
+    shortFlightUnder463kmEmission = userInputs.shortFlightUnder463kmUserInput*multipliers.shortFlightUnder463km
+    longFligtsOverHomelandOver463kmEmission = userInputs.shortFlightUnder463kmUserInput*multipliers.shortFlightUnder463km
+    longFlightsAbroadOver463kmEmission = userInputs.shortFlightUnder463kmUserInput*multipliers.shortFlightUnder463km
+    longFlightsOver3700kmEmission = userInputs.shortFlightUnder463kmUserInput*multipliers.shortFlightUnder463km
     return shortFlightUnder463kmEmission + longFligtsOverHomelandOver463kmEmission + longFlightsAbroadOver463kmEmission + longFlightsOver3700kmEmission
 
 def userEmissionsPublicTransport():
     #kgCO2e
-    BusShortDistanceEmission = userInputs.BusShortDistanceUserInput*multipliers.publicTransport.BusShortDistance
-    BusLongDistanceEmission = userInputs.BusLongDistanceUserInput*multipliers.publicTransport.BusLongDistance
-    TrainLongDistanceEmission = userInputs.TrainLongDistanceUserInput*multipliers.publicTransport.TrainLongDistance
-    TrainShortDistanceEmission = userInputs.TrainShortDistanceUserInput*multipliers.publicTransport.TrainShortDistance
-    MetroEmission = userInputs.MetroUserInput*multipliers.publicTransport.Metro
-    TramEmission = userInputs.TramUserInput*multipliers.publicTransport.Tram
-    TrainAbroadEmission = userInputs.TrainAbroadUserInput*multipliers.publicTransport.TrainAbroad
-    BusAbroadEmission = userInputs.BusAbroadUserInput*multipliers.publicTransport.BusAbroad
+    BusShortDistanceEmission = userInputs.BusShortDistanceUserInput*multipliers.BusShortDistance
+    BusLongDistanceEmission = userInputs.BusLongDistanceUserInput*multipliers.BusLongDistance
+    TrainLongDistanceEmission = userInputs.TrainLongDistanceUserInput*multipliers.TrainLongDistance
+    TrainShortDistanceEmission = userInputs.TrainShortDistanceUserInput*multipliers.TrainShortDistance
+    MetroEmission = userInputs.MetroUserInput*multipliers.Metro
+    TramEmission = userInputs.TramUserInput*multipliers.Tram
+    TrainAbroadEmission = userInputs.TrainAbroadUserInput*multipliers.TrainAbroad
+    BusAbroadEmission = userInputs.BusAbroadUserInput*multipliers.BusAbroad
     return BusShortDistanceEmission + BusLongDistanceEmission + TrainLongDistanceEmission + TrainShortDistanceEmission + MetroEmission + TramEmission + TrainAbroadEmission + BusAbroadEmission
 def userEmissionsCarTraffic():      
     #kgCO2e
-    unknownFuelEmission = userInputs.unknownFuelUserInput*multipliers.carTraffic.unknownFuel
-    dieselEmission = userInputs.dieselUserInput*multipliers.carTraffic.diesel
-    petrolEmission = userInputs.petrolUserInput*multipliers.carTraffic.petrol
-    naturalGasEmission = userInputs.naturalGasUserInput*multipliers.carTraffic.naturalGas
-    bioGasEmission = userInputs.bioGasUserInput*multipliers.carTraffic.bioGas
-    electricCarEmission = userInputs.electricCarUserInput*multipliers.carTraffic.electricCar
-    hybridEmission = userInputs.hybridUserInput*multipliers.carTraffic.hybrid
-    chargingHybridEmission = userInputs.chargingHybridUserInput*multipliers.carTraffic.chargingHybrid
+    unknownFuelEmission = userInputs.unknownFuelUserInput*multipliers.unknownFuel
+    dieselEmission = userInputs.dieselUserInput*multipliers.diesel
+    petrolEmission = userInputs.petrolUserInput*multipliers.petrol
+    naturalGasEmission = userInputs.naturalGasUserInput*multipliers.naturalGas
+    bioGasEmission = userInputs.bioGasUserInput*multipliers.bioGas
+    electricCarEmission = userInputs.electricCarUserInput*multipliers.electricCar
+    hybridEmission = userInputs.hybridUserInput*multipliers.hybrid
+    chargingHybridEmission = userInputs.chargingHybridUserInput*multipliers.chargingHybrid
     return unknownFuelEmission + dieselEmission + petrolEmission + naturalGasEmission + bioGasEmission + electricCarEmission + hybridEmission + chargingHybridEmission
     
 def userEmissionsBusinessAndClassTrips():
     #kgCO2e
-    rentalBusEmission = userInputs.rentalBusUserInput*multipliers.businessAndClassTrips.rentalBus
-    hotelStaysEmission = userInputs.hotelStaysUserInput*multipliers.businessAndClassTrips.hotelStays
-    taxiEmission = userInputs.taxiUserInput*multipliers.businessAndClassTrips.taxi
+    rentalBusEmission = userInputs.rentalBusUserInput*multipliers.rentalBus
+    hotelStaysEmission = userInputs.hotelStaysUserInput*multipliers.hotelStays
+    taxiEmission = userInputs.taxiUserInput*multipliers.taxi
     return rentalBusEmission + hotelStaysEmission + taxiEmission
 
 def userEmissionsOtherVehicles():
     #kgCO2e
-    MopedEmission = userInputs.MopedUserInput*multipliers.otherVehicles.Moped
-    MopedCarEmission = userInputs.MopedCarUserInput*multipliers.otherVehicles.MopedCar
-    MotorcycleEmission = userInputs.MotorcycleUserInput*multipliers.otherVehicles.Motorcycle
-    ElectricKickboardRentEmission = userInputs.ElectricKickboardRentUserInput*multipliers.otherVehicles.ElectricKickboardRent
-    ElectricBicycleEmission = userInputs.ElectricBicycleUserInput*multipliers.otherVehicles.ElectricBicycle
+    MopedEmission = userInputs.MopedUserInput*multipliers.Moped
+    MopedCarEmission = userInputs.MopedCarUserInput*multipliers.MopedCar
+    MotorcycleEmission = userInputs.MotorcycleUserInput*multipliers.Motorcycle
+    ElectricKickboardRentEmission = userInputs.ElectricKickboardRentUserInput*multipliers.ElectricKickboardRent
+    ElectricBicycleEmission = userInputs.ElectricBicycleUserInput*multipliers.ElectricBicycle
     BicycleEmission = userInputs.BicycleUserInput*0
     Kickboard = userInputs.KickboardUserInput*0
     return MopedEmission + MopedCarEmission + MotorcycleEmission + ElectricKickboardRentEmission + ElectricBicycleEmission + BicycleEmission + Kickboard
