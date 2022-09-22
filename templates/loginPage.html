@@ -10,23 +10,32 @@
 
 {% include 'menu.html' %}
 
-<div class= "login">
-<h1>Log in</h1>
-<form method="post" action="/login-authentication">
-   
-    <label for="username">Username:</label>
-    <div class="text_field">
-    <input type="text" placeholder="Ex. user1" name="username"></div>
-    <span></span>
-    <label for="password">Password:</label>
-    <div class="text_field">
-    <input type="password" placeholder="Ex. 12345" name="password"><div>
-    <span></span>
-    <input type="submit">
-    <div class="signup_link">
-<p>Don't have an account yet? Sign up <a href="registrationPage.html">here. </p></div>
-</div>
-</form>
+
+  <div class="wrap">
+    <div class="form">
+      <h1>Log in</h1>
+        <form method="post" action="/login-authentication">
+          <div class="form-area">
+            <div class="form-list">
+              <label for="username" class="form-label">Username:</label>
+              <input type="text" required="required" placeholder="example" class="form-input"/>
+              <div class="form-background"></div>
+                </div>
+              <div class="form-list">
+              <label for="password" class="form-label">Password:</label>
+              <input type="password" required="required" placeholder="example1234" class="form-input"/>
+              
+              <div class="form-background"></div>
+            </div>
+          </div>
+          <input type="submit" class="form-button" value="Sign in"/>
+          <p>Don't have an account yet? Sign up <a href="/register">here. </p></div>
+        </form>
+      </div>
+  </div>
+
+
+
 <script>
     function myFunction() {
       var x = document.getElementById("myInput");
