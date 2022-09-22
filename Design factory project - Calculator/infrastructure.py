@@ -128,3 +128,5 @@ def userEmissionItems():
     CleaningEmission = userInputs.CleaningInput*multipliers.item.Cleaning
     internetAndPhonesEmission = userInputs.internetAndPhonesInput*multipliers.item.internetAndPhones
     postalEmission = userInputs.postalInput*multipliers.item.postal
+
+    
