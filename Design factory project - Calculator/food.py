@@ -7,7 +7,7 @@ amountOfPortions = input("How many portions we're made")
 
 # SCHOOL INFORMATION -- FOOD
 
-def meatMealProtein(meatAns):
+def meatMealProtein():
 
     meatAns = input("Which protein does the meal have? Fish, Pig, Cow, Chicken or Sausage?")
 
@@ -22,7 +22,7 @@ def meatMealProtein(meatAns):
     elif (meatAns == "Sausage"):
         return multipliers.sausage
 
-def veggieMealProtein(veggieAns):
+def veggieMealProtein():
 
     veggieAns = input("Which protein does the meal have? Soygrits, Tofu, Vegetables or Broad bean?")
 
@@ -35,7 +35,7 @@ def veggieMealProtein(veggieAns):
     elif (veggieAns == "Broad bean"):
         return multipliers.broadBean
 
-def veganMealProtein(veganAns):
+def veganMealProtein():
 
     veganAns = input("Which protein does the meal have? Soygrits, Tofu, Vegetables or Broad bean?")
 
@@ -51,19 +51,41 @@ def veganMealProtein(veganAns):
 
 
 def meatmeal():
-
+    #Needs to be looped through. Currently only runs meatmealside variable. Same thing will be done to functions veggiemeal and veganmeal
     meatMealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
-    Egg = input("Does the meal have eggs?")
-    Dairy = input ("Does the meal have dairy products?")
+    
+    if (meatMealSide == "Rice"):
+        return multipliers.rice
+    elif (meatMealSide == "Pasta"):
+        return multipliers.pasta
+    elif (meatMealSide == "Potato"):
+        return multipliers.potato
+    elif (meatMealSide == "Vegetables"):
+        return multipliers.vegetables
+
+    Egg = input("Does the meal have eggs? | Yes or No")
+    if (Egg == "Yes"):
+        return multipliers.egg
+    elif (Egg == "No"):
+        return 0
+
+    Dairy = input ("Does the meal have cream? | Yes or No")
+    if (Dairy == "Yes"):
+        return multipliers.cream
+    elif (Dairy == "No"):
+        return 0
+
     Co2OfMeatMeal = amountOfPortions * (meatMealProtein + meatMealSide + Egg + Dairy)
     return Co2OfMeatMeal
+
 
 def veggiemeal():
 
     veggiemealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
     Egg = input("Does the meal have eggs?")
     Dairy = input ("Does the meal have dairy products?")
-    return (amountOfPortions * (veggieMealProtein + veggiemealSide + Egg + Dairy))
+    Co2OfVeggieMeal = (amountOfPortions * (veggieMealProtein + veggiemealSide + Egg + Dairy))
+    return Co2OfVeggieMeal
 
 def veganmeal():
    
@@ -71,15 +93,15 @@ def veganmeal():
     return (amountOfPortions * (veganMealProtein + veganmealSide))
 
 def dessert():
-    pancake = amountOfPortions * 0.206
-    kisel = amountOfPortions * 0.040
-    return (amountOfPortions * (pancake + kisel))
+    pancake = int(amountOfPortions) * 0.206
+    kisel = int(amountOfPortions) * 0.040
+    return (int(amountOfPortions) * (pancake + kisel))
 
 def others():
-    ryeBread = (amountOfPortions * 1.3/1000*30)
-    wheatBread = (amountOfPortions * 1.7/1000*30)
-    salad = amountOfPortions * 0.265
-    return (amountOfPortions * (ryeBread + wheatBread + salad))
+    ryeBread = (int(amountOfPortions) * 1.3/1000*30)
+    wheatBread = (int(amountOfPortions) * 1.7/1000*30)
+    salad = int(amountOfPortions) * 0.265
+    return (int(amountOfPortions) * (ryeBread + wheatBread + salad))
 
 #The next couple classes use complicated formulas in excel which I have no motivation to do right now because they look like hell on earth :DDDDDD
 #Includes surplusfood foodDistribution and electricity
@@ -122,16 +144,16 @@ def overview():
 
 def drinks():
     water = amountOfPortions * 0
-    milk = amountOfPortions * ((multipliers.milk/1000)*170)
-    oatMilk = amountOfPortions * ((multipliers.oatDrink/1000)*170)
-    coffee = amountOfPortions * ((multipliers.coffee/1000)*170)
-    tea = amountOfPortions * ((multipliers.tea/1000)*170)
+    milk = int(amountOfPortions) * ((multipliers.milk/1000)*170)
+    oatMilk = int(amountOfPortions) * ((multipliers.oatDrink/1000)*170)
+    coffee = int(amountOfPortions) * ((multipliers.coffee/1000)*170)
+    tea = int(amountOfPortions) * ((multipliers.tea/1000)*170)
     return water + milk + oatMilk + coffee + tea 
 
 def others():
-    ryeBread = amountOfPortions * ((multipliers.ryeBread/1000)*30)
-    wheatBread = amountOfPortions * ((multipliers.wheatBread/1000)*30)
-    salad = amountOfPortions * multipliers.salad
+    ryeBread = int(amountOfPortions) * ((multipliers.ryeBread/1000)*30)
+    wheatBread = int(amountOfPortions) * ((multipliers.wheatBread/1000)*30)
+    salad = int(amountOfPortions) * multipliers.salad
 
     return ryeBread + wheatBread + salad
 
@@ -150,30 +172,35 @@ def foodWaste(ans):
         return (personalLunch + drinks + others)/2.5
 
 def proteins():
-    fish = amountOfPortions * ((multipliers.fish/1000)*170)
-    cow = amountOfPortions * ((multipliers.cow/1000)*170)
-    pig = amountOfPortions * ((multipliers.pig/1000)*170)
-    chicken = amountOfPortions * ((multipliers.chicken/1000)*170)
-    sausage = amountOfPortions * ((multipliers.sausage/1000)*170)
-    soy = amountOfPortions * (multipliers.soyGrits/1000*170)
-    broadBean = amountOfPortions * (multipliers.broadBean/1000*170)
-    tofu = amountOfPortions * (multipliers.tofu/1000*170)
-    vegetables = amountOfPortions * (multipliers.vegetables/1000*170)
-    Egg = amountOfPortions * (multipliers.egg/1000*60)
-    cream = amountOfPortions * (multipliers.cream/1000*60)
-    return fish + cow + pig + chicken + sausage + soy + broadBean + tofu + vegetables + Egg + cream
+    fish = int(amountOfPortions) * ((multipliers.fish/1000)*170)
+    cow = int(amountOfPortions) * ((multipliers.cow/1000)*170)
+    pig = int(amountOfPortions) * ((multipliers.pig/1000)*170)
+    chicken = int(amountOfPortions) * ((multipliers.chicken/1000)*170)
+    sausage = int(amountOfPortions) * ((multipliers.sausage/1000)*170)
+    soy = int(amountOfPortions) * (multipliers.soyGrits/1000*170)
+    broadBean = int(amountOfPortions) * (multipliers.broadBean/1000*170)
+    tofu = int(amountOfPortions) * (multipliers.tofu/1000*170)
+    vegetables = int(amountOfPortions) * (multipliers.vegetables/1000*170)
+    Egg = int(amountOfPortions) * (multipliers.egg/1000*60)
+    cream = int(amountOfPortions) * (multipliers.cream/1000*60)
+    proteinsTotal = fish + cow + pig + chicken + sausage + soy + broadBean + tofu + vegetables + Egg + cream
+    return proteinsTotal
+
 
 def carboHydrates():
-    potato = amountOfPortions * (multipliers.potato/1000*150)
-    rice = amountOfPortions * (multipliers.rice/1000*100)
-    pasta = amountOfPortions * (multipliers.pasta/1000*120)
-    rootVegetables = amountOfPortions * (multipliers.rootVegetables/1000*150)
-    return potato + rice + pasta + rootVegetables
+    potato = int(amountOfPortions) * (multipliers.potato/1000*150)
+    rice = int(amountOfPortions) * (multipliers.rice/1000*100)
+    pasta = int(amountOfPortions) * (multipliers.pasta/1000*120)
+    rootVegetables = int(amountOfPortions) * (multipliers.rootVegetables/1000*150)
+    carboHydratesTotal = potato + rice + pasta + rootVegetables
+    return carboHydratesTotal
 
 def dessert(): 
-    pancakes = amountOfPortions * multipliers.pancakes
-    kisel = amountOfPortions * multipliers.kisel
-    return pancakes + kisel
+    pancakes = int(amountOfPortions) * multipliers.pancakes
+    kisel = int(amountOfPortions) * multipliers.kisel
+    dessertTotal = pancakes + kisel
+    return dessertTotal
 
-personalLunch = amountOfPortions * (proteins + carboHydrates + dessert)
+
+personalLunch = amountOfPortions * ( + carboHydrates + dessert)
 total = (personalLunch + drinks + others + foodWaste)
