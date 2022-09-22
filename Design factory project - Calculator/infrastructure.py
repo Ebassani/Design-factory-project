@@ -1,7 +1,7 @@
 from operator import mul
 import multipliers
 
-class userInputs:
+def userInputs():
 
     #Electricity(Megawatts)
 
@@ -67,7 +67,7 @@ class userInputs:
     internetAndPhonesInput=float(input("Euros"))
     postalInput=float(input("Euros"))
 
-class userEmissionEnergy(multipliers.energy):
+def userEmissionEnergy():
     
     #Electricity consumption
     #kgCO2e/MWh
@@ -84,7 +84,8 @@ class userEmissionEnergy(multipliers.energy):
     #AirconditionPerDay
     #HoursPerDay
 
-    #Trash / kgCO2e/kg
+def userEmissionMixedWaste():
+    
     MixedWasteEmission = userInputs.MixedWasteInput*multipliers.Trash.MixedWaste
     EnergyWasteEmission = userInputs.EnergyWasteInput*multipliers.Trash.EnergyWaste
     BioWasteEmission = userInputs.BioWasteInput*multipliers.Trash.BioWaste
@@ -98,6 +99,8 @@ class userEmissionEnergy(multipliers.energy):
 
     #class acquisitions:
     #kgCO2e/kpl
+
+def userEmissionAquisitions():
 
     phoneEmission = userInputs.phoneInput*multipliers.acquisitions.phone
     LaptopEmission = userInputs.LaptopInput*multipliers.acquisitions.Laptop
@@ -115,6 +118,9 @@ class userEmissionEnergy(multipliers.energy):
     paperKgEmission = userInputs.paperKgInput*multipliers.acquisitions.paperKg
     
     #item/kgCO2e
+
+def userEmissionItems():
+
     EbookEmission = userInputs.EbookInput*multipliers.item.Ebook
     BookEmission = userInputs.BookInput*multipliers.item.Book
 
