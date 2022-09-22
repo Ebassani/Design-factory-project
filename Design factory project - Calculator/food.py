@@ -63,12 +63,12 @@ def veggiemeal():
     veggiemealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
     Egg = input("Does the meal have eggs?")
     Dairy = input ("Does the meal have dairy products?")
-    return (amountOfPortions * (veggiemealProtein + veggiemealSide + Egg + Dairy))
+    return (amountOfPortions * (veggieMealProtein + veggiemealSide + Egg + Dairy))
 
 def veganmeal():
    
     veganmealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
-    return (amountOfPortions * (veganmealProtein + veganmealSide))
+    return (amountOfPortions * (veganMealProtein + veganmealSide))
 
 def dessert():
     pancake = amountOfPortions * 0.206
@@ -87,8 +87,8 @@ def others():
 def surplusFood():
     amountKG = input("The amount of surplus in KG")
     meat = (((meatMealProtein) /1000*170)/170)*1000*amountKG
-    veggie = (((veggiemealProtein)/1000*170)/170)*1000*amountKG
-    vegan = (((veganmealProtein)/1000*170)/170)*amountKG*1000
+    veggie = (((veggieMealProtein)/1000*170)/170)*1000*amountKG
+    vegan = (((veganMealProtein)/1000*170)/170)*amountKG*1000
     sides = amountKG #=((=VLOOKUP(E8,Kertoimet!B145:C148,2,FALSE)/1000*150)/150+(=VLOOKUP(E14,Kertoimet!B145:C148,2,FALSE)/1000*150)/150+(=VLOOKUP(E20,Kertoimet!B145:C148,2,FALSE)/1000*150)/150)/3*amountKG*1000
     salad = multipliers.aPortionOfSalad / 150 * 1000 * amountKG
     bread = (multipliers.ryeBread + multipliers.wheatBread) / 2 * amountKG
