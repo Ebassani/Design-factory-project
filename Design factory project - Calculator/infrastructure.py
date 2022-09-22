@@ -20,8 +20,8 @@ def userInputs():
 
     #Airconditioning(Time)
 
-    #AirconditionPerDay=float(input("What type of Airconditioning?removal or removal and insertional both"))
-    #HoursPerDay=float(input("Hours"))
+    Airconditionartype=float(input("What type of Airconditioning?removal or removal and insertional both"))
+    HoursPerDay=float(input("Hours"))
 
     #WasteDistribution(Wieght)
 
@@ -81,9 +81,18 @@ def userEmissionEnergy():
     DistrictCoolingEmission = userInputs.DistrictCoolinginput*multipliers.Cooling.DistrictCooling
     ElectricCoolingEmission = userInputs.ElectricCoolingInput*multipliers.Cooling.ElectricityCooling
 
-    #AirconditionPerDay
-    #HoursPerDay
+    return ElectricityconsumptionEmission + ZeroEmissionDistrictHeatingEmission + ZeroEmissionGreenElectricityEmission + ElectricityHeatingEmission + DistrictHeatingEmission + ElectricCoolingEmission + DistrictCoolingEmission
+    
 
+def AircoditionarTypeuserInput(AircoditionarTypeAnswer):
+    if (AircoditionarTypeAnswer == "removal"):
+        return multipliers.OnlyExit
+    elif(AircoditionarTypeAnswer == "removal and insertional"):
+        return multipliers.EntryAndExit
+    
+    HoursPerDayEmission = userInputs.HoursPerDay*multipliers.Ventilation.HoursPerDay
+    
+    return HoursPerDayEmission
 def userEmissionMixedWaste():
     
     MixedWasteEmission = userInputs.MixedWasteInput*multipliers.Trash.MixedWaste
@@ -96,7 +105,8 @@ def userEmissionMixedWaste():
     PaperEmission = userInputs.PaperInput*multipliers.Trash.Paper
     ElectricityRecycableEmission = userInputs.ElectricityRecycableInput*multipliers.Trash.ElectricityRecycable
     HazardousEmission = userInputs.HazardousInput*multipliers.Trash.Hazardous
-
+    
+    return MixedWasteEmission + EnergyWasteEmission + BioWasteEmission + CardboardEmission + GlassEmission + MetalEmission + PlasticEmission + PaperEmission + ElectricityRecycableEmission + HazardousEmission
     #class acquisitions:
     #kgCO2e/kpl
 
@@ -109,6 +119,7 @@ def userEmissionAquisitions():
     MultifunctionPrinterEmission = userInputs.MultifunctionPrinterInput*multipliers.acquisitions.MultifunctionPrinter
     PrinterEmission = userInputs.PrinterInput*multipliers.acquisitions.Printer
 
+    
 
     OfficeChairEmission = userInputs.OfficeChairInput*multipliers.acquisitions.OfficeChair
     ChairEmission = userInputs.ChairInput*multipliers.acquisitions.Chair
@@ -116,6 +127,8 @@ def userEmissionAquisitions():
     electricDeskEmission = userInputs.electricDeskInput*multipliers.acquisitions.electricDesk
 
     paperKgEmission = userInputs.paperKgInput*multipliers.acquisitions.paperKg
+    
+    return phoneEmission + LaptopEmission + TabletEmission + DesktopComputerEmission + MultifunctionPrinterEmission + PrinterEmission + OfficeChairEmission + ChairEmission + metalFrameTableEmission + electricDeskEmission + paperKgEmission
     
     #item/kgCO2e
 
@@ -128,5 +141,5 @@ def userEmissionItems():
     CleaningEmission = userInputs.CleaningInput*multipliers.item.Cleaning
     internetAndPhonesEmission = userInputs.internetAndPhonesInput*multipliers.item.internetAndPhones
     postalEmission = userInputs.postalInput*multipliers.item.postal
-
     
+    return EbookEmission + BookEmission + CleaningEmission + internetAndPhonesEmission + postalEmission
