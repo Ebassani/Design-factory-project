@@ -1,9 +1,11 @@
 
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
 h1 {
 text-align: center;
 
 }
-.row {
+.wrap {
   width: 27.5rem;
   padding: 2%;
   margin: 3.75rem auto;
@@ -15,7 +17,7 @@ text-align: center;
 .form {
   width: 100%;
   margin: 0 auto;
-  padding: 60px 30px;
+  padding: 3.75rem 1.875rem;
   box-sizing: border-box;
   background: #d2b8f5;
   background: -moz-linear-gradient(-45deg, #dadee4 0%, #90bae2 100%);
@@ -47,7 +49,7 @@ text-align: center;
     margin-right: 0;
     padding-left: 1.625rem;
     color: rgba(5, 5, 5, 0.85);
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
     line-height: 3.875rem;
 
@@ -98,7 +100,7 @@ text-align: center;
     color: rgba(5, 5, 5, 0.85);
     line-height: 0.8; 
     background-color: transparent;
-    border: 1px solid rgba(255,255,255,0.6);
+    border: 0.063rem solid rgba(255,255,255,0.6);
     border-radius: 1.875rem;
     transition: background-color .2s;
 
