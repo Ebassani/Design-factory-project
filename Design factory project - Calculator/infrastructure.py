@@ -1,7 +1,7 @@
 from operator import mul
 import multipliers
 
-def userInputs():
+class userInputs():
 
     #Electricity(Megawatts)
 
@@ -20,8 +20,8 @@ def userInputs():
 
     #Airconditioning(Time)
 
-    Airconditionartype=float(input("What type of Airconditioning?removal or removal and insertional both"))
-    HoursPerDay=float(input("Hours"))
+    """Airconditiontype=float(input("What type of Airconditioning?removal or removal and insertional both"))
+    HoursPerDay=float(input("Hours"))"""
 
     #WasteDistribution(Wieght)
 
@@ -84,7 +84,7 @@ def userEmissionEnergy():
     return ElectricityconsumptionEmission + ZeroEmissionDistrictHeatingEmission + ZeroEmissionGreenElectricityEmission + ElectricityHeatingEmission + DistrictHeatingEmission + ElectricCoolingEmission + DistrictCoolingEmission
     
 
-def AircoditionarTypeuserInput(AircoditionarTypeAnswer):
+"""def AircoditionarTypeuserInput(AircoditionarTypeAnswer):
     if (AircoditionarTypeAnswer == "removal"):
         return multipliers.OnlyExit
     elif(AircoditionarTypeAnswer == "removal and insertional"):
@@ -92,7 +92,7 @@ def AircoditionarTypeuserInput(AircoditionarTypeAnswer):
     
     HoursPerDayEmission = userInputs.HoursPerDay*multipliers.Ventilation.HoursPerDay
     
-    return HoursPerDayEmission
+    return HoursPerDayEmission"""
 def userEmissionMixedWaste():
     
     MixedWasteEmission = userInputs.MixedWasteInput*multipliers.Trash.MixedWaste
@@ -134,12 +134,14 @@ def userEmissionAquisitions():
 
 def userEmissionItems():
 
-    EbookEmission = userInputs.EbookInput*multipliers.item.Ebook
-    BookEmission = userInputs.BookInput*multipliers.item.Book
+    EbookEmission = userInputs.EbookInput*multipliers.item.ebook
+    BookEmission = userInputs.BookInput*multipliers.item.book
 
 
     CleaningEmission = userInputs.CleaningInput*multipliers.item.Cleaning
     internetAndPhonesEmission = userInputs.internetAndPhonesInput*multipliers.item.internetAndPhones
     postalEmission = userInputs.postalInput*multipliers.item.postal
     
-    return EbookEmission + BookEmission + CleaningEmission + internetAndPhonesEmission + postalEmission
+    return EbookEmission + BookEmission + CleaningEmission + internetAndPhonesEmission + postalEmission 
+
+userEmissionItems()
