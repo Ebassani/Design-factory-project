@@ -9,6 +9,7 @@ AverageElectricity = 281.00
 #kgCO2e/hkm
 shortFlightUnder463km = 0.2595*2+0.2595*2
 longFligtsOverHomelandOver463km = (0.178*2)+(0.178*0.2)
+longFlightsAbroadOver463km =(0.149*2)+(0.149*0.2)
 longFlightsAbroadOver463km = (0.149*2)+(0.149*0.2)
 longFlightsOver3700km = (0.135*2)+(0.135*0.2)
 
@@ -167,7 +168,7 @@ wheatBread = 1.7
 PotatoFlour = 0.396
 Berries = 0.200
 Sugar = 1.100
-PortionOfKisel = (Berries/1000*400)+(Sugar/1000*63.75)+(PotatoFlour/1000*20)/4 
+aPortionOfKisel = (Berries/1000*400)+(Sugar/1000*63.75)+(PotatoFlour/1000*20)/4 
 
 #pancakes
 Flour = 1.130

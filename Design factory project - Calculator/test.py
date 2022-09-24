@@ -1,4 +1,7 @@
+import multipliers
+
+
 #test environment where you can test the features of the code
 #keep this file empty :)
-import multipliers
+amountOfPortions = input("How many portions of the food was made?")
 
