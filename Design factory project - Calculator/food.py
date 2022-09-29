@@ -22,6 +22,8 @@ def meatMealProtein():
         return multipliers.chicken
     elif (meatAns == "Sausage"):
         return multipliers.sausage
+
+    return 0
 # WORKING
 def veggieMealProtein():
 
@@ -35,6 +37,8 @@ def veggieMealProtein():
         return multipliers.vegetables
     elif (veggieAns == "Broad bean"):
         return multipliers.broadBean
+    
+    return 0
 # WORKING
 def veganMealProtein():
 
@@ -49,9 +53,9 @@ def veganMealProtein():
     elif (veganAns == "Broad bean"):
         return multipliers.broadBean
 
+    return 0
 
-#Needs A LOOP. Currently only runs meatmealside variable. Same thing will be done to functions veggiemeal and veganmeal
-def meatmeal():
+def meatmealSide():
     
     meatMealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
     
@@ -63,12 +67,17 @@ def meatmeal():
         return multipliers.potato
     elif (meatMealSide == "Vegetables"):
         return multipliers.vegetables
+    
+    return 0
 
+def meatmealEgg():
     Egg = input("Does the meal have eggs? | Yes or No")
     if (Egg == "Yes"):
         return multipliers.egg
     elif (Egg == "No"):
         return 0
+
+def meatmealDairy():
 
     Dairy = input ("Does the meal have cream? | Yes or No")
     if (Dairy == "Yes"):
@@ -76,23 +85,60 @@ def meatmeal():
     elif (Dairy == "No"):
         return 0
 
-    Co2OfMeatMeal = amountOfPortions * (meatMealProtein + meatMealSide + Egg + Dairy)
+def Co2OfMeatMeal():
+    Co2OfMeatMeal = amountOfPortions * (meatMealProtein + meatmealSide + meatmealEgg+ meatmealDairy)
     return Co2OfMeatMeal
 
-# Needs a loop
+
 def veggiemeal():
 
     veggiemealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
-    Egg = input("Does the meal have eggs?")
-    Dairy = input ("Does the meal have dairy products?")
-    Co2OfVeggieMeal = (amountOfPortions * (veggieMealProtein + veggiemealSide + Egg + Dairy))
-    return Co2OfVeggieMeal
+    if (veggiemealSide == "Rice"):
+        return multipliers.rice
+    elif (veggiemealSide == "Pasta"):
+        return multipliers.pasta
+    elif (veggiemealSide == "Potato"):
+        return multipliers.potato
+    elif (veggiemealSide == "Vegetables"):
+        return multipliers.vegetables
+
+    return 0
+def veggiemealEgg():
+    Egg = input("Does the meal have eggs? | Yes or No")
+    if (Egg == "Yes"):
+        return multipliers.egg
+    elif (Egg == "No"):
+        return 0
+
+    return 0
+
+def veggiemealDairy():
+    Dairy = input ("Does the meal have dairy products? | Yes or No")
+    if (Dairy == "Yes"):
+        return multipliers.cream
+    elif (Dairy == "No"):
+        return 0
+    
+    return 0
+
+def Co2ofVeggieMeal():
+    co2 = (int(amountOfPortions) * (veggieMealProtein() + veggiemeal() + veggiemealEgg()) + veggiemealDairy())
+    return co2
 
 # In progress
 def veganmeal():
    
-    veganmealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
-    return (amountOfPortions * (veganMealProtein + veganmealSide))
+    veganmealSide = input("Choose the side of the meal. Rice, Pasta, Potato or Vegetables")
+    if (veganmealSide == "Rice"):
+        return multipliers.rice
+    elif (veganmealSide == "Pasta"):
+        return multipliers.pasta
+    elif (veganmealSide == "Potato"):
+        return multipliers.potato
+    elif (veganmealSide == "Vegetables"):
+        return multipliers.vegetables
+    
+    return (int(amountOfPortions) * (veganmeal() + veganMealProtein()))
 
 # WORKING
 def dessert():
@@ -141,10 +187,10 @@ def electricity():
 
 # IN PROGRESS
 def overview():
-    cafeteriaConsumption = electricity.cookingAndCentralKitchen + electricity.cookingAndHeatingKitchen
-    surplusFoodCO2Footprint = surplusFood.meat + surplusFood.veggie + surplusFood.vegan + surplusFood.sides + surplusFood.salad + surplusFood.bread + surplusFood.dessert
-    foodDistributionCO2Footprint = foodDistribution.meat + foodDistribution.veggie + foodDistribution.vegan
-    foodCO2Footprint = meatmeal.Co2OfMeatMeal + veggiemeal.Co2OfVeggieMeal + veganmeal.Co2OfVeganMeal + dessert.Co2OfDessert + others.Co2OfOthers
+    cafeteriaConsumption = electricity
+    surplusFoodCO2Footprint = surplusFood
+    foodDistributionCO2Footprint = foodDistribution
+    foodCO2Footprint = meatmeal.Co2OfMeatMeal + Co2ofVeggieMeal + veganmeal + dessert + others
     return cafeteriaConsumption + surplusFoodCO2Footprint + foodDistributionCO2Footprint + foodCO2Footprint 
     
 #Food info - Personal
@@ -180,6 +226,8 @@ def foodWaste(ans):
         ans = "Over a half a plate"
         return (personalLunch + drinks + others)/2.5
 
+    return 0
+
 # Working
 def proteins():
     fish = int(amountOfPortions) * ((multipliers.fish/1000)*170)
@@ -213,5 +261,8 @@ def dessert():
     return dessertTotal
 
 #In progress (Cannot sum functions for some reason)
-personalLunch = amountOfPortions * (drinks + carboHydrates + dessert)
-total = (personalLunch + drinks + others + foodWaste)
+personalLunch = int(amountOfPortions) * (drinks() + carboHydrates() + dessert())
+total = (personalLunch + drinks() + others() + foodWaste())
+
+
+#Riku N
