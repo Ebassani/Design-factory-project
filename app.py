@@ -51,6 +51,18 @@ def login():
 def food():
     return render_template('food.html')
 
+@app.route('/attitude')
+def attitude():
+    return render_template('attitude.html')
+
+@app.route('/motion')
+def motion():
+    return render_template('motion.html')
+
+@app.route('/infrastructure')
+def infrastructure():
+    return render_template('infrastructure.html')
+
 
 @app.route('/login-authentication', methods=['POST'])
 def verifies_login():
