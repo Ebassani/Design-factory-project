@@ -47,6 +47,10 @@ def generate_db():
 def login():
     return render_template('loginPage.html')
 
+@app.route('/food')
+def food():
+    return render_template('food.html')
+
 
 @app.route('/login-authentication', methods=['POST'])
 def verifies_login():
