@@ -34,6 +34,10 @@ def index():  # put application's code here
 def introduction():
     return render_template('introduction.html')
 
+@app.route('/currentstate')
+def currentstate():
+    return render_template('currentstate.html')
+
 @app.route('/create')
 def generate_db():
     create_table()
