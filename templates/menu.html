@@ -1,14 +1,35 @@
-<div class="menu">
-    <div class="menu__link menu__link--color-darkorange hover__pointer">
-        <span>Dashboard</span>
+<header class="menu">
+    <div class="card__grid1 menu__items">
+
     </div>
-    <div class="menu__link menu__link--color-orange hover__pointer">
-        <span>Dashboard</span>
+
+    <div class="menu__items card__grid2">
+        <div class="menu__link menu__link--color-darkorange hover__pointer" onclick="window.location.href = '/introduction';">
+            <span>Introduction</span>
+        </div>
+        <div class="menu__link menu__link--color-orange hover__pointer">
+            <span>Dashboard</span>
+        </div>
+        <div class="menu__link menu__link--color-lightorange hover__pointer">
+            <span>Dashboard</span>
+        </div>
+        <div class="menu__link menu__link--color-darkblue hover__pointer">
+            <span>Dashboard</span>
+        </div>
     </div>
-    <div class="menu__link menu__link--color-lightorange hover__pointer">
-        <span>Dashboard</span>
-    </div>
-    <div class="menu__link menu__link--color-darkblue hover__pointer">
-        <span>Dashboard</span>
-    </div>
-</div>
+
+    {% if current_user.is_authenticated %}
+        <div class="menu__log hover__pointer card__grid menu__items3" onclick="window.location.href = '/logout';">
+            <span>Logout</span>
+        </div>
+    {% else %}
+        <div class="logRegister card__grid3">
+            <div class="menu__log hover__pointer" onclick="window.location.href = '/login';">
+                <span>Login</span>
+            </div>
+            <div class="menu__log hover__pointer" onclick="window.location.href = '/register';">
+                <span>Register</span>
+            </div>
+        </div>
+    {% endif %}
+</header>

@@ -1,0 +1,109 @@
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+h1 {
+text-align: center;
+
+}
+.wrap {
+  width: 27.5rem;
+  padding: 2%;
+  margin: 3.75rem auto;
+  background: #fff;
+  box-shadow: 0 1.25rem 1.875rem -1.25rem rgba(2, 2, 2, 0.8), 0 1.25rem 1.875rem 0rem rgba(30, 30, 30, 0.3);
+
+}
+
+.form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 3.75rem 1.875rem;
+  box-sizing: border-box;
+  background: #d2b8f5;
+  background: -moz-linear-gradient(-45deg, #dadee4 0%, #90bae2 100%);
+  background: -webkit-linear-gradient(-45deg, #dadee4 0%,#90bae2 100%);
+  background: linear-gradient(135deg, #dadee4 0%,#90bae2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2b8f5', endColorstr='#fc78b1',GradientType=1 );
+
+}
+  .form-list {
+    position: relative;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    width: 100%;
+    height: 3.75rem;
+    margin-top: 0.75rem;
+    border-radius: 0.188rem;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+
+  }
+  .form label {
+    display: block;
+    z-index: 1;
+    position: relative;
+    height: 100%;
+    margin-right: 0;
+    padding-left: 1.625rem;
+    color: rgba(5, 5, 5, 0.85);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 3.875rem;
+
+    }
+
+
+  .form-input {
+    z-index: 1;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    -ms-flex-positive: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    height: 3.625rem;
+    padding: 0 1.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(5, 5, 5, 0.85);
+    border: 0;
+    outline: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: transparent;
+
+
+    }
+
+
+  .form-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.18);
+    transition: background-color .2s;
+    border-radius: 1.875rem;
+  }
+
+  .form-button {
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    margin: 3.125rem auto 0;
+    padding: 1.25rem 0;
+    font-size: 0.875rem;
+    color: rgba(5, 5, 5, 0.85);
+    line-height: 0.8; 
+    background-color: transparent;
+    border: 0.063rem solid rgba(255,255,255,0.6);
+    border-radius: 1.875rem;
+    transition: background-color .2s;
+
+
+
+  }

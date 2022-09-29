@@ -5,49 +5,73 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/introduction.css') }}">
+    <script src="{{ url_for('static', filename= 'javascript/scripts.js') }}"></script>
     <title>Introduction</title>
 </head>
 <body>
 
 {% include 'menu.html' %}
+{% include 'mobileMenu.html' %}
+
+<div class="content__title">
+    <h1>Carbon Calculator for Schools</h1>
+</div>
 
 <div class="content">
-    <div class="content__title">
-        <h1>ITXTTXTXTXT</h1>
-        <p class="paragraph">Text for introduction</p>
-    </div>
 
     <div class="content__cards">
         <div class="content__cards__card card__grid1 hover__pointer">
             <div class="content__card__title">
                 <h2 class="subtitle">Food</h2>
             </div>
-            <p class="paragraph">Text for food</p>
+            <p class="paragraph">What food can be eaten in a carbon free school?</p>
         </div>
         <div class="content__cards__card card__grid2 hover__pointer">
             <div class="content__card__title">
                 <h2 class="subtitle">Infrastructure</h2>
             </div>
-            <p class="paragraph">Text for infrastructure</p>
+            <p class="paragraph">Do we need more appartuses to save energy?</p>
         </div>
         <div class="content__cards__card card__grid3 hover__pointer">
             <div class="content__card__title">
                 <h2 class="subtitle">Motion</h2>
             </div>
-            <p class="paragraph">Text for motion</p>
+            <p class="paragraph">Are school trips possible if emissions are forbidden?</p>
         </div>
         <div class="content__cards__card card__grid4 hover__pointer">
             <div class="content__card__title">
                 <h2 class="subtitle">Attitude</h2>
             </div>
-            <p class="paragraph">Text for attitude</p>
+            <p class="paragraph">Who will fix our school if not us?</p>
         </div>
         <div class="content__cards__card card__grid5 hover__pointer">
             <div class="content__card__title">
                 <h2 class="subtitle">Current State</h2>
+                <!-- https://koulunkorjausopas.fi/en/but-together/current-state/ -->
             </div>
-            <p class="paragraph">https://koulunkorjausopas.fi/en/but-together/current-state/e</p>
+            <p class="paragraph">What does the carbon footprint of schools consists of?</p>
         </div>
+    </div>
+
+    <div class="content__text">
+        <h2>Ecological Reconstruction—What Is It?</h2>
+        <p>Briefly put, it is a big workload which will change the entire structure of our society not to be
+            dependent on fossil fuels. This means everything: energy solutions, transportation, buildings, food
+            production,
+            use of forests, healthcare, culture, and so on. Every van and school is also included in this list.
+            All this by the year 2050. Phew!</p>
+
+        <h2>So Everything Gets Ruined?</h2>
+        <p>There is reason to make readjustments in our worldview, values, and culture so that the journey can
+            continue without friction from 2050 onward as well. Material consumption by Finns needs to be reduced
+            by around 80%. Your first thought may be: “80% bleaker!” After the ecological reconstruction,
+            the point is to live differently—not more dismally.</p>
+
+        <h2>This Will All Work, Eventually</h2>
+        <p>Schools have a significant role in the readjustment of society. Their job is to instill the knowledge
+            and skills of the future world to the youth. First, it’s good to arrange an
+            annual checkup at our own school. We should hoist the entire institution up and check if the bottom
+            is oily, or if the rocker panels are rusty. And then just repair away.</p>
     </div>
 
 </div>

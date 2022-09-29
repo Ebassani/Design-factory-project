@@ -2,32 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/registration.css') }}">
+    <title>Register</title>
 </head>
 <body>
-<div>
-    <form method="post" id="schoolForm" name="schoolForm" action="/create_account">
-        <label for="email">Email:</label>
-        <input type="text" name="email" id="email">
-        <label for="forename">Forename:</label>
-        <input type="text" name="forename" id="forename">
-        <label for="surname">Surname:</label>
-        <input type="text" name="surname" id="surname">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-        <label for="password">Password:</label>
-        <input type="text" name="password" id="password">
 
-        <label for="school">Select your school</label>
-        <select name="school" id="school" form="schoolForm">
-            {% for school in schools %}
-                <option value="{{ school[0] }}">{{ school[1] }}</option>
-            {% endfor %}
-        </select>
+{% include 'menu.html' %}
+{% include 'mobileMenu.html' %}
 
-        <input type="submit">
-    </form>
+<div class="wrap">
+    <div class="form">
+        <h1>Create account</h1>
+        <form method="post" id="schoolForm" name="schoolForm" action="/create_account">
+            <div class="form-area">
+                <div class="form-list">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email" class="form-input"/>
+                    <div class="form-background"></div>
+                </div>
+                <div class="form-list">
+                    <label for="forename">Forename:</label>
+                    <input type="text" name="forename" id="forename" class="form-input"/>
+                    <div class="form-background"></div>
+                </div>
+                <div class="form-list">
+                    <label for="surname">Surname:</label>
+                    <input type="text" name="surname" id="surname" class="form-input"/>
+                    <div class="form-background"></div>
+                </div>
+                <div class="form-list">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" class="form-input"/>
+                    <div class="form-background"></div>
+                </div>
+                <div class="form-list">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" class="form-input"/>
+                    <div class="form-background"></div>
+                </div>
+                <label for="school">Select your school</label>
+                <select name="school" id="school" form="schoolForm">
+                    {% for school in schools %}
+                        <option value="{{ school[0] }}">{{ school[1] }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" class="form-button" value="Sign up"/>
 
+        </form>
+    </div>
 </div>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
 </body>
 </html>
