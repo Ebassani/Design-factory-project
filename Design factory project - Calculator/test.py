@@ -5,34 +5,63 @@ import multipliers
 #keep this file empty :)
 amountOfPortions = input("How many portions of the food was made?")
 
-def veganMealProtein():
+def veggieMealProtein():
 
-    veganAns = input("Which protein does the meal have? Soygrits, Tofu, Vegetables or Broad bean?")
+    veggieAns = input("Which protein does the meal have? Soygrits, Tofu, Vegetables or Broad bean?")
 
-    if (veganAns == "Soygrits"):
+    if (veggieAns == "Soygrits"):
         return multipliers.soyGrits
-    elif (veganAns == "Tofu"):
+    elif (veggieAns == "Tofu"):
         return multipliers.tofu
-    elif (veganAns == "Vegetables"):
+    elif (veggieAns == "Vegetables"):
         return multipliers.vegetables
-    elif (veganAns == "Broad bean"):
+    elif (veggieAns == "Broad bean"):
         return multipliers.broadBean
-
-def veganmeal():
-   
-    veganmealSide = input("Choose the side of the meal. Rice, Pasta, Potato or Vegetables")
-    if (veganmealSide == "Rice"):
-        return multipliers.rice
-    elif (veganmealSide == "Pasta"):
-        return multipliers.pasta
-    elif (veganmealSide == "Potato"):
-        return multipliers.potato
-    elif (veganmealSide == "Vegetables"):
-        return multipliers.vegetables
     
+    return 0
 
-veganMealProtein()
-veganmeal()
+def veggiemeal():
 
-FunctionSum = (sum(veganMealProtein + veganmeal))
-print (FunctionSum * amountOfPortions)
+    veggiemealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
+    if (veggiemealSide == "Rice"):
+        return multipliers.rice
+    elif (veggiemealSide == "Pasta"):
+        return multipliers.pasta
+    elif (veggiemealSide == "Potato"):
+        return multipliers.potato
+    elif (veggiemealSide == "Vegetables"):
+        return multipliers.vegetables
+
+    return 0
+
+def veggiemealEgg():
+    Egg = input("Does the meal have eggs? | Yes or No")
+    if (Egg == "Yes"):
+        return multipliers.egg
+    elif (Egg == "No"):
+        return 0
+
+    return 0
+
+def veggiemealDairy():
+    Dairy = input ("Does the meal have dairy products? | Yes or No")
+    if (Dairy == "Yes"):
+        return multipliers.cream
+    elif (Dairy == "No"):
+        return 0
+    
+    return 0
+
+def Co2ofVeggieMeal():
+    co2 = (int(amountOfPortions) * (veggieMealProtein() + veggiemeal() + veggiemealEgg()) + veggiemealDairy())
+    return co2
+
+#print (Co2ofVeggieMeal())
+
+def dessert(): 
+    pancakes = int(amountOfPortions) * multipliers.aPortionOfPancakes
+    kisel = int(amountOfPortions) * multipliers.aPortionOfKisel
+    dessertTotal = pancakes + kisel
+    return dessertTotal
+
+print(dessert())
