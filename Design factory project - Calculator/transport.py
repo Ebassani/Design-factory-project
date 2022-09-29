@@ -10,7 +10,7 @@ shortFlightUnder463kmEmission = shortFlightUnder463kmUserInput*shortFlightUnder4
 
 
 #Car
-carUserInput = float(input("Distance"))
+carDistanceUserInput = float(input("Distance"))
 #carFuelUserInput = input("Which fuel was used in car (unknown, diesel, petrol, natural gas, bio gas, electric car, hybrid, charging hybrid: ")
 #Fligts(pkm)
 shortFlightUnder463kmUserInput = float(input("Distance * Amount of passengers"))
@@ -62,33 +62,28 @@ ElectricKickboardRentUserInput = float(input("Distance"))
 ElectricBicycleUserInput = float(input("Distance"))
 BicycleUserInput = float(input("Distance"))
 KickboardUserInput = float(input("Distance"))
-
-
     
-def carFuelUserInput():
+def carEmissions():
+    carPassengersUserInput = float(input("Number of passengers: "))
     carFuelAnswer = input("Which fuel was used in car (unknown, diesel, petrol, natural gas, bio gas, electric car, hybrid, charging hybrid: ")
     if (carFuelAnswer == "unknown"):
-        return unknownFuel
+        return carDistanceUserInput*unknownFuel/carPassengersUserInput
     elif (carFuelAnswer == "diesel"):
-        return diesel
+        return carDistanceUserInput*diesel/carPassengersUserInput
     elif (carFuelAnswer == "petrol"):
-        return petrol
+        return carDistanceUserInput*petrol/carPassengersUserInput
     elif (carFuelAnswer == "natural gas"):
-        return naturalGas
+        return carDistanceUserInput*naturalGas/carPassengersUserInput
     elif (carFuelAnswer == "bio gas"):
-        return bioGas
+        return carDistanceUserInput*bioGas
     elif (carFuelAnswer == "electric car"):
-        return electricCar
+        return carDistanceUserInput*electricCar/carPassengersUserInput
     elif (carFuelAnswer == "hybrid"):
-        return hybrid
+        return carDistanceUserInput*hybrid/carPassengersUserInput
     elif (carFuelAnswer == "chargingHybrid"):
-        return chargingHybrid
-carFuelUserInput()
+        return (carDistanceUserInput*chargingHybrid)/carPassengersUserInput
+carEmissions()
 
-def userEmissionsCarFuel():
-    carEmission = carUserInput*carFuelUserInput()
-    return carEmission
-userEmissionsCarFuel()
 
 def userEmissionsFlights():
     #kgCO2e
