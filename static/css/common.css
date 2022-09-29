@@ -159,4 +159,24 @@ html, body {
     z-index:4;
     transition: 0.5s;
     color: snow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.overlay__links {
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay__links h3 {
+    cursor: pointer;
+    margin: 1rem;
+}
+
+@media screen and (min-width: 980px) {
+    .menu__mobile {
+        display: none;
+    }
+}
+
