@@ -34,6 +34,10 @@ def index():  # put application's code here
 def introduction():
     return render_template('introduction.html')
 
+@app.route('/currentstate')
+def currentstate():
+    return render_template('currentstate.html')
+
 @app.route('/create')
 def generate_db():
     create_table()
@@ -46,6 +50,22 @@ def generate_db():
 @app.route('/login')
 def login():
     return render_template('loginPage.html')
+
+@app.route('/food')
+def food():
+    return render_template('food.html')
+
+@app.route('/attitude')
+def attitude():
+    return render_template('attitude.html')
+
+@app.route('/motion')
+def motion():
+    return render_template('motion.html')
+
+@app.route('/infrastructure')
+def infrastructure():
+    return render_template('infrastructure.html')
 
 
 @app.route('/login-authentication', methods=['POST'])

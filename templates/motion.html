@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/introduction.css') }}">
+    <script src="{{ url_for('static', filename= 'javascript/scripts.js') }}"></script>
+    <title>Motion</title>
+</head>
+<body>
+
+{% include 'menu.html' %}
+{% include 'mobileMenu.html' %}
+
+<div class="content__title">
+    <h1>Carbon Calculator for Schools</h1>
+</div>
+
+<div class="content">
+<div class="content__text">
+    <h2>Motion</h2>
+<p>There is always motion in schools, one is coming and another is going. 
+    School trips are being planned and charter services are ordered. 
+    There is just so much to see and experience. Motion is constant. What matters is what causes it. 
+    A van can be powered by a diesel guzzling engine, or a smoothly purring electric engine.</p>
+
+<h2>But You Have to Get to School Somehow!</h2>
+<p>Statistically you travel 26 km in a day. 18 km of this you sit in a car, one kilometer you go by bike, and one on foot. 
+    There are others sitting in cars too, since over 75% of the travelling emissions by Finns are caused by cars. 
+    It’s not possible for everyone to come to school on foot or by bike, but for many it would be. 
+    This applies to teachers too! Using muscle energy for commuting is your biggest environmental 
+    act after a good lunch choice.</p>
+
+<h2>Got Motivation to Change?</h2>
+
+<p>Trips and excursions are known to cheer up the school year. Though, vehicle choices are often steered by the trinity of Now,
+     Cheap, and Easy. With a little imagination, anticipation, and planning, the journey could become not only climate friendly,
+      but also more fun. By the way, the word “motivation” comes from the Latin word for moving, “movere”.</p>
+
+</div>
+</div>
+</body>
+</html>

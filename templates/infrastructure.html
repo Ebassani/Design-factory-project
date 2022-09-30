@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/introduction.css') }}">
+    <script src="{{ url_for('static', filename= 'javascript/scripts.js') }}"></script>
+    <title>Food</title>
+</head>
+<body>
+
+{% include 'menu.html' %}
+{% include 'mobileMenu.html' %}
+
+<div class="content__title">
+    <h1>Carbon Calculator for Schools</h1>
+</div>
+
+<div class="content">
+<div class="content__text">
+    <h1>Infrastructure</h1>
+<p>Vans are actually quite beautiful things. The body designed for transporting things looks straightforward and practical. 
+    Upper secondary school buildings were designed for use too. In addition to people, also energy, light, water, 
+    and materials are flowing inside it. Vans and schools are all individuals, but roughly speaking half of your school’s 
+    carbon footprint was born during its construction and the other half comes from the use taking place in it now. 
+    So, it makes sense to take good care of it.</p>
+
+<h2>Turn Down the Heater</h2>
+<p>About one third of a school’s carbon emissions comes from the heating. 
+    This number is a bit tricky to affect, but discussing the classroom temperature is always useful. 
+    Many schools use district heating which unfortunately is often produced from fossil fuels, even peat. 
+    Maybe this calls for social influencing?</p>
+
+<h2>The Digital Leap Consumes Energy</h2>
+
+<p>Almost as much carbon is released into the atmosphere by electricity as by heating in schools. 
+    After moving to digital textbooks, electricity might not be the best way to reduce emissions any time soon. 
+    Is the electricity in our school produced with renewable energy? Are solar panels used, with all that free roof area 
+    available? It’s best not to let water run for nothing and not to illuminate empty rooms.</p>
+
+<h2>Ignore the Trashcan</h2>
+<p>The world can’t be saved by recycling, not even the school. Waste creates only a small percentage of emissions.
+     What’s important is that waste is not created at all. Therefore, we should focus for example on the number of digital 
+     apparatuses eager teachers keep carrying into the classrooms. They all have a short operational lifetime in common. 
+     The mining industry thanks, the climate does not.</p>
+
+</div>
+</div>
+</body>
+</html>
