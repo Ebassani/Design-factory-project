@@ -1,9 +1,9 @@
 from audioop import mul
-import multipliers
+from multipliers import *
 
 
 
-amountOfPortions = input("How many portions we're made")
+amountOfPortions = float(input("How many portions we're made"))
 
 # SCHOOL INFORMATION -- FOOD
 
@@ -13,81 +13,97 @@ def meatMealProtein():
     meatAns = input("Which protein does the meal have? Fish, Pig, Cow, Chicken or Sausage?")
 
     if (meatAns == "Fish"):
-        return multipliers.fish
+        return fish
     elif (meatAns == "Pig"):
-        return multipliers.pig
+        return pig
     elif (meatAns == "Cow"):
-        return multipliers.cow
+        return cow
     elif (meatAns == "Chicken"):
-        return multipliers.chicken
+        return chicken
     elif (meatAns == "Sausage"):
-        return multipliers.sausage
+        return sausage
 
     return 0
+
+meatMeal = meatMealProtein()
+
 # WORKING
 def veggieMealProtein():
 
     veggieAns = input("Which protein does the meal have? Soygrits, Tofu, Vegetables or Broad bean?")
 
     if (veggieAns == "Soygrits"):
-        return multipliers.soyGrits
+        return soyGrits
     elif (veggieAns == "Tofu"):
-        return multipliers.tofu
+        return tofu
     elif (veggieAns == "Vegetables"):
-        return multipliers.vegetables
+        return vegetables
     elif (veggieAns == "Broad bean"):
-        return multipliers.broadBean
+        return broadBean
     
     return 0
+
+veggieMeal = veggieMealProtein()
+
 # WORKING
 def veganMealProtein():
 
     veganAns = input("Which protein does the meal have? Soygrits, Tofu, Vegetables or Broad bean?")
 
     if (veganAns == "Soygrits"):
-        return multipliers.soyGrits
+        return soyGrits
     elif (veganAns == "Tofu"):
-        return multipliers.tofu
+        return tofu
     elif (veganAns == "Vegetables"):
-        return multipliers.vegetables
+        return vegetables
     elif (veganAns == "Broad bean"):
-        return multipliers.broadBean
+        return broadBean
 
     return 0
+
+veganMeal = veganMealProtein()
 
 def meatmealSide():
     
     meatMealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
     
     if (meatMealSide == "Rice"):
-        return multipliers.rice
+        return rice
     elif (meatMealSide == "Pasta"):
-        return multipliers.pasta
+        return pasta
     elif (meatMealSide == "Potato"):
-        return multipliers.potato
+        return potato
     elif (meatMealSide == "Vegetables"):
-        return multipliers.vegetables
+        return vegetables
     
     return 0
+
+meatMealSide = meatmealSide()
 
 def meatmealEgg():
     Egg = input("Does the meal have eggs? | Yes or No")
     if (Egg == "Yes"):
-        return multipliers.egg
+        return egg
     elif (Egg == "No"):
         return 0
+
+meatMealEgg = meatmealEgg()
 
 def meatmealDairy():
 
     Dairy = input ("Does the meal have cream? | Yes or No")
     if (Dairy == "Yes"):
-        return multipliers.cream
+        return cream
     elif (Dairy == "No"):
         return 0
 
+meatMealDairy = meatmealDairy()
+
 def Co2OfMeatMeal():
-    Co2OfMeatMeal = amountOfPortions * (meatMealProtein + meatmealSide + meatmealEgg+ meatmealDairy)
+    Co2OfMeatMeal = amountOfPortions * (meatMeal + meatMealSide + meatMealEgg + meatMealDairy)
     return Co2OfMeatMeal
+
+Co2OfMeat = Co2OfMeatMeal()
 
 
 def veggiemeal():

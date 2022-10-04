@@ -75,6 +75,7 @@ def carEmissions():
     elif (carFuelAnswer == "chargingHybrid"):
         return (carDistanceUserInput*chargingHybrid)/carPassengersUserInput
 carEmissions()
+Car = carEmissions()
 
 
 def userEmissionsFlights():
@@ -85,6 +86,7 @@ def userEmissionsFlights():
     longFlightsOver3700kmEmission = longFlightsOver3700kmUserInput*shortFlightUnder463km
     return shortFlightUnder463kmEmission + longFligtsOverHomelandOver463kmEmission + longFlightsAbroadOver463kmEmission + longFlightsOver3700kmEmission
 userEmissionsFlights()
+flights = userEmissionsFlights()
 
 def userEmissionsPublicTransport():
     #kgCO2e
@@ -96,14 +98,14 @@ def userEmissionsPublicTransport():
     TramEmission = TramUserInput*Tram
     return BusShortDistanceEmission + BusLongDistanceEmission + TrainLongDistanceEmission + TrainShortDistanceEmission + MetroEmission + TramEmission
 userEmissionsPublicTransport()
+publicTransportEmission = userEmissionsPublicTransport()
 
 def userEmissionsPublicTransportAbroad():
     TrainAbroadEmission = TrainAbroadUserInput*TrainAbroad
     BusAbroadEmission = BusAbroadUserInput*BusAbroad
     return TrainAbroadEmission + BusAbroadEmission
 userEmissionsPublicTransportAbroad()
-
-
+publicTransportEmissionAbroad = userEmissionsPublicTransportAbroad()
 
 def userEmissionsCarTraffic():      
     #kgCO2e
@@ -125,6 +127,7 @@ def userEmissionsBusinessAndClassTrips():
     taxiEmission = taxiUserInput*taxi
     return rentalBusEmission + hotelStaysEmission + taxiEmission
 userEmissionsBusinessAndClassTrips()
+BusinessAndClassTrips = userEmissionsBusinessAndClassTrips()
 
 def userEmissionsOtherVehicles():
     #kgCO2e
@@ -139,7 +142,7 @@ userEmissionsOtherVehicles()
 
 
 
-def publicTransport():
+def personalPublicTransport():
     #kgCO2e
     BusAbroadLongDistanceEmission = BusShortDistanceUserInput*BusShortDistance
     BusAbroadShortDistanceEmission = BusLongDistanceUserInput*BusLongDistance
@@ -148,7 +151,7 @@ def publicTransport():
     MetroAbroadEmission = MetroUserInput*Metro
     TramAbroadEmission = TramUserInput*Tram
     return BusAbroadLongDistanceEmission + BusAbroadShortDistanceEmission + TrainAbroadLongDistanceEmission + TrainAbroadShortDistanceEmission + MetroAbroadEmission + TramAbroadEmission
-publicTransport()
+personalPublicTransport()
 
 def otherEmissions():
     ElectricKickboardRentEmission = ElectricKickboardRentUserInput*ElectricKickboardRent
