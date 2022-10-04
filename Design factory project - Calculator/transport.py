@@ -1,14 +1,6 @@
 from multipliers import *
 
-shortFlightUnder463kmUserInput = (input("Distance * Amount of passengers"))
-shortFlightUnder463kmUserInput = float(shortFlightUnder463kmUserInput)
-shortFlightUnder463kmEmission = shortFlightUnder463kmUserInput*shortFlightUnder463km
-
-
-
-
-
-
+#USER INPUTS
 #Car
 carDistanceUserInput = float(input("Distance"))
 #carFuelUserInput = input("Which fuel was used in car (unknown, diesel, petrol, natural gas, bio gas, electric car, hybrid, charging hybrid: ")
