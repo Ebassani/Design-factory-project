@@ -242,12 +242,13 @@ overview()
 
 # WORKING
 def drinks():
-    water = int(amountOfPortions) * 0
-    milk = int(amountOfPortions) * ((multipliers.milk/1000)*170)
-    oatMilk = int(amountOfPortions) * ((multipliers.oatDrink/1000)*170)
-    coffee = int(amountOfPortions) * ((multipliers.coffee/1000)*170)
-    tea = int(amountOfPortions) * ((multipliers.tea/1000)*170)
-    return water + milk + oatMilk + coffee + tea 
+    water1 = float(amountOfPortions) * 0
+    milk1 = float(amountOfPortions) * ((milk/1000)*170)
+    oatMilk1 = float(amountOfPortions) * ((oatDrink/1000)*170)
+    coffee1 = float(amountOfPortions) * ((coffee/1000)*170)
+    tea1 = float(amountOfPortions) * ((tea/1000)*170)
+    return water1 + milk1 + oatMilk1 + coffee1 + tea1 
+Drinks = drinks()
 
 #Working
 def others():
@@ -258,46 +259,42 @@ def others():
 Others = others()
 
 # Works when personallunch works
-def foodWaste(ans):
+def foodWaste():
     ans = input("How much did you throw away? (Not at all | Half a plate | Over half a plate)")
-    if ans:
-        ans = "Not at all"
+    if (ans == "Not at all"):
         return 0
-    
-    elif ans:
-        ans = "Half a plate"
-        return (personalLunch + drinks + others)/1.5
-
-    elif ans:
-        ans = "Over a half a plate"
-        return (personalLunch + drinks + others)/2.5
-
-    return 0
+    elif (ans == "Half a plate"):
+        return (personalLunch + Drinks + Others)/1.5
+    elif (ans == "Over a half a plate"):
+        return (personalLunch + Drinks + Others)/2.5
+FoodWaste = foodWaste()
 
 # Working
 def proteins():
-    fish = int(amountOfPortions) * ((multipliers.fish/1000)*170)
-    cow = int(amountOfPortions) * ((multipliers.cow/1000)*170)
-    pig = int(amountOfPortions) * ((multipliers.pig/1000)*170)
-    chicken = int(amountOfPortions) * ((multipliers.chicken/1000)*170)
-    sausage = int(amountOfPortions) * ((multipliers.sausage/1000)*170)
-    soy = int(amountOfPortions) * (multipliers.soyGrits/1000*170)
-    broadBean = int(amountOfPortions) * (multipliers.broadBean/1000*170)
-    tofu = int(amountOfPortions) * (multipliers.tofu/1000*170)
-    vegetables = int(amountOfPortions) * (multipliers.vegetables/1000*170)
-    Egg = int(amountOfPortions) * (multipliers.egg/1000*60)
-    cream = int(amountOfPortions) * (multipliers.cream/1000*60)
-    proteinsTotal = fish + cow + pig + chicken + sausage + soy + broadBean + tofu + vegetables + Egg + cream
+    fish1 = float(amountOfPortions) * ((fish/1000)*170)
+    cow1 = float(amountOfPortions) * ((cow/1000)*170)
+    pig1 = float(amountOfPortions) * ((pig/1000)*170)
+    chicken1 = float(amountOfPortions) * ((chicken/1000)*170)
+    sausage1 = float(amountOfPortions) * ((sausage/1000)*170)
+    soy1 = float(amountOfPortions) * (soyGrits/1000*170)
+    broadBean1 = float(amountOfPortions) * (broadBean/1000*170)
+    tofu1 = float(amountOfPortions) * (tofu/1000*170)
+    vegetables1 = float(amountOfPortions) * (vegetables/1000*170)
+    Egg1 = float(amountOfPortions) * (egg/1000*60)
+    cream1 = float(amountOfPortions) * (cream/1000*60)
+    proteinsTotal = fish1 + cow1 + pig1 + chicken1 + sausage1 + soy1 + broadBean1 + tofu1 + vegetables1 + Egg1 + cream1
     return proteinsTotal
+Proteins = proteins()
 
 # Working
 def carboHydrates():
-    potato = int(amountOfPortions) * (multipliers.potato/1000*150)
-    rice = int(amountOfPortions) * (multipliers.rice/1000*100)
-    pasta = int(amountOfPortions) * (multipliers.pasta/1000*120)
-    rootVegetables = int(amountOfPortions) * (multipliers.rootVegetables/1000*150)
-    carboHydratesTotal = potato + rice + pasta + rootVegetables
+    potato1 = float(amountOfPortions) * (potato/1000*150)
+    rice1 = float(amountOfPortions) * (rice/1000*100)
+    pasta1 = float(amountOfPortions) * (pasta/1000*120)
+    rootVegetables1 = float(amountOfPortions) * (rootVegetables/1000*150)
+    carboHydratesTotal = potato1 + rice1 + pasta1 + rootVegetables1
     return carboHydratesTotal
+Carbohydrates = carboHydrates()
 
 # Working
 def dessert(): 
@@ -308,8 +305,8 @@ def dessert():
 Dessert = dessert()
 
 #In progress (Cannot sum functions for some reason)
-personalLunch = int(amountOfPortions) * (drinks() + carboHydrates() + dessert())
-total = (personalLunch + drinks() + others() + foodWaste())
+personalLunch = float(amountOfPortions) * (Drinks + Carbohydrates + Dessert)
+total = (personalLunch + Drinks + Others + FoodWaste)
 
 
 

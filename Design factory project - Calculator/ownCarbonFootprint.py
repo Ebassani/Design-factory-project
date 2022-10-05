@@ -44,3 +44,21 @@ def Acquisitions():
         return (userEmissionAquisition+userEmissionItem)/usersOfBuilding
     if (OwnInfraEmissions == 0):
         return 0
+
+def ownFoodEmissions():
+    return
+
+def proteinsOwnEmission():
+    return Proteins
+
+def carboHydratesOwnEmissios():
+    return Carbohydrates
+
+def otherFoodOwnEmissions():
+    return Others
+
+def drinksOwnEmissions():
+    return Drinks
+
+def foodWasteOwnEmissions():
+    return FoodWaste
