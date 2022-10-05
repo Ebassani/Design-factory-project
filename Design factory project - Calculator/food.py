@@ -1,5 +1,5 @@
 from audioop import mul
-from multipliers import *
+import multipliers
 
 
 
@@ -9,169 +9,149 @@ amountOfPortions = float(input("How many portions we're made"))
 
 # WORKING
 def meatMealProtein():
-    meatAns = input("Which protein does the meal have? Fish, Pig, Cow, Chicken or Sausage?")
+
+    meatAns = input("Which protein does the meat meal have? Fish, Pig, Cow, Chicken or Sausage?")
+
     if (meatAns == "Fish"):
-        return fish
+        return ((multipliers.fish)/1000*170)
     elif (meatAns == "Pig"):
-        return pig
+        return ((multipliers.pig)/1000*170)
     elif (meatAns == "Cow"):
-        return cow
+        return ((multipliers.cow)/1000*170)
     elif (meatAns == "Chicken"):
-        return chicken
+        return ((multipliers.chicken)/1000*170)
     elif (meatAns == "Sausage"):
-        return sausage
+        return ((multipliers.sausage)/1000*170)
+
     return 0
-meatMeal = meatMealProtein()
-
-
-
 # WORKING
 def veggieMealProtein():
-    veggieAns = input("Which protein does the meal have? Soygrits, Tofu, Vegetables or Broad bean?")
+
+    veggieAns = input("Which protein does the veggie meal have? Soygrits, Tofu, Vegetables or Broad bean?")
+
     if (veggieAns == "Soygrits"):
-        return soyGrits
+        return ((multipliers.soyGrits)/1000*170)
     elif (veggieAns == "Tofu"):
-        return tofu
+        return ((multipliers.tofu)/1000*170)
     elif (veggieAns == "Vegetables"):
-        return vegetables
+        return ((multipliers.vegetables)/1000*170)
     elif (veggieAns == "Broad bean"):
-        return broadBean
+        return ((multipliers.broadBean)/1000*170)
+    
     return 0
-veggieMeal = veggieMealProtein()
-
-
+# WORKING
 
 
 def meatmealSide():
-    meatMealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
+    
+    meatMealSide = input("Choose the side of the meat meal. Rice, pasta, potato or vegetables")
+    
     if (meatMealSide == "Rice"):
-        return rice
+        return ((multipliers.rice)/1000*150)
     elif (meatMealSide == "Pasta"):
-        return pasta
+        return ((multipliers.pasta)/1000*150)
     elif (meatMealSide == "Potato"):
-        return potato
+        return ((multipliers.potato)/1000*150)
     elif (meatMealSide == "Vegetables"):
-        return vegetables
+        return ((multipliers.vegetables)/1000*150)
+    
     return 0
-meatMealSide = meatmealSide()
-
-
 
 def meatmealEgg():
-    Egg = input("Does the meal have eggs? | Yes or No")
+    Egg = input("Does the meat meal have eggs? | Yes or No")
     if (Egg == "Yes"):
-        return egg
+        return ((multipliers.egg)/1000*105)
     elif (Egg == "No"):
         return 0
-meatMealEgg = meatmealEgg()
-
-
 
 def meatmealDairy():
-    Dairy = input ("Does the meal have cream? | Yes or No")
+
+    Dairy = input ("Does the meat meal have cream? | Yes or No")
     if (Dairy == "Yes"):
-        return cream
+        return ((multipliers.cream)/1000*105)
     elif (Dairy == "No"):
         return 0
-meatMealDairy = meatmealDairy()
-
-
 
 def Co2OfMeatMeal():
-    Co2OfMeatMeal = amountOfPortions * (meatMeal + meatMealSide + meatMealEgg + meatMealDairy)
+    Co2OfMeatMeal = amountOfPortions * (meatMealProtein() + meatmealSide() + meatmealEgg() + meatmealDairy())
     return Co2OfMeatMeal
-Co2OfMeat = Co2OfMeatMeal()
 
 
 def veggiemealSide():
-    veggiemealSide = input("Choose the side of the meal. Rice, pasta, potato or vegetables")
+
+    veggiemealSide = input("Choose the side of the veggie meal. Rice, pasta, potato or vegetables")
     if (veggiemealSide == "Rice"):
-        return rice
+        return ((multipliers.rice)/1000*150)
     elif (veggiemealSide == "Pasta"):
-        return pasta
+        return ((multipliers.pasta)/1000*150)
     elif (veggiemealSide == "Potato"):
-        return potato
+        return ((multipliers.potato)/1000*150)
     elif (veggiemealSide == "Vegetables"):
-        return vegetables
+        return ((multipliers.vegetables)/1000*150)
+
     return 0
-veggieMealSide = veggiemealSide()
-
-
-
 def veggiemealEgg():
-    Egg = input("Does the meal have eggs? | Yes or No")
+    Egg = input("Does the veggie meal have eggs? | Yes or No")
     if (Egg == "Yes"):
-        return egg
+        return ((multipliers.egg)/1000*105)
     elif (Egg == "No"):
         return 0
 
     return 0
 
-veggieMealEgg = veggiemealEgg()
-
-
-
 def veggiemealDairy():
-    Dairy = input ("Does the meal have dairy products? | Yes or No")
+    Dairy = input ("Does the veggie meal have dairy products? | Yes or No")
     if (Dairy == "Yes"):
-        return cream
+        return ((multipliers.cream)/1000*105)
     elif (Dairy == "No"):
         return 0
     
     return 0
 
-veggieMealDairy = veggiemealDairy()
-
-
-
 def Co2ofVeggieMeal():
-    co2 = (float(amountOfPortions) * (veganMeal + veggieMealSide + veggieMealEgg) + veggieMealDairy)
+    co2 = (int(amountOfPortions) * (veggieMealProtein() + veggiemealSide() + veggiemealEgg()) + veggiemealDairy())
     return co2
 
-Co2OfVeggieMeal = Co2ofVeggieMeal()
-
-
-
 def veganMealProtein():
-    veganAns = input("Which protein does the meal have? Soygrits, Tofu, Vegetables or Broad bean?")
-    if (veganAns == "Soygrits"):
-        return soyGrits
-    elif (veganAns == "Tofu"):
-        return tofu
-    elif (veganAns == "Vegetables"):
-        return vegetables
-    elif (veganAns == "Broad bean"):
-        return broadBean
-    return 0
-veganMeal = veganMealProtein()
 
+    veganAns = input("Which protein does the vegan meal have? Soygrits, Tofu, Vegetables or Broad bean?")
+
+    if (veganAns == "Soygrits"):
+        return ((multipliers.soyGrits)/1000*170)
+    elif (veganAns == "Tofu"):
+        return ((multipliers.tofu)/1000*170)
+    elif (veganAns == "Vegetables"):
+        return ((multipliers.vegetables)/1000*170)
+    elif (veganAns == "Broad bean"):
+        return ((multipliers.broadBean)/1000*170)
+
+    return 0
 
 def veganmealSide():
-    veganmeal = input("Choose the side of the meal. Rice, Pasta, Potato or Vegetables")
+   
+    veganmeal = input("Choose the side of the vegan meal. Rice, Pasta, Potato or Vegetables")
     if (veganmeal == "Rice"):
-        return rice
+        return ((multipliers.rice)/1000*170)
     elif (veganmeal == "Pasta"):
-        return pasta
+        return ((multipliers.pasta)/1000*170)
     elif (veganmeal == "Potato"):
-        return potato
+        return ((multipliers.potato)/1000*170)
     elif (veganmeal == "Vegetables"):
-        return vegetables
-veganMealSide = veganmealSide()
+        return ((multipliers.vegetables)/1000*170)
     
-
-def Co2ofVeganMeal():
-    return (float(amountOfPortions) * (veganMealSide + veganMeal))
-Co2OfVeganMeal = Co2ofVeganMeal()
+def Co2OfVeganMeal():
+      return (int(amountOfPortions) * (veganmealSide() + veganMealProtein()))
 
 # WORKING
 def dessert():
 
-    pancake = float(amountOfPortions) * 0.206
-    kisel = float(amountOfPortions) * 0.040
-    return (float(amountOfPortions) * (pancake + kisel))
+    pancake = int(amountOfPortions) * 0.206
+    kisel = int(amountOfPortions) * 0.040
+    return (int(amountOfPortions) * (pancake + kisel))
 
 # WORKING
 def others():
+    
     ryeBread = (int(amountOfPortions) * 1.3/1000*30)
     wheatBread = (int(amountOfPortions) * 1.7/1000*30)
     salad = int(amountOfPortions) * 0.265
@@ -182,62 +162,46 @@ def others():
 
 # IN PROGRESS
 def surplusFood():
-    amountKG = float(input("The amount of surplus in KG"))
-    meat = (((meatMeal) /1000*170)/170)*1000*amountKG
-    veggie = (((veggieMeal)/1000*170)/170)*1000*amountKG
-    vegan = (((veganMeal)/1000*170)/170)*amountKG*1000
-    sides = (((meatMealSide/1000*150)/150)+((veggieMealSide/1000*150)/150)+((veganMealSide)/1000*150)/150)/3*amountKG*1000
-    salad = aPortionOfSalad / 150 * 1000 * amountKG
-    bread = (ryeBread + wheatBread) / 2 * amountKG
-    dessert = ((aPortionOfKisel + aPortionOfPancakes)/2)/150*1000*amountKG
-    return meat + veggie + vegan + float(sides) + salad + bread + dessert
+    print ("Information for calculating surplusfood")
+    amountKG = int(input("The amount of surplus in KG"))
+    meat = (((meatMealProtein()) /1000*170)/170)*1000*amountKG
+    veggie = (((veggieMealProtein())/1000*170)/170)*1000*amountKG
+    vegan = (((veganMealProtein())/1000*170)/170)*amountKG*1000
+    sides = (((meatmealSide()/1000*150)/150)+((veggiemealSide()/1000*150)/150)+((veganmealSide())/1000*150)/150)/3*amountKG*1000
+    salad = (multipliers.aPortionOfSalad) / 150 * 1000 * amountKG
+    bread = (multipliers.ryeBread + multipliers.wheatBread) / 2 * amountKG
+    dessert = ((multipliers.aPortionOfKisel + multipliers.aPortionOfPancakes)/2)/150*1000*amountKG
+    return meat + veggie + vegan + sides + salad + bread + dessert
 
 # IN PROGRESS
 def foodDistribution():
+    print("Information to calculate food distribution")
     costOfaMeal =  int(input("Cost of the meal in €"))
     meatMealsSold = int(input("The amount of meat meals sold"))
     veggieMealsSold = int(input("The amount of veggie meals sold"))
     veganMealsSold = int(input("The amount of vegan meals sold"))
-    meat = meatMealsSold/costOfaMeal * (meatMealProtein + meatmealSide + meatmealEgg + meatmealDairy + multipliers.aPortionOfSalad + 1.5/1000*30)
-    veggie = veggieMealsSold/costOfaMeal * (veggieMealProtein + veggiemealSide + veggiemealEgg + veggiemealDairy + multipliers.aPortionOfPancakes+1.5/1000*30)
-    vegan = veganMealsSold/costOfaMeal *(veganMealProtein + veganmealSide +multipliers.aPortionOfSalad+1.5/1000*30)
+    meat = meatMealsSold/costOfaMeal * ((meatMealProtein() + meatmealSide() + meatmealEgg() + meatmealDairy() + multipliers.aPortionOfSalad) + 1.5/1000*30)
+    veggie = veggieMealsSold/costOfaMeal * ((veggieMealProtein() + veggiemealSide() + veggiemealEgg() + veggiemealDairy() + multipliers.aPortionOfPancakes) + 1.5 / 1000 * 30)
+    vegan = veganMealsSold/costOfaMeal * ((veganMealProtein() + veganmealSide() + multipliers.aPortionOfSalad) + 1.5 / 1000 * 30)
     return costOfaMeal + meatMealsSold + veggieMealsSold + veganMealsSold + meat + veggie + vegan
 
-# IN PROGRESS
+# IN PROGRESScs
 def electricity():
-    amountofmealsCentral = int(input("How many meals we're made combined?"))
-    amountOfMealsHeating = int(input("How many meals we're made combined?"))
+    print("Information to calculate electricity")
+    amountofmealsCentral = int(input("How many meals we're made in central and heating kitchen combined?"))
+    amountOfMealsHeating = int(input("How many meals we're made in preparation and heating kitchen combined?"))
     cookingAndCentralKitchen = multipliers.AverageElectricity * multipliers.PreparationAndCentralKitchenPerMeal*amountofmealsCentral
     cookingAndHeatingKitchen = multipliers.AverageElectricity * multipliers.PreparationAndHeatingKitchenPerMeal*amountOfMealsHeating
     return cookingAndCentralKitchen + cookingAndHeatingKitchen
 
 # IN PROGRESS
 def overview():
-    cafeteriaConsumption = electricity
-    surplusFoodCO2Footprint = surplusFood
-    foodDistributionCO2Footprint = foodDistribution
-    foodCO2Footprint = Co2OfMeatMeal + Co2ofVeggieMeal + veganmealSide + dessert + others
+    cafeteriaConsumption = electricity()
+    surplusFoodCO2Footprint = surplusFood()
+    foodDistributionCO2Footprint = foodDistribution()
+    foodCO2Footprint = (Co2OfMeatMeal() + Co2ofVeggieMeal() + veganmealSide() + dessert() + others())
     return cafeteriaConsumption + surplusFoodCO2Footprint + foodDistributionCO2Footprint + foodCO2Footprint 
     
-meatMealProtein()
-meatmealSide()
-meatmealEgg()
-meatmealDairy()
-Co2OfMeatMeal()
-veggieMealProtein()
-veggiemealSide()
-veggiemealEgg()
-veggiemealDairy()
-Co2ofVeggieMeal
-veganMealProtein()
-veganmealSide()
-dessert()
-others()
-surplusFood()
-foodDistribution()
-electricity()
-overview()
-
 #Food info - Personal
 
 # WORKING
@@ -252,13 +216,13 @@ Drinks = drinks()
 
 #Working
 def others():
-    ryeBreadEmission = float(amountOfPortions) * ((ryeBread/1000)*30)
-    wheatBreademission = float(amountOfPortions) * ((wheatBread/1000)*30)
-    saladEmission = float(amountOfPortions) * (aPortionOfSalad)
-    return ryeBreadEmission + wheatBreademission + saladEmission
-Others = others()
+    ryeBread = int(amountOfPortions) * ((multipliers.ryeBread/1000)*30)
+    wheatBread = int(amountOfPortions) * ((multipliers.wheatBread/1000)*30)
+    salad = int(amountOfPortions) * (multipliers.aPortionOfSalad)
+    return ryeBread + wheatBread + salad
 
 # Works when personallunch works
+
 def foodWaste():
     ans = input("How much did you throw away? (Not at all | Half a plate | Over half a plate)")
     if (ans == "Not at all"):
@@ -268,6 +232,23 @@ def foodWaste():
     elif (ans == "Over a half a plate"):
         return (personalLunch + Drinks + Others)/2.5
 FoodWaste = foodWaste()
+
+def foodWaste():
+    answer = input("How much did you throw away? (Not at all | Half a plate | Over half a plate)")
+    if answer:
+        answer = "Not at all"
+        return 0
+    
+    elif answer:
+        answer = "Half a plate"
+        return (personalLunch + drinks + others)/1.5
+
+    elif answer:
+        answer = "Over a half a plate"
+        return (personalLunch + drinks + others)/2.5
+
+    return 0
+
 
 # Working
 def proteins():
@@ -298,15 +279,19 @@ Carbohydrates = carboHydrates()
 
 # Working
 def dessert(): 
-    pancakes = float(amountOfPortions) * aPortionOfPancakes
-    kisel = float(amountOfPortions) * aPortionOfKisel
+    pancakes = int(amountOfPortions) * multipliers.aPortionOfPancakes
+    kisel = int(amountOfPortions) * multipliers.aPortionOfKisel
     dessertTotal = pancakes + kisel
     return dessertTotal
-Dessert = dessert()
 
 #In progress (Cannot sum functions for some reason)
+
 personalLunch = float(amountOfPortions) * (Drinks + Carbohydrates + Dessert)
 total = (personalLunch + Drinks + Others + FoodWaste)
+
+#personalLunch = int(amountOfPortions) * (drinks() + carboHydrates() + dessert())
+#total = (personalLunch + drinks() + others() + foodWaste())
+
 
 
 
