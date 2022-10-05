@@ -21,8 +21,8 @@ ElectricCoolingInput=float(input("How much eletricity consumption you have for E
 
     #Airconditioning(Time)
 
-"""Airconditiontype=float(input("What type of Airconditioning?removal or removal and insertional both"))
-HoursPerDay=float(input("Hours"))"""
+Airconditiontype=float(input("What type of Airconditioning?removal or removal and insertional both"))
+HoursPerDay=float(input("Hours"))
 
     #WasteDistribution(Wieght)
 
@@ -89,15 +89,15 @@ EnergyEmission = userEmissionEnergy()
 
 
 
-"""def AircoditionarTypeuserInput(AircoditionarTypeAnswer):
+def AircoditionarTypeuserInput(AircoditionarTypeAnswer):
     if (AircoditionarTypeAnswer == "removal"):
-        return multipliers.OnlyExit
+        return OnlyExit
     elif(AircoditionarTypeAnswer == "removal and insertional"):
-        return multipliers.EntryAndExit
+        return EntryAndExit
     
-    HoursPerDayEmission = userInputs.HoursPerDay*multipliers.Ventilation.HoursPerDay
+    HoursPerDayEmission = HoursPerDay*AircoditionarTypeAnswer
     
-    return HoursPerDayEmission"""
+    return HoursPerDayEmission
     
 def userEmissionMixedWaste():
     
