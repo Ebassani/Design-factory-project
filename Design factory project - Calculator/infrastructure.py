@@ -89,7 +89,7 @@ EnergyEmission = userEmissionEnergy()
 
 
 
-def AircoditionarTypeuserInput(AircoditionarTypeAnswer):
+def AircoditionarTypeuserInput(HoursPerDay,AircoditionarTypeAnswer):
     if (AircoditionarTypeAnswer == "removal"):
         return OnlyExit
     elif(AircoditionarTypeAnswer == "removal and insertional"):
@@ -98,6 +98,7 @@ def AircoditionarTypeuserInput(AircoditionarTypeAnswer):
     HoursPerDayEmission = HoursPerDay*AircoditionarTypeAnswer
     
     return HoursPerDayEmission
+UserAiconditinorEmission=AircoditionarTypeuserInput()
     
 def userEmissionMixedWaste():
     
@@ -161,6 +162,7 @@ def userEmissionItems():
 userEmissionItem = userEmissionItems()
 
 userEmissionEnergy()
+AircoditionarTypeuserInput()
 userEmissionMixedWaste()
 userEmissionAquisitions()
 userEmissionItems()

@@ -1,6 +1,8 @@
 from multipliers import *
 
 #USER INPUTS
+#School work/trips
+tripsAndWorkParticipants = float(input("Amount of participants"))
 #Car
 carDistanceUserInput = float(input("Distance"))
 #carFuelUserInput = input("Which fuel was used in car (unknown, diesel, petrol, natural gas, bio gas, electric car, hybrid, charging hybrid: ")
@@ -118,7 +120,7 @@ def userEmissionsCarTraffic():
     hybridEmission = hybridUserInput*hybrid
     chargingHybridEmission = chargingHybridUserInput*chargingHybrid
     return unknownFuelEmission + dieselEmission + petrolEmission + naturalGasEmission + bioGasEmission + electricCarEmission + hybridEmission + chargingHybridEmission
-userEmissionsCarTraffic()
+carTraffic = userEmissionsCarTraffic()
     
 def userEmissionsBusinessAndClassTrips():
     #kgCO2e
@@ -128,6 +130,16 @@ def userEmissionsBusinessAndClassTrips():
     return rentalBusEmission + hotelStaysEmission + taxiEmission
 userEmissionsBusinessAndClassTrips()
 BusinessAndClassTrips = userEmissionsBusinessAndClassTrips()
+
+def schoolCarbonFootprints():
+    return Car + flights + publicTransportEmission + publicTransportEmissionAbroad + carTraffic + BusinessAndClassTrips
+
+SchoolCarbonFootprints = schoolCarbonFootprints()
+
+def schoolCarbonFootprintsPerParticipant():
+    return SchoolCarbonFootprints/tripsAndWorkParticipants
+SchoolCarbonFootprintsPerParticipant = schoolCarbonFootprintsPerParticipant()
+
 
 def userEmissionsOtherVehicles():
     #kgCO2e
@@ -139,6 +151,7 @@ def userEmissionsOtherVehicles():
     SnowMobileEmission = SnowMobileUserInput*SnowMobile
     return MopedEmission + MopedCarEmission + MotorcycleEmission + ATVEmission + TractorEmission + SnowMobileEmission
 userEmissionsOtherVehicles()
+UserEmissionsOtherVehicles = userEmissionsOtherVehicles()
 
 
 
@@ -152,6 +165,7 @@ def personalPublicTransport():
     TramAbroadEmission = TramUserInput*Tram
     return BusAbroadLongDistanceEmission + BusAbroadShortDistanceEmission + TrainAbroadLongDistanceEmission + TrainAbroadShortDistanceEmission + MetroAbroadEmission + TramAbroadEmission
 personalPublicTransport()
+PersonalPublicTransport = personalPublicTransport()
 
 def otherEmissions():
     ElectricKickboardRentEmission = ElectricKickboardRentUserInput*ElectricKickboardRent
@@ -159,4 +173,9 @@ def otherEmissions():
     BicycleEmission = BicycleUserInput*0
     Kickboard = KickboardUserInput*0
     return ElectricKickboardRentEmission + ElectricBicycleEmission + BicycleEmission + Kickboard
+OtherEmissions = otherEmissions()
 otherEmissions()
+
+
+def tripToSchoolEmissions():
+    return UserEmissionsOtherVehicles + PersonalPublicTransport + OtherEmissions
