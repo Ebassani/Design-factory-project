@@ -1,9 +1,13 @@
-from flask import Flask, render_template, redirect, request
+import io
+
+from flask import Flask, render_template, redirect, request, Response
 
 from flask_login import LoginManager, login_required, login_user, logout_user
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 
 from static.python.conn_functions import *
 from static.python.classes import Accounts
+from static.python.functions import *
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'password'
@@ -51,17 +55,21 @@ def generate_db():
 def login():
     return render_template('loginPage.html')
 
+
 @app.route('/food')
 def food():
     return render_template('food.html')
+
 
 @app.route('/attitude')
 def attitude():
     return render_template('attitude.html')
 
+
 @app.route('/motion')
 def motion():
     return render_template('motion.html')
+
 
 @app.route('/infrastructure')
 def infrastructure():
@@ -119,7 +127,6 @@ def new_school():
     return verifies_login()
 
 
-
 @app.route('/test')
 @login_required
 def test():
@@ -131,6 +138,15 @@ def test():
 def logout():
     logout_user()
     return redirect('/')
+
+
+@app.route('/plot.png')
+def plot_png():
+    fig = create_figure()
+    output = io.BytesIO()
+    FigureCanvas(fig).print_png(output)
+    #return getTopSchools()
+    return Response(output.getvalue(), mimetype='image/png')
 
 
 if __name__ == '__main__':
