@@ -13,4 +13,7 @@ def infraEnergyEmissions():
     return EnergyEmission
 
 def infraProcurementEmissions():
-    return
+    return  userEmissionAquisition + userEmissionItem
+
+def infraMixedWasteEmissions():
+    return UserEmissionMixedWaste

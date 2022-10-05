@@ -101,61 +101,64 @@ EnergyEmission = userEmissionEnergy()
     
 def userEmissionMixedWaste():
     
-    MixedWasteEmission = userInputs.MixedWasteInput*multipliers.mixedWaste
-    EnergyWasteEmission = userInputs.EnergyWasteInput*multipliers.energyWaste
-    BioWasteEmission = userInputs.BioWasteInput*multipliers.bioWaste
-    CardboardEmission = userInputs.CardboardInput*multipliers.Cardboard
-    GlassEmission = userInputs.GlassInput*multipliers.Glass
-    MetalEmission = userInputs.MetalInput*multipliers.Metal
-    PlasticEmission = userInputs.PlasticInput*multipliers.Plastic
-    PaperEmission = userInputs.PaperInput*multipliers.Paper
-    ElectricityRecycableEmission = userInputs.ElectricityRecycableInput*multipliers.ElectricityRecycable
-    HazardousEmission = userInputs.HazardousInput*multipliers.Hazardous
+    MixedWasteEmission = MixedWasteInput*mixedWaste
+    EnergyWasteEmission = EnergyWasteInput*energyWaste
+    BioWasteEmission = BioWasteInput*bioWaste
+    CardboardEmission = CardboardInput*Cardboard
+    GlassEmission = GlassInput*Glass
+    MetalEmission = MetalInput*Metal
+    PlasticEmission = PlasticInput*Plastic
+    PaperEmission = PaperInput*Paper
+    ElectricityRecycableEmission = ElectricityRecycableInput*ElectricityRecycable
+    HazardousEmission = HazardousInput*Hazardous
     
     TotalwasteCO2 = MixedWasteEmission + EnergyWasteEmission + BioWasteEmission + CardboardEmission + GlassEmission + MetalEmission + PlasticEmission + PaperEmission + ElectricityRecycableEmission + HazardousEmission
-    print(TotalwasteCO2)
     return TotalwasteCO2
     #return MixedWasteEmission + EnergyWasteEmission + BioWasteEmission + CardboardEmission + GlassEmission + MetalEmission + PlasticEmission + PaperEmission + ElectricityRecycableEmission + HazardousEmission
     #class acquisitions:
     #kgCO2e/kpl
 
+UserEmissionMixedWaste = userEmissionMixedWaste()
+
 def userEmissionAquisitions():
 
-    phoneEmission = userInputs.phoneInput*multipliers.phone
-    LaptopEmission = userInputs.LaptopInput*multipliers.laptop
-    TabletEmission = userInputs.TabletInput*multipliers.tablet
-    DesktopComputerEmission = userInputs.DesktopComputerInput*multipliers.desktopComputer
-    MultifunctionPrinterEmission = userInputs.MultifunctionPrinterInput*multipliers.multifunctionPrinter
-    PrinterEmission = userInputs.PrinterInput*multipliers.printer
+    phoneEmission = phoneInput*phone
+    LaptopEmission = LaptopInput*laptop
+    TabletEmission = TabletInput*tablet
+    DesktopComputerEmission = DesktopComputerInput*desktopComputer
+    MultifunctionPrinterEmission = MultifunctionPrinterInput*multifunctionPrinter
+    PrinterEmission = PrinterInput*printer
 
     
 
-    OfficeChairEmission = userInputs.OfficeChairInput*multipliers.officeChair
-    ChairEmission = userInputs.ChairInput*multipliers.chair
-    metalFrameTableEmission = userInputs.metalFrameTableInput*multipliers.metalFrameTable
-    electricDeskEmission = userInputs.electricDeskInput*multipliers.electricDesk
+    OfficeChairEmission = OfficeChairInput*officeChair
+    ChairEmission = ChairInput*chair
+    metalFrameTableEmission = metalFrameTableInput*metalFrameTable
+    electricDeskEmission = electricDeskInput*electricDesk
 
-    paperKgEmission = userInputs.paperKgInput*multipliers.paperKg
+    paperKgEmission = paperKgInput*paperKg
     TotalItemAquisitionCO2 = phoneEmission + LaptopEmission + TabletEmission + DesktopComputerEmission + MultifunctionPrinterEmission + PrinterEmission + OfficeChairEmission + ChairEmission + metalFrameTableEmission + electricDeskEmission + paperKgEmission
-    print(TotalItemAquisitionCO2)
     return TotalItemAquisitionCO2
     #return phoneEmission + LaptopEmission + TabletEmission + DesktopComputerEmission + MultifunctionPrinterEmission + PrinterEmission + OfficeChairEmission + ChairEmission + metalFrameTableEmission + electricDeskEmission + paperKgEmission
     
     #item/kgCO2e
 
+userEmissionAquisition = userEmissionAquisitions()
+
 def userEmissionItems():
 
-    EbookEmission = userInputs.EbookInput*multipliers.eBook
-    BookEmission = userInputs.BookInput*multipliers.book
+    EbookEmission = EbookInput*eBook
+    BookEmission = BookInput*book
 
 
-    CleaningEmission = userInputs.CleaningInput*multipliers.Cleaning
-    internetAndPhonesEmission = userInputs.internetAndPhonesInput*multipliers.internetAndPhones
-    postalEmission = userInputs.postalInput*multipliers.postal
+    CleaningEmission = CleaningInput*Cleaning
+    internetAndPhonesEmission = internetAndPhonesInput*internetAndPhones
+    postalEmission = postalInput*postal
     TotalItemEmmission = EbookEmission + BookEmission + CleaningEmission + internetAndPhonesEmission + postalEmission
-    print(TotalItemEmmission)
     return TotalItemEmmission
     #return EbookEmission + BookEmission + CleaningEmission + internetAndPhonesEmission + postalEmission 
+
+userEmissionItem = userEmissionItems()
 
 userEmissionEnergy()
 userEmissionMixedWaste()
