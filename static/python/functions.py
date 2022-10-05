@@ -3,13 +3,13 @@ from matplotlib.figure import Figure
 import sqlite3
 
 
-def create_figure():
+def create_figure(df):
     fig = Figure()
-    data2 = range(10)
-    data = (1, 9, 3, 4, 5, 6, 7, 8, 9, 10)
+    data2 = df['School name']
+    data = df['Total carbon emissions']
 
     chart = fig.add_subplot()
-    chart.plot(data2, data)
+    chart.bar(data2, data)
 
     return fig
 
@@ -22,8 +22,6 @@ def getTopSchools():
     schools = cur.fetchall()
 
     df = pd.DataFrame(schools, columns=['School name', 'Total carbon emissions'])
-    df = pd.crosstab(df['Total carbon emissions'], df['School name'])
-    print(df)
 
     conn.close()
-    return schools
+    return df
