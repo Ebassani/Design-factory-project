@@ -1,6 +1,6 @@
 from multipliers import *
 from transport import *
-from food import *
+from food2 import *
 from infrastructure import *
 
 def foodEmissions():
