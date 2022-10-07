@@ -12,8 +12,16 @@ class userInputs:
     DistrictCoolingInput=float(input("MegaWattsHour"))
     ElectricCoolingInput=float(input("MegaWattsHour"))
     #Airconditioning(Time)
+<<<<<<< Updated upstream
     AirconditionPerDay=float(input("What type of Airconditioning?removal or removal and insertional both"))
     HoursPerDay=float(input("Hours"))
+=======
+
+
+Airconditiontype=float(input("What type of Airconditioning?removal or removal and insertional both"))
+HoursPerDay=float(input("Hours"))
+
+>>>>>>> Stashed changes
     #WasteDistribution(Wieght)
     MixedWasteInput=float(input("Kilograms"))
     EnergyWasteInput=float(input("Kilograms"))
