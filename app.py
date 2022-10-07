@@ -142,7 +142,7 @@ def logout():
 
 @app.route('/plot.png')
 def plot_png():
-    fig = create_figure(getTopSchools())
+    fig = create_figure(get_top_schools())
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
     return Response(output.getvalue(), mimetype='image/png')

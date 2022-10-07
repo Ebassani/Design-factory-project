@@ -9,12 +9,20 @@ def create_figure(df):
     data = df['Total carbon emissions']
 
     chart = fig.add_subplot()
-    chart.bar(data2, data)
+
+    bars = chart.bar(data2, data.max()-data, bottom=data+10, color=['red', 'blue'])
+
+    chart.set_ylim(0, data.max()+10)
+
+    chart.invert_yaxis()
+
+    for bar in bars:
+        bar.sticky_edges.y[:] = [data.values.max()]
 
     return fig
 
 
-def getTopSchools():
+def get_top_schools():
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
 
