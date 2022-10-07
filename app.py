@@ -29,6 +29,10 @@ def load_user(user_id):
 def index():  # put application's code here
     return render_template('index.html')
 
+@app.route('/infraform')
+def attitude():
+    return render_template('infrastructureform.html')
+
 
 @app.route('/introduction')
 def introduction():
