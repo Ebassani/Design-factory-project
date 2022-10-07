@@ -22,6 +22,7 @@ def getTopSchools():
     schools = cur.fetchall()
 
     df = pd.DataFrame(schools, columns=['School name', 'Total carbon emissions'])
+    df = df.sort_values(by=['Total carbon emissions'])
 
     conn.close()
     return df
