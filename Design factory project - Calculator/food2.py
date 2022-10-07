@@ -72,7 +72,7 @@ def meatmealDairy():
     if (Dairy == "Yes"):
         return cream
     elif (Dairy == "No"):
-        return 0
+        return float(0)
 meatMealDairy = meatmealDairy()
 
 
@@ -172,10 +172,10 @@ def dessert():
 
 # WORKING
 def others():
-    ryeBread = (int(amountOfPortions) * 1.3/1000*30)
-    wheatBread = (int(amountOfPortions) * 1.7/1000*30)
-    salad = int(amountOfPortions) * 0.265
-    return (int(amountOfPortions) * (ryeBread + wheatBread + salad))
+    ryeBread = (float(amountOfPortions) * 1.3/1000*30)
+    wheatBread = (float(amountOfPortions) * 1.7/1000*30)
+    salad = float(amountOfPortions) * 0.265
+    return (float(amountOfPortions) * (ryeBread + wheatBread + salad))
 
 #The next couple classes use complicated formulas in excel which I have no motivation to do right now because they look like hell on earth :DDDDDD
 #Includes surplusfood foodDistribution and electricity
@@ -186,37 +186,41 @@ def surplusFood():
     meat = (((meatMeal) /1000*170)/170)*1000*amountKG
     veggie = (((veggieMeal)/1000*170)/170)*1000*amountKG
     vegan = (((veganMeal)/1000*170)/170)*amountKG*1000
-    sides = (((meatMealSide/1000*150)/150)+((veggieMealSide/1000*150)/150)+((veganMealSide)/1000*150)/150)/3*amountKG*1000
+    sides = float((((meatMealSide/1000*150)/150)+((veggieMealSide/1000*150)/150)+((veganMealSide)/1000*150)/150)/3*amountKG*1000)
     salad = aPortionOfSalad / 150 * 1000 * amountKG
     bread = (ryeBread + wheatBread) / 2 * amountKG
     dessert = ((aPortionOfKisel + aPortionOfPancakes)/2)/150*1000*amountKG
     return meat + veggie + vegan + float(sides) + salad + bread + dessert
+SurplusFood = surplusFood()
 
 # IN PROGRESS
 def foodDistribution():
-    costOfaMeal =  int(input("Cost of the meal in €"))
-    meatMealsSold = int(input("The amount of meat meals sold"))
-    veggieMealsSold = int(input("The amount of veggie meals sold"))
-    veganMealsSold = int(input("The amount of vegan meals sold"))
-    meat = meatMealsSold/costOfaMeal * (meatMealProtein + meatmealSide + meatmealEgg + meatmealDairy + multipliers.aPortionOfSalad + 1.5/1000*30)
-    veggie = veggieMealsSold/costOfaMeal * (veggieMealProtein + veggiemealSide + veggiemealEgg + veggiemealDairy + multipliers.aPortionOfPancakes+1.5/1000*30)
-    vegan = veganMealsSold/costOfaMeal *(veganMealProtein + veganmealSide +multipliers.aPortionOfSalad+1.5/1000*30)
+    costOfaMeal =  float(input("Cost of the meal in €"))
+    meatMealsSold = float(input("The amount of meat meals sold"))
+    veggieMealsSold = float(input("The amount of veggie meals sold"))
+    veganMealsSold = float(input("The amount of vegan meals sold"))
+    meat = float(meatMealsSold/costOfaMeal * (meatMeal + meatMealSide + meatMealEgg + meatMealDairy + aPortionOfSalad + 1.5/1000*30))
+    veggie = veggieMealsSold/costOfaMeal * (veggieMeal + veggieMealSide + veggieMealEgg + veggieMealDairy + aPortionOfPancakes+1.5/1000*30)
+    vegan = veganMealsSold/costOfaMeal *(veganMeal + veganMealSide +aPortionOfSalad+1.5/1000*30)
     return costOfaMeal + meatMealsSold + veggieMealsSold + veganMealsSold + meat + veggie + vegan
+FoodDistribution = foodDistribution()
 
 # IN PROGRESS
 def electricity():
-    amountofmealsCentral = int(input("How many meals we're made combined?"))
-    amountOfMealsHeating = int(input("How many meals we're made combined?"))
-    cookingAndCentralKitchen = multipliers.AverageElectricity * multipliers.PreparationAndCentralKitchenPerMeal*amountofmealsCentral
-    cookingAndHeatingKitchen = multipliers.AverageElectricity * multipliers.PreparationAndHeatingKitchenPerMeal*amountOfMealsHeating
+    amountofmealsCentral = float(input("How many meals we're made combined?"))
+    amountOfMealsHeating = float(input("How many meals we're made combined?"))
+    cookingAndCentralKitchen = AverageElectricity * PreparationAndCentralKitchenPerMeal*amountofmealsCentral
+    cookingAndHeatingKitchen = AverageElectricity * PreparationAndHeatingKitchenPerMeal*amountOfMealsHeating
     return cookingAndCentralKitchen + cookingAndHeatingKitchen
+Electricity = electricity()
+
 
 # IN PROGRESS
 def overview():
-    cafeteriaConsumption = electricity
-    surplusFoodCO2Footprint = surplusFood
-    foodDistributionCO2Footprint = foodDistribution
-    foodCO2Footprint = Co2OfMeatMeal + Co2ofVeggieMeal + veganmealSide + dessert + others
+    cafeteriaConsumption = Electricity
+    surplusFoodCO2Footprint = SurplusFood
+    foodDistributionCO2Footprint = FoodDistribution
+    foodCO2Footprint = Co2OfMeat + Co2OfVeggieMeal + veganMealSide + Dessert + Others
     return cafeteriaConsumption + surplusFoodCO2Footprint + foodDistributionCO2Footprint + foodCO2Footprint 
     
 meatMealProtein()
