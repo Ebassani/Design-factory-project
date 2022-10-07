@@ -21,6 +21,7 @@ ElectricCoolingInput=float(input("How much eletricity consumption you have for E
 
     #Airconditioning(Time)
 
+
 Airconditiontype=float(input("What type of Airconditioning?removal or removal and insertional both"))
 HoursPerDay=float(input("Hours"))
 
