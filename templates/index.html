@@ -4,30 +4,37 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/dashboard.css') }}">
-    <title>Demo page</title>
+    <script src="{{ url_for('static', filename= 'javascript/scripts.js') }}"></script>
+    <title>Dashboard</title>
 </head>
 <body>
 
 {% include 'menu.html' %}
 {% include 'mobileMenu.html' %}
 
+<div class="content__title">
+    <h1>Dashboard</h1>
+</div>
+
 <div class="content">
     <div class="dashboard">
-        <h1>Dashboard</h1>
 
         <!--
         Radio menu with a slide animation on the bar below it
         -->
+        {% if current_user.is_school==False %}
 
-        <input type="radio" id="dashboard__option_myschool" class="dashboard__selection slide-toggle" name="radio">
-        <label for="dashboard__option_myschool"><span class="biggerSpan hover__pointer">My school</span></label>
+            <input type="radio" id="dashboard__option_myschool" class="dashboard__selection slide-toggle" name="radio">
+            <label for="dashboard__option_myschool"><span class="biggerSpan hover__pointer">My school</span></label>
 
-        <input type="radio" id="dashboard__option_myprogress" class="dashboard__selection slide-toggle" name="radio">
-        <label for="dashboard__option_myprogress"><span class="biggerSpan hover__pointer">My progress</span></label>
+            <input type="radio" id="dashboard__option_myprogress" class="dashboard__selection slide-toggle"
+                   name="radio">
+            <label for="dashboard__option_myprogress"><span class="biggerSpan hover__pointer">My progress</span></label>
 
-        <div class="dashboard__slider">
-            <div class="dashboard__slider__bar"></div>
-        </div>
+            <div class="dashboard__slider">
+                <div class="dashboard__slider__bar"></div>
+            </div>
+        {% endif %}
 
         <!--
         Div containing pages, these pages should be separate as they are supposed to appear one at a time.
@@ -50,12 +57,14 @@
             more additions will be necessary these additions being proper positioning for the page
             and more animations.
             -->
-            <div class="dashboard__page__myprogress">
-                <div class="myschool__content">
-                    <h2>//TEXT//TEXT//TEXT//2</h2>
-                    <img src="{{ url_for('static', filename= 'images/photo.png') }}" alt="">
+            {% if current_user.is_school==False %}
+                <div class="dashboard__page__myprogress">
+                    <div class="myschool__content">
+                        <h2>//TEXT//TEXT//TEXT//2</h2>
+                        <img src="{{ url_for('static', filename= 'images/photo.png') }}" alt="">
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
 
     </div>

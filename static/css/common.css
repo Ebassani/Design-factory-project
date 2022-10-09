@@ -180,3 +180,17 @@ html, body {
     }
 }
 
+
+.content__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20rem;
+}
+
+.content__title h1 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: xxx-large;
+}

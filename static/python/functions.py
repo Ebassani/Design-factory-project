@@ -10,14 +10,11 @@ def create_figure(df):
 
     chart = fig.add_subplot()
 
-    bars = chart.bar(data2, data.max()-data, bottom=data+10, color=['red', 'blue'])
+    chart.bar(data2, data)
 
     chart.set_ylim(0, data.max()+10)
 
     chart.invert_yaxis()
-
-    for bar in bars:
-        bar.sticky_edges.y[:] = [data.values.max()]
 
     return fig
 
