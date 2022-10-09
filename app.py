@@ -2,7 +2,7 @@ import io
 
 from flask import Flask, render_template, redirect, request, Response
 
-from flask_login import LoginManager, login_required, login_user, logout_user
+from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 
 from static.python.conn_functions import *
@@ -32,7 +32,24 @@ def load_user(user_id):
 
 @app.route('/')
 def index():  # put application's code here
-    return render_template('index.html')
+    top3 = False
+    topSchools = get_top_schools()[:3]
+    currentSchool = []
+
+    for i in get_schools():
+        if i[0] == current_user.school_id:
+            currentSchool.append(i[1])
+
+    for i in topSchools:
+        if i[0] == currentSchool[0]:
+            top3 = True
+            break
+
+    if top3:
+        return render_template('index.html', schools=topSchools, school=currentSchool[0])
+
+    topSchools.append(currentSchool)
+    return render_template('index.html', schools=topSchools, school=currentSchool[0])
 
 
 @app.route('/introduction')

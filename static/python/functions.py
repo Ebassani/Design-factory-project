@@ -1,4 +1,3 @@
-import pandas as pd
 from matplotlib.figure import Figure
 import sqlite3
 
@@ -25,9 +24,7 @@ def get_top_schools():
 
     cur.execute('select username, carbon_emission from accounts where is_school==true and carbon_emission>0')
     schools = cur.fetchall()
-
-    df = pd.DataFrame(schools, columns=['School name', 'Total carbon emissions'])
-    df = df.sort_values(by=['Total carbon emissions'])
+    schools.sort(key=lambda x: x[1], reverse=False)
 
     conn.close()
-    return df
+    return schools
