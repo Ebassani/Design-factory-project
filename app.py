@@ -67,6 +67,10 @@ def motion():
 def infrastructure():
     return render_template('infrastructure.html')
 
+@app.route('/transport_form')
+def transport_form():
+    return render_template('transport_form.html')
+
 
 @app.route('/login-authentication', methods=['POST'])
 def verifies_login():
@@ -94,6 +98,10 @@ def register_page():
 @app.route('/register_school')
 def school_register_page():
     return render_template('newSchool.html')
+
+@app.route('/food_form')
+def food_form():
+    return render_template('food_form.html')
 
 
 @app.route('/create_account', methods=['POST'])
