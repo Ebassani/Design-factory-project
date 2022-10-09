@@ -1,9 +1,6 @@
-import io
-
 from flask import Flask, render_template, redirect, request, Response
 
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 
 from static.python.conn_functions import *
 from static.python.classes import Accounts
@@ -152,14 +149,6 @@ def new_school():
 def logout():
     logout_user()
     return redirect('/')
-
-
-@app.route('/plot.png')
-def plot_png():
-    fig = create_figure(get_top_schools())
-    output = io.BytesIO()
-    FigureCanvas(fig).print_png(output)
-    return Response(output.getvalue(), mimetype='image/png')
 
 
 if __name__ == '__main__':
