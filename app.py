@@ -26,7 +26,8 @@ def load_user(user_id):
     if info is None:
         return None
     else:
-        return Accounts(int(info[0]), info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8])
+        return Accounts(int(info[0]), info[1], info[2], info[3], info[4], info[5], info[6],
+                        info[7], info[8], info[9], info[10], info[11])
 
 
 @app.route('/')
@@ -38,14 +39,15 @@ def index():  # put application's code here
 def introduction():
     return render_template('introduction.html')
 
+
 @app.route('/currentstate')
 def currentstate():
     return render_template('currentstate.html')
 
+
 @app.route('/create')
 def generate_db():
     create_table()
-    create_school('sup', 'hello', 222)
     create_school_account('name@test', 'hello', 'password', 'sup', 654)
     create_account('test@feu', 'user1', 'edu', 'Bassani', 1, 'pass')
     return 'created'
