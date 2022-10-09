@@ -207,10 +207,10 @@ def overview():
 # WORKING
 def drinks():
     water1 = float(amountOfPortions) * 0
-    milk1 = float(amountOfPortions) * ((milk/1000)*170)
-    oatMilk1 = float(amountOfPortions) * ((oatDrink/1000)*170)
-    coffee1 = float(amountOfPortions) * ((coffee/1000)*170)
-    tea1 = float(amountOfPortions) * ((tea/1000)*170)
+    milk1 = float(amountOfPortions) * ((milk1/1000)*170)
+    oatMilk1 = float(amountOfPortions) * ((oatMilk1/1000)*170)
+    coffee1 = float(amountOfPortions) * ((coffee1/1000)*170)
+    tea1 = float(amountOfPortions) * ((tea1/1000)*170)
     return water1 + milk1 + oatMilk1 + coffee1 + tea1 
 Drinks = drinks()
 
@@ -252,27 +252,27 @@ def foodWaste():
 
 # Working
 def proteins():
-    fish1 = float(amountOfPortions) * ((fish/1000)*170)
-    cow1 = float(amountOfPortions) * ((cow/1000)*170)
-    pig1 = float(amountOfPortions) * ((pig/1000)*170)
-    chicken1 = float(amountOfPortions) * ((chicken/1000)*170)
-    sausage1 = float(amountOfPortions) * ((sausage/1000)*170)
-    soy1 = float(amountOfPortions) * (soyGrits/1000*170)
-    broadBean1 = float(amountOfPortions) * (broadBean/1000*170)
-    tofu1 = float(amountOfPortions) * (tofu/1000*170)
-    vegetables1 = float(amountOfPortions) * (vegetables/1000*170)
-    Egg1 = float(amountOfPortions) * (egg/1000*60)
-    cream1 = float(amountOfPortions) * (cream/1000*60)
+    fish1 = float(amountOfPortions) * ((fish1/1000)*170)
+    cow1 = float(amountOfPortions) * ((cow1/1000)*170)
+    pig1 = float(amountOfPortions) * ((pig1/1000)*170)
+    chicken1 = float(amountOfPortions) * ((chicken1/1000)*170)
+    sausage1 = float(amountOfPortions) * ((sausage1/1000)*170)
+    soy1 = float(amountOfPortions) * (soy1/1000*170)
+    broadBean1 = float(amountOfPortions) * (broadBean1/1000*170)
+    tofu1 = float(amountOfPortions) * (tofu1/1000*170)
+    vegetables1 = float(amountOfPortions) * (vegetables1/1000*170)
+    Egg1 = float(amountOfPortions) * (Egg1/1000*60)
+    cream1 = float(amountOfPortions) * (cream1/1000*60)
     proteinsTotal = fish1 + cow1 + pig1 + chicken1 + sausage1 + soy1 + broadBean1 + tofu1 + vegetables1 + Egg1 + cream1
     return proteinsTotal
 Proteins = proteins()
 
 # Working
 def carboHydrates():
-    potato1 = float(amountOfPortions) * (potato/1000*150)
-    rice1 = float(amountOfPortions) * (rice/1000*100)
-    pasta1 = float(amountOfPortions) * (pasta/1000*120)
-    rootVegetables1 = float(amountOfPortions) * (rootVegetables/1000*150)
+    potato1 = float(amountOfPortions) * (potato1/1000*150)
+    rice1 = float(amountOfPortions) * (rice1/1000*100)
+    pasta1 = float(amountOfPortions) * (pasta1/1000*120)
+    rootVegetables1 = float(amountOfPortions) * (rootVegetables1/1000*150)
     carboHydratesTotal = potato1 + rice1 + pasta1 + rootVegetables1
     return carboHydratesTotal
 Carbohydrates = carboHydrates()
