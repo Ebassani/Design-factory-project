@@ -30,7 +30,8 @@ def load_user(user_id):
                         info[7], info[8], info[9], info[10], info[11])
 
 
-@app.route('/')
+@app.route('/dashboard')
+@login_required
 def index():  # put application's code here
     top3 = False
     topSchools = get_top_schools()[:3]
@@ -46,13 +47,13 @@ def index():  # put application's code here
             break
 
     if top3:
-        return render_template('index.html', schools=topSchools, school=currentSchool[0])
+        return render_template('dashboard.html', schools=topSchools, school=currentSchool)
 
     topSchools.append(currentSchool)
-    return render_template('index.html', schools=topSchools, school=currentSchool[0])
+    return render_template('dashboard.html', schools=topSchools, school=currentSchool)
 
 
-@app.route('/introduction')
+@app.route('/')
 def introduction():
     return render_template('introduction.html')
 
@@ -108,7 +109,7 @@ def verifies_login():
 
         login_user(load_user(user_id), remember=True)
 
-        return redirect('/test')
+        return redirect('/dashboard')
     except Exception:
         return redirect('/login')
 
@@ -144,12 +145,6 @@ def new_school():
     password = request.form.get('password')
     create_school_account(email, name, password, city, num_student)
     return verifies_login()
-
-
-@app.route('/test')
-@login_required
-def test():
-    return 'logged in'
 
 
 @app.route("/logout")

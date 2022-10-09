@@ -48,23 +48,44 @@
                 <div class="myschool__content">
                     <h2>//TEXT//TEXT//TEXT//</h2>
                     <svg width="50%" height="20rem">
-                        {% for i in range(schools|length) %}
-                            {% if i==0 %}
-                                {% set percentX = 40 %}
-                            {% elif i==1 %}
-                                {% set percentX = 10 %}
-                            {% elif i==2 %}
-                                {% set percentX = 70 %}
-                            {% endif %}
+                        {% if  schools|length==3 %}
+                            {% for i in range(schools|length) %}
+                                {% if i==0 %}
+                                    {% set percentX = 40 %}
+                                {% elif i==1 %}
+                                    {% set percentX = 10 %}
+                                {% elif i==2 %}
+                                    {% set percentX = 70 %}
+                                {% endif %}
 
+                                {% set height = 90 - i*20 %}
+                                {% set y = 100 - height %}
+                                {% set texty = y-4 %}
+                                <text x="{{ percentX }}%" y="{{ texty }}%">{{ schools[i][0] }}</text>
+                                <rect x="{{ percentX }}%" y="{{ y }}%" width="20%" height="{{ height }}%"
+                                      style="fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9"></rect>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in range(schools|length) %}
+                                {% if i==0 %}
+                                    {% set percentX = 25 %}
+                                {% elif i==1 %}
+                                    {% set percentX = 5 %}
+                                {% elif i==2 %}
+                                    {% set percentX = 45 %}
+                                {% elif i==3 %}
+                                    {% set percentX = 65 %}
+                                {% endif %}
 
-                            {% set height = 90 - i*20 %}
-                            {% set y = 100 - height %}
-                            {% set texty = y-4 %}
-                            <text x="{{ percentX }}%" y="{{ texty }}%">{{ schools[i][0] }}</text>
-                            <rect x="{{ percentX }}%" y="{{ y }}%" width="20%" height="{{ height }}%"
-                                  style="fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9"></rect>
-                        {% endfor %}
+                                {% set height = 90 - i*20 %}
+                                {% set y = 100 - height %}
+
+                                {% set texty = y-4 %}
+                                <text x="{{ percentX }}%" y="{{ texty }}%">{{ schools[i][0] }}</text>
+                                <rect x="{{ percentX }}%" y="{{ y }}%" width="15%" height="{{ height }}%"
+                                      style="fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9"></rect>
+                            {% endfor %}
+                        {% endif %}
                     </svg>
                 </div>
             </div>
