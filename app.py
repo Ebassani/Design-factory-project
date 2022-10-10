@@ -30,6 +30,10 @@ def index():  # put application's code here
     return render_template('index.html')
 
 
+@app.route('/infrastructure_form')
+def infrastructure_form():
+    return render_template('infrastructureform.html')
+
 @app.route('/introduction')
 def introduction():
     return render_template('introduction.html')
