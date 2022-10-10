@@ -228,9 +228,9 @@ def foodWaste():
     if (ans == "Not at all"):
         return 0
     elif (ans == "Half a plate"):
-        return (personalLunch + Drinks + Others)/1.5
+        return (personalLunch + Drinks + others)/1.5
     elif (ans == "Over a half a plate"):
-        return (personalLunch + Drinks + Others)/2.5
+        return (personalLunch + Drinks + others)/2.5
 FoodWaste = foodWaste()
 
 def foodWaste():
@@ -284,10 +284,9 @@ def dessert():
     dessertTotal = pancakes + kisel
     return dessertTotal
 
-#In progress (Cannot sum functions for some reason)
 
-personalLunch = float(amountOfPortions) * (Drinks + Carbohydrates + Dessert)
-total = (personalLunch + Drinks + Others + FoodWaste)
+personalLunch = float(amountOfPortions) * (Drinks + Carbohydrates + dessert)
+total = (personalLunch + Drinks + others + FoodWaste)
 
 #personalLunch = int(amountOfPortions) * (drinks() + carboHydrates() + dessert())
 #total = (personalLunch + drinks() + others() + foodWaste())
