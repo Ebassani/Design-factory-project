@@ -1,3 +1,5 @@
+from Calculator.infrastructure import userEmissionMixedWaste
+from Calculator.infrastructure import userEmissionEnergy
 from flask import Flask, render_template, redirect, request
 
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
@@ -67,8 +69,24 @@ def infrastructure_form():
 
 @app.route('/infrastructure_form_handler', methods=['POST'])
 def infra_form_handle():
-    avgCons= request.form.get('val1')
-
+    avgCons= float(request.form.get('val1'))
+    userEmissionEnergy(avgCons)
+    avgCons= float(request.form.get('val2'))
+    userEmissionEnergy(avgCons)
+    avgCons= float(request.form.get('val3'))
+    userEmissionEnergy(avgCons)
+    avgCons= float(request.form.get('val4'))
+    userEmissionEnergy(avgCons)
+    avgCons= float(request.form.get('val5'))
+    userEmissionEnergy(avgCons)
+    avgCons= float(request.form.get('val6'))
+    userEmissionEnergy(avgCons)
+    avgCons= float(request.form.get('val7'))
+    userEmissionMixedWaste(avgCons)
+    avgCons= float(request.form.get('val8'))
+    userEmissionMixedWaste(avgCons)
+    avgCons= float(request.form.get('val9'))
+    userEmissionMixedWaste(avgCons)
     update_infra(current_user.school_id, 55)
     return redirect('/dasboard')
 
