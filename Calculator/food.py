@@ -1,5 +1,4 @@
 from audioop import mul
-import Calculator.multipliers
 from Calculator import multipliers
 
 amountOfPortions = float(input("How many portions we're made"))
@@ -71,8 +70,8 @@ def meatmealDairy(Dairy):
     elif (Dairy == "No"):
         return 0
 
-def Co2OfMeatMeal(Co2OfMeatMeal):
-    Co2OfMeatMeal = amountOfPortions * (meatMealProtein() + meatmealSide() + meatmealEgg() + meatmealDairy())
+def Co2OfMeatMeal(meatMealProtein):
+    Co2OfMeatMeal = amountOfPortions * (meatMealProtein + meatmealSide() + meatmealEgg() + meatmealDairy())
     return Co2OfMeatMeal
 
 

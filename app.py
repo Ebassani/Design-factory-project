@@ -6,6 +6,7 @@ from static.python.conn_functions import *
 from static.python.classes import Accounts
 from static.python.functions import *
 #from Calculator.infrastructure import *
+from Calculator.food import *
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'password'
@@ -82,10 +83,22 @@ def trans_form_handle():
 
 @app.route('/food_form_handler', methods=['POST'])
 def food_form_handle():
-    avgCons= request.form.get('val1')
-    food()
+    meatMealProtein(request.form.get('meatProtein'))
+    meatmealEgg(request.form.get('meatEgg'))
+    meatmealDairy(request.form.get('meatDairy'))
+    meatmealSide(request.form.get('sides'))
 
-    update_food(current_user.school_id, 55)
+    veggieMealProtein(request.form.get('veggieProtein'))
+    veggiemealSide(request.form.get('sides'))
+    veggiemealEgg(request.form.get('veggieEgg'))
+    veggiemealDairy(request.form.get('veggieDairy'))
+
+    veganMealProtein(request.form.get('veganProtein'))
+    veganmealSide(request.form.get("sides"))
+
+    final = Co2OfMeatMeal(meatMealProtein, meatmealEgg, meatmealDairy, meatmealSide) + Co2OfVeganMeal(veggieMealProtein, veggiemealSide, veggiemealEgg, veggiemealDairy) + Co2ofVeggieMeal(veganMealProtein, veganmealSide)
+
+    update_food(current_user.school_id, final)
     return redirect('/dasboard')
 
 
