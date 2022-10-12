@@ -209,8 +209,8 @@ FoodDistribution = foodDistribution()
 def electricity():
     amountofmealsCentral = float(input("How many meals we're made combined?"))
     amountOfMealsHeating = float(input("How many meals we're made combined?"))
-    cookingAndCentralKitchen = AverageElectricity * PreparationAndCentralKitchenPerMeal*amountofmealsCentral
-    cookingAndHeatingKitchen = AverageElectricity * PreparationAndHeatingKitchenPerMeal*amountOfMealsHeating
+    cookingAndCentralKitchen = averageElectricity * PreparationAndCentralKitchenPerMeal * amountofmealsCentral
+    cookingAndHeatingKitchen = averageElectricity * PreparationAndHeatingKitchenPerMeal * amountOfMealsHeating
     return cookingAndCentralKitchen + cookingAndHeatingKitchen
 Electricity = electricity()
 

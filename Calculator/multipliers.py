@@ -1,6 +1,6 @@
 #Traffic variables 
 #Common variables, used in multiple classes
-AverageElectricity = 281.00
+averageElectricity = 281.00
 
 
 
@@ -10,7 +10,6 @@ AverageElectricity = 281.00
 shortFlightUnder463km = 0.2595*2+0.2595*2
 longFligtsOverHomelandOver463km = (0.178*2)+(0.178*0.2)
 longFlightsAbroadOver463km =(0.149*2)+(0.149*0.2)
-longFlightsAbroadOver463km = (0.149*2)+(0.149*0.2)
 longFlightsOver3700km = (0.135*2)+(0.135*0.2)
 
     
@@ -21,7 +20,7 @@ diesel = 0.141*1.2
 petrol = 0.159*1.2
 naturalGas = 0.0701*1.2
 bioGas = 0.95*4.5/100
-electricCar = 0.0188/100*(AverageElectricity)+0.00195
+electricCar = 0.0188 / 100 * averageElectricity + 0.00195
 hybrid = 0.114*1.2
 chargingHybrid = 0.084*1.2
 
@@ -39,7 +38,7 @@ Motorcycle = 0.112*1.2
 Moped = 0.068*1.2
 MopedCar = 0.128*1.2
 ElectricKickboardRent = 0.0452
-ElectricBicycle = 0.0012*(AverageElectricity/1000)
+ElectricBicycle = 0.0012*(averageElectricity / 1000)
 
     #kgCO2e/km
 ATV = 2.673
@@ -64,7 +63,7 @@ BusAbroad = 0.180
 #energy:
     #Electricity consumption
     #kgCO2e/MWh
-AverageElectricity = 281.00
+averageElectricity = 281.00
 ZeroEmissionGreenElectricity = 0
     #Sellers emissionmultiplier!!
 
@@ -78,7 +77,7 @@ ElectricityHeating = 400.00
 DistrictCooling = 72*1.2
 ZeroEmissionCooling = 0
     #Sellers emissionmultiplier!!
-ElectricityCooling = AverageElectricity
+ElectricityCooling = averageElectricity
 
     #Ventilation kWh/(m3/s)
 EntryAndExit = 2.00

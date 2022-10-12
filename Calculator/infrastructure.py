@@ -69,96 +69,87 @@ CleaningInput=float(input("What is the Amount(Euros) of Cleaning Equipment waste
 internetAndPhonesInput=float(input("What is the Amount(Euros) of Internet and Phone waste you produce?"))
 postalInput=float(input("What is the Amount(Euros) of Postal waste you produce?"))"""
 
-def userEmissionEnergy(ElectricityconsumptionEmission,ZeroEmissionGreenElectricityEmission,ElectricityHeatingEmission,ZeroEmissionDistrictHeatingEmission,DistrictCoolingEmission,ElectricCoolingEmission):
-    
-    #Electricity consumption
-    #kgCO2e/MWh
-    #ElectricityconsumptionEmission = ElectricityconsumptionMWhUserInput*AverageElectricity
-    #ZeroEmissionGreenElectricityEmission = ZeroEmissionGreenElectricityUserInput*ZeroEmissionGreenElectricity
 
-    #ElectricityHeatingEmission = ElectricityHeatingInput*DistrictHeating
-    #DistrictHeatingEmission = DistrictHeatingInput*ElectricityHeating
-    #ZeroEmissionDistrictHeatingEmission = ZeroEmissionDistrictHeatingInput*ZeroEmissionDistrictHeating
+def userEmissionEnergy(electricityconsumptionEmission, zeroEmissionGreenElectricityEmission, electricityHeatingEmission,
+                       zeroEmissionDistrictHeatingEmission, districtCoolingEmission, electricCoolingEmission):
+    # Electricity consumption
+    # kgCO2e/MWh
+    electricityconsumptionEmission = electricityconsumptionEmission * averageElectricity
+    zeroEmissionGreenElectricityEmission = zeroEmissionGreenElectricityEmission * ZeroEmissionGreenElectricity
 
-    #DistrictCoolingEmission = DistrictCoolingInput*DistrictCooling
-    #ElectricCoolingEmission = ElectricCoolingInput*ElectricityCooling
-    totalElectricC02 = ElectricityconsumptionEmission + ZeroEmissionDistrictHeatingEmission + ZeroEmissionGreenElectricityEmission + ElectricityHeatingEmission  + ElectricCoolingEmission + DistrictCoolingEmission
-    return totalElectricC02
+    electricityHeatingEmission = electricityHeatingEmission * DistrictHeating
+    # DistrictHeatingEmission = DistrictHeatingInput*ElectricityHeating
+    zeroEmissionDistrictHeatingEmission = zeroEmissionDistrictHeatingEmission * ZeroEmissionDistrictHeating
 
-    #return ElectricityconsumptionEmission + ZeroEmissionDistrictHeatingEmission + ZeroEmissionGreenElectricityEmission + ElectricityHeatingEmission + DistrictHeatingEmission + ElectricCoolingEmission + DistrictCoolingEmission
-
-
+    districtCoolingEmission = districtCoolingEmission * DistrictCooling
+    electricCoolingEmission = electricCoolingEmission * ElectricityCooling
+    return electricityconsumptionEmission + zeroEmissionDistrictHeatingEmission + \
+           zeroEmissionGreenElectricityEmission + electricityHeatingEmission + \
+           electricCoolingEmission + districtCoolingEmission
 
 
-def AircoditionarTypeuserInput(HoursPerDay,AircoditionarTypeAnswer):
+def AircoditionarTypeuserInput(HoursPerDay, AircoditionarTypeAnswer):
     if (AircoditionarTypeAnswer == "removal"):
         return OnlyExit
-    elif(AircoditionarTypeAnswer == "removal and insertional"):
+    elif (AircoditionarTypeAnswer == "removal and insertional"):
         return EntryAndExit
-    
-    HoursPerDayEmission = HoursPerDay*AircoditionarTypeAnswer
-    
+
+    HoursPerDayEmission = HoursPerDay * AircoditionarTypeAnswer
+
     return HoursPerDayEmission
 
-    
-def userEmissionMixedWaste(MixedWasteEmission,EnergyWasteEmission,BioWasteEmission):
-    
-    #MixedWasteEmission = MixedWasteInput*mixedWaste
-    #EnergyWasteEmission = EnergyWasteInput*energyWaste
-    #BioWasteEmission = BioWasteInput*bioWaste
-    #CardboardEmission = CardboardInput*Cardboard
-    #GlassEmission = GlassInput*Glass
-    #MetalEmission = MetalInput*Metal
-    #PlasticEmission = PlasticInput*Plastic
-    #PaperEmission = PaperInput*Paper
-    #ElectricityRecycableEmission = ElectricityRecycableInput*ElectricityRecycable
-    #HazardousEmission = HazardousInput*Hazardous
-    
+
+def userEmissionMixedWaste(MixedWasteEmission, EnergyWasteEmission, BioWasteEmission):
+    MixedWasteEmission = MixedWasteEmission * mixedWaste
+    EnergyWasteEmission = EnergyWasteEmission * energyWaste
+    BioWasteEmission = BioWasteEmission * bioWaste
+    # CardboardEmission = CardboardInput*Cardboard
+    # GlassEmission = GlassInput*Glass
+    # MetalEmission = MetalInput*Metal
+    # PlasticEmission = PlasticInput*Plastic
+    # PaperEmission = PaperInput*Paper
+    # ElectricityRecycableEmission = ElectricityRecycableInput*ElectricityRecycable
+    # HazardousEmission = HazardousInput*Hazardous
+
     TotalwasteCO2 = MixedWasteEmission + EnergyWasteEmission + BioWasteEmission
     return TotalwasteCO2
-    #return MixedWasteEmission + EnergyWasteEmission + BioWasteEmission + CardboardEmission + GlassEmission + MetalEmission + PlasticEmission + PaperEmission + ElectricityRecycableEmission + HazardousEmission
-    #class acquisitions:
-    #kgCO2e/kpl
-
+    # return MixedWasteEmission + EnergyWasteEmission + BioWasteEmission + CardboardEmission + GlassEmission + MetalEmission + PlasticEmission + PaperEmission + ElectricityRecycableEmission + HazardousEmission
+    # class acquisitions:
+    # kgCO2e/kpl
 
 
 def userEmissionAquisitions():
-    hello=True
-    #phoneEmission = phoneInput*phone
-    #LaptopEmission = LaptopInput*laptop
-    #TabletEmission = TabletInput*tablet
-    #DesktopComputerEmission = DesktopComputerInput*desktopComputer
-    #MultifunctionPrinterEmission = MultifunctionPrinterInput*multifunctionPrinter
-    #PrinterEmission = PrinterInput*printer
+    hello = True
+    # phoneEmission = phoneInput*phone
+    # LaptopEmission = LaptopInput*laptop
+    # TabletEmission = TabletInput*tablet
+    # DesktopComputerEmission = DesktopComputerInput*desktopComputer
+    # MultifunctionPrinterEmission = MultifunctionPrinterInput*multifunctionPrinter
+    # PrinterEmission = PrinterInput*printer
 
-    
+    # OfficeChairEmission = OfficeChairInput*officeChair
+    # ChairEmission = ChairInput*chair
+    # metalFrameTableEmission = metalFrameTableInput*metalFrameTable
+    # electricDeskEmission = electricDeskInput*electricDesk
 
-    #OfficeChairEmission = OfficeChairInput*officeChair
-    #ChairEmission = ChairInput*chair
-    #metalFrameTableEmission = metalFrameTableInput*metalFrameTable
-    #electricDeskEmission = electricDeskInput*electricDesk
+    # paperKgEmission = paperKgInput*paperKg
+    # TotalItemAquisitionCO2 = phoneEmission + LaptopEmission + TabletEmission + DesktopComputerEmission + MultifunctionPrinterEmission + PrinterEmission + OfficeChairEmission + ChairEmission + metalFrameTableEmission + electricDeskEmission + paperKgEmission
+    # return TotalItemAquisitionCO2
+    # return phoneEmission + LaptopEmission + TabletEmission + DesktopComputerEmission + MultifunctionPrinterEmission + PrinterEmission + OfficeChairEmission + ChairEmission + metalFrameTableEmission + electricDeskEmission + paperKgEmission
 
-    #paperKgEmission = paperKgInput*paperKg
-    #TotalItemAquisitionCO2 = phoneEmission + LaptopEmission + TabletEmission + DesktopComputerEmission + MultifunctionPrinterEmission + PrinterEmission + OfficeChairEmission + ChairEmission + metalFrameTableEmission + electricDeskEmission + paperKgEmission
-    #return TotalItemAquisitionCO2
-    #return phoneEmission + LaptopEmission + TabletEmission + DesktopComputerEmission + MultifunctionPrinterEmission + PrinterEmission + OfficeChairEmission + ChairEmission + metalFrameTableEmission + electricDeskEmission + paperKgEmission
-    
-    #item/kgCO2e
+    # item/kgCO2e
 
-#userEmissionAquisition = userEmissionAquisitions()
+
+# userEmissionAquisition = userEmissionAquisitions()
 
 def userEmissionItems():
-    hello=True
-    #EbookEmission = EbookInput*eBook
-    #BookEmission = BookInput*book
+    hello = True
+    # EbookEmission = EbookInput*eBook
+    # BookEmission = BookInput*book
 
-
-    #CleaningEmission = CleaningInput*Cleaning
-    #internetAndPhonesEmission = internetAndPhonesInput*internetAndPhones
-    #postalEmission = postalInput*postal
-    #TotalItemEmmission = EbookEmission + BookEmission + CleaningEmission + internetAndPhonesEmission + postalEmission
-    #return TotalItemEmmission
-    #return EbookEmission + BookEmission + CleaningEmission + internetAndPhonesEmission + postalEmission
-
-
-
+    # CleaningEmission = CleaningInput*Cleaning
+    # internetAndPhonesEmission = internetAndPhonesInput*internetAndPhones
+    # postalEmission = postalInput*postal
+    # TotalItemEmmission = EbookEmission + BookEmission + CleaningEmission + internetAndPhonesEmission + postalEmission
+    # return TotalItemEmmission
+    # return EbookEmission + BookEmission + CleaningEmission + internetAndPhonesEmission + postalEmission

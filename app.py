@@ -7,7 +7,8 @@ from flask_login import LoginManager, login_required, login_user, logout_user, c
 from static.python.conn_functions import *
 from static.python.classes import Accounts
 from static.python.functions import *
-# from Calculator.infrastructure import *
+
+from Calculator.infrastructure import *
 from Calculator.food import *
 
 app = Flask(__name__)
@@ -67,10 +68,23 @@ def infrastructure_form():
     return render_template('infrastructureform.html')
 
 
-# @app.route('/infrastructure_form_handler', methods=['POST'])
-# def infra_form_handle():
-#     update_infra(current_user.school_id, 55)
-#     return redirect('/dashboard')
+@app.route('/infrastructure_form_handler', methods=['POST'])
+def infra_form_handle():
+    val1 = float(request.form.get('val1'))
+    val2 = float(request.form.get('val2'))
+    val3 = float(request.form.get('val3'))
+    val4 = float(request.form.get('val4'))
+    val5 = float(request.form.get('val5'))
+    val6 = float(request.form.get('val6'))
+    val7 = float(request.form.get('val7'))
+    val8 = float(request.form.get('val8'))
+    val9 = float(request.form.get('val9'))
+
+    final = userEmissionEnergy(val1, val2, val3, val4, val5, val6)
+    final += userEmissionMixedWaste(val7, val8, val9)
+
+    update_infra(current_user.school_id, final)
+    return redirect('/dashboard')
 
 
 # @app.route('/trans_form_handler', methods=['POST'])
