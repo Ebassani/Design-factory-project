@@ -99,3 +99,8 @@ h2, h1, .biggerSpan {
     padding-top: 1rem;
     overflow: hidden;
 }
+
+canvas {
+    max-height: 20rem;
+    max-width: 50%;
+}

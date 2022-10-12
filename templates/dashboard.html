@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/dashboard.css') }}">
+    <script src="{{ url_for('static', filename= 'javascript/scripts.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Dashboard</title>
+</head>
+<body>
+
+{% include 'menu.html' %}
+{% include 'mobileMenu.html' %}
+
+<div class="content__title">
+    <h1>Dashboard</h1>
+</div>
+
+<div class="content">
+    <div class="dashboard">
+
+        <!--
+        Radio menu with a slide animation on the bar below it
+        -->
+        {% if current_user.is_school==False %}
+
+            <input type="radio" id="dashboard__option_myschool" class="dashboard__selection slide-toggle" name="radio">
+            <label for="dashboard__option_myschool"><span class="biggerSpan hover__pointer">My school</span></label>
+
+            <input type="radio" id="dashboard__option_myprogress" class="dashboard__selection slide-toggle"
+                   name="radio">
+            <label for="dashboard__option_myprogress"><span class="biggerSpan hover__pointer">My progress</span></label>
+
+            <div class="dashboard__slider">
+                <div class="dashboard__slider__bar"></div>
+            </div>
+        {% endif %}
+
+        <!--
+        Div containing pages, these pages should be separate as they are supposed to appear one at a time.
+        -->
+
+        <div class="dashboard__page">
+            <!--
+            All page 1 should be inside div page1
+            -->
+            <div class="dashboard__page__myschool">
+                <div class="myschool__content">
+                    <h2>//TEXT//TEXT//TEXT//</h2>
+                    <svg width="50%" height="20rem">
+                        {% if  schools|length==3 %}
+                            {% for i in range(schools|length) %}
+                                {% if i==0 %}
+                                    {% set percentX = 40 %}
+                                {% elif i==1 %}
+                                    {% set percentX = 10 %}
+                                {% elif i==2 %}
+                                    {% set percentX = 70 %}
+                                {% endif %}
+
+                                {% set height = 90 - i*20 %}
+                                {% set y = 100 - height %}
+                                {% set texty = y-4 %}
+                                <text x="{{ percentX }}%" y="{{ texty }}%">{{ schools[i][0] }}</text>
+                                <rect x="{{ percentX }}%" y="{{ y }}%" width="20%" height="{{ height }}%"
+                                      style="fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9"></rect>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in range(schools|length) %}
+                                {% set name = 0 %}
+                                {% if i==0 %}
+                                    {% set percentX = 25 %}
+                                {% elif i==1 %}
+                                    {% set percentX = 5 %}
+                                {% elif i==2 %}
+                                    {% set percentX = 45 %}
+                                {% elif i==3 %}
+                                    {% set percentX = 65 %}
+                                    {% set name = 1 %}
+                                {% endif %}
+
+                                {% set height = 90 - i*20 %}
+                                {% set y = 100 - height %}
+
+                                {% set texty = y-4 %}
+                                <text x="{{ percentX }}%" y="{{ texty }}%">{{ schools[i][name] }}</text>
+                                <rect x="{{ percentX }}%" y="{{ y }}%" width="15%" height="{{ height }}%"
+                                      style="fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9"></rect>
+                            {% endfor %}
+                        {% endif %}
+                    </svg>
+                </div>
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+
+            <!--
+            Following the principle of page 1, page 2 and all possible next pages should put their content in
+            different divs. The css, until this point, only works with page 1 and 2, in case of more pages
+            more additions will be necessary these additions being proper positioning for the page
+            and more animations.
+            -->
+            {% if current_user.is_school==False %}
+                <div class="dashboard__page__myprogress">
+                    <div class="myschool__content">
+                        <h2>//TEXT//TEXT//TEXT//2</h2>
+                        <img src="{{ url_for('static', filename= 'images/photo.png') }}" alt="">
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+<script>
+  const data = {
+  labels: [
+    'Infraestructure',
+    'Food',
+    'Transportation'
+  ],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [{{ schoolAccount[8] }}, {{ schoolAccount[9] }}, {{ schoolAccount[10] }}],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+    hoverOffset: 4
+  }]
+};
+
+  const config = {
+    type: 'doughnut',
+    data: data,
+  };
+
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+</body>
+</html>
