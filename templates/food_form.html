@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/login.css') }}">
+    <title>Food form</title>
+  <link rel="icon" type="image/x-icon" href="./static/images/logo.png">
+</head>
+<body>
+
+{% include 'menu.html' %}
+{% include 'mobileMenu.html' %}
+
+
+  <div class="wrap">
+    <div class="form">
+      <h1>Food Form</h1>
+          <form method="post" action="/">
+          <div class="form-area">
+            <p>Which protein does the meat meal have: Fish, pork, beef, chicken or sausage?</p>
+                  <div class="form-list">
+                  <input type="text" required="required" placeholder="Enter" class="form-input"/>
+                  <div class="form-background"></div>
+                </div>
+          <p>Which protein does the veggie meal have: Soygrits, Tofu, Vegetables or Broad bean?</p>
+          <div class="form-list">
+                  <input type="text" required="required" placeholder="Enter" class="form-input"/>
+                  <div class="form-background"></div>
+                    </div>
+                    <p>Does the meat meal have eggs? Yes or No</p>
+                    <div class="form-list">
+                  <input type="text" required="required" placeholder="Enter" class="form-input"/>
+                  <div class="form-background"></div>
+                </div>
+                  <p>Does the meat meal have a cream? Yes or No</p>
+                  <div class="form-list">
+                  <input type="text" required="required" placeholder="Enter" class="form-input"/>
+                  <div class="form-background"></div>
+                </div>
+                  <p>Choose the side of the meal: Rice, pasta, potato or vegetables?</p>
+                  <div class="form-list">
+                  <input type="text" required="required" placeholder="Enter" class="form-input"/>
+                  <div class="form-background"></div>
+                </div>
+                  <p>Does the veggie meal have eggs? Yes or No</p>
+                  <div class="form-list">
+                  <input type="text" required="required" placeholder="Enter" class="form-input"/>
+                  <div class="form-background"></div>
+                </div>
+                  <p>Does the veggie meal have dairy products? Yes or No</p>
+                  <div class="form-list">
+                  <input type="text" required="required" placeholder="Enter" class="form-input"/>
+                  <div class="form-background"></div>
+                </div>
+                  <p>Which protein does the vegan meal have: Soygrits, Tofu, Vegetables or Broad bean?</p>
+                  <div class="form-list">
+                  <input type="text" required="required" placeholder="Enter" class="form-input"/>
+                  <div class="form-background"></div>
+                  </div>
+              </div>
+              <input type="submit" class="form-button" value="Submit" onclick="window.location.href = '/food';"/>
+          </div>
+      </div>
+    </form>
+</body>
+</html>

@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/login.css') }}">
     <title>Login</title>
+  <link rel="icon" type="image/x-icon" href="./static/images/logo.png">
 </head>
 <body>
 
@@ -29,7 +30,7 @@
               <div class="form-background"></div>
             </div>
           </div>
-          <input type="submit" class="form-button" value="Sign in"/>
+          <input type="submit" class="form-button" value="Sign in" onclick="window.location.href = '/';"/>
           <p>Don't have an account yet? Sign up <a href="/register">here. </p></div>
         </form>
       </div>
