@@ -1,10 +1,11 @@
 from flask import Flask, render_template, redirect, request
 
-from flask_login import LoginManager, login_required, login_user, logout_user
+from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 
 from static.python.conn_functions import *
 from static.python.classes import Accounts
 from static.python.functions import *
+#from Calculator.infrastructure import *
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'password'
@@ -62,6 +63,33 @@ def index():  # put application's code here
 def infrastructure_form():
     return render_template('infrastructureform.html')
 
+
+@app.route('/infrastructure_form_handler', methods=['POST'])
+def infra_form_handle():
+    avgCons= request.form.get('val1')
+
+    update_infra(current_user.school_id, 55)
+    return redirect('/dasboard')
+
+
+@app.route('/trans_form_handler', methods=['POST'])
+def trans_form_handle():
+    #avgCons= request.form.get('val1')
+
+    update_infra(current_user.school_id, 55)
+    return redirect('/dasboard')
+
+
+@app.route('/food_form_handler', methods=['POST'])
+def food_form_handle():
+    avgCons= request.form.get('val1')
+    food()
+
+    update_food(current_user.school_id, 55)
+    return redirect('/dasboard')
+
+
+
 @app.route('/')
 def introduction():
     return render_template('introduction.html')
@@ -105,6 +133,7 @@ def motion():
 def infrastructure():
     return render_template('infrastructure.html')
 
+
 @app.route('/transport_form')
 def transport_form():
     return render_template('transport_form.html')
@@ -136,6 +165,7 @@ def register_page():
 @app.route('/register_school')
 def school_register_page():
     return render_template('newSchool.html')
+
 
 @app.route('/food_form')
 def food_form():

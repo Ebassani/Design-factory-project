@@ -1,6 +1,6 @@
 from functools import total_ordering
 from operator import mul
-from multipliers import *
+from Calculator.multipliers import *
 
 #class userInputs():
 
@@ -69,11 +69,11 @@ CleaningInput=float(input("What is the Amount(Euros) of Cleaning Equipment waste
 internetAndPhonesInput=float(input("What is the Amount(Euros) of Internet and Phone waste you produce?"))
 postalInput=float(input("What is the Amount(Euros) of Postal waste you produce?"))
 
-def userEmissionEnergy():
+def userEmissionEnergy(ElectricityconsumptionEmission):
     
     #Electricity consumption
     #kgCO2e/MWh
-    ElectricityconsumptionEmission = ElectricityconsumptionMWhUserInput*AverageElectricity
+    #ElectricityconsumptionEmission = ElectricityconsumptionMWhUserInput*AverageElectricity
     ZeroEmissionGreenElectricityEmission = ZeroEmissionGreenElectricityUserInput*ZeroEmissionGreenElectricity
 
     ElectricityHeatingEmission = ElectricityHeatingInput*DistrictHeating

@@ -64,6 +64,36 @@ def update_carbon():
     conn.close()
 
 
+def update_infra(school_id, value):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+
+    cur.execute('update accounts set carbon_emission_infra = ' + str(value) + ' where school_id = '+str(school_id))
+
+    conn.commit()
+    conn.close()
+
+
+def update_trans(school_id, value):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+
+    cur.execute('update accounts set carbon_emission_trans = ' + str(value) + ' where school_id = '+str(school_id))
+
+    conn.commit()
+    conn.close()
+
+
+def update_food(school_id, value):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+
+    cur.execute('update accounts set carbon_emission_food = ' + str(value) + ' where school_id = ' + str(school_id))
+
+    conn.commit()
+    conn.close()
+
+
 def create_school_account(email, username, password, city, num_students):
     school_id = create_school(username, city, num_students)
 

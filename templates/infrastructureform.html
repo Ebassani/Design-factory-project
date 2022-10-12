@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/login.css') }}">
     <title> Infrastructure form</title>
-  <link rel="icon" type="image/x-icon" href="./static/images/logo.png">
+    <link rel="icon" type="image/x-icon" href="./static/images/logo.png">
 </head>
 <body>
 
@@ -13,60 +13,60 @@
 {% include 'mobileMenu.html' %}
 
 
-  <div class="wrap">
+<div class="wrap">
     <div class="form">
-      <h1>Infrastructure Form</h1>
-      <form method="post" action="/">
-      <div class="form-area">
-      <p>Whats your average electricity consumption? (Megawatts)</p>
-      <div class="form-list">
-              <input type="number" required="required" placeholder="Enter" class="form-input"/>
-              <div class="form-background"></div>
+        <h1>Infrastructure Form</h1>
+        <form method="post" action="/infrastructure_form_handler">
+            <div class="form-area">
+                <p>Whats your average electricity consumption? (Megawatts)</p>
+                <div class="form-list">
+                    <input type="number" required="required" placeholder="Enter" class="form-input" name="val1"/>
+                    <div class="form-background"></div>
                 </div>
                 <p>How much percent of it is renewable?</p>
                 <div class="form-list">
-              <input type="number" required="required" placeholder="Enter" class="form-input"/>
-              <div class="form-background"></div>
+                    <input type="number" required="required" placeholder="Enter" class="form-input" name="val2"/>
+                    <div class="form-background"></div>
+                </div>
+                <p>How much is your electricity consumption for heating? (Megawatts)</p>
+                <div class="form-list">
+                    <input type="number" required="required" placeholder="Enter" class="form-input" name="val3"/>
+                    <div class="form-background"></div>
+                </div>
+                <p>What percent of used electricity is renewable?</p>
+                <div class="form-list">
+                    <input type="number" required="required" placeholder="Enter" class="form-input" name="val4"/>
+                    <div class="form-background"></div>
+                </div>
+                <p>How much electricity consumption you have for district cooling?(Megawatts)</p>
+                <div class="form-list">
+                    <input type="number" required="required" placeholder="Enter" class="form-input" name="val5"/>
+                    <div class="form-background"></div>
+                </div>
+                <p>How much electricity consumption you have for electrict cooling?(Megawatts)</p>
+                <div class="form-list">
+                    <input type="number" required="required" placeholder="Enter" class="form-input" name="val6"/>
+                    <div class="form-background"></div>
+                </div>
+                <p>What is the amount(kg) of mixed waste you produce?</p>
+                <div class="form-list">
+                    <input type="number" required="required" placeholder="Enter" class="form-input" name="val7"/>
+                    <div class="form-background"></div>
+                </div>
+                <p>What is the amount(kg) of energy waste you produce?</p>
+                <div class="form-list">
+                    <input type="number" required="required" placeholder="Enter" class="form-input" name="val8"/>
+                    <div class="form-background"></div>
+                </div>
+                <p>What is the amount(kg) of bio waste you produce?</p>
+                <div class="form-list">
+                    <input type="number" required="required" placeholder="Enter" class="form-input" name="val9"/>
+                    <div class="form-background"></div>
+                </div>
             </div>
-              <p>How much is your electricity consumption for heating? (Megawatts)</p>
-              <div class="form-list">
-              <input type="number" required="required" placeholder="Enter" class="form-input"/>
-              <div class="form-background"></div>
-            </div>
-              <p>What percent of used electricity is renewable?</p>
-              <div class="form-list">
-              <input type="number" required="required" placeholder="Enter" class="form-input"/>
-              <div class="form-background"></div>
-            </div>
-              <p>How much electricity consumption you have for district cooling?(Megawatts)</p>
-              <div class="form-list">
-              <input type="number" required="required" placeholder="Enter" class="form-input"/>
-              <div class="form-background"></div>
-            </div>
-              <p>How much electricity consumption you have for electrict cooling?(Megawatts)</p>
-              <div class="form-list">
-              <input type="number" required="required" placeholder="Enter" class="form-input"/>
-              <div class="form-background"></div>
-            </div>
-              <p>What is the amount(kg) of mixed waste you produce?</p>
-              <div class="form-list">
-              <input type="number" required="required" placeholder="Enter" class="form-input"/>
-              <div class="form-background"></div>
-              </div>
-              <p>What is the amount(kg) of energy waste you produce?</p>
-              <div class="form-list">
-              <input type="number" required="required" placeholder="Enter" class="form-input"/>
-              <div class="form-background"></div>
-              </div>
-              <p>What is the amount(kg) of bio waste you produce?</p>
-              <div class="form-list">
-              <input type="number" required="required" placeholder="Enter" class="form-input"/>
-              <div class="form-background"></div>
-            </div>
-          </div>
-          <input type="submit" class="form-button" value="Submit" onclick="window.location.href = '/infrastructure';"/>
-      </div>
-  </div>
+            <input type="submit" class="form-button" value="Submit"/>
+    </div>
+</div>
 </form>
 
 </body>
