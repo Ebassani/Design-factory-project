@@ -86,7 +86,7 @@ def userEmissionEnergy(ElectricityconsumptionEmission,ZeroEmissionGreenElectrici
     return totalElectricC02
 
     #return ElectricityconsumptionEmission + ZeroEmissionDistrictHeatingEmission + ZeroEmissionGreenElectricityEmission + ElectricityHeatingEmission + DistrictHeatingEmission + ElectricCoolingEmission + DistrictCoolingEmission
-EnergyEmission = userEmissionEnergy()
+
 
 
 
@@ -99,7 +99,7 @@ def AircoditionarTypeuserInput(HoursPerDay,AircoditionarTypeAnswer):
     HoursPerDayEmission = HoursPerDay*AircoditionarTypeAnswer
     
     return HoursPerDayEmission
-UserAiconditinorEmission=AircoditionarTypeuserInput()
+
     
 def userEmissionMixedWaste(MixedWasteEmission,EnergyWasteEmission,BioWasteEmission):
     
@@ -114,16 +114,16 @@ def userEmissionMixedWaste(MixedWasteEmission,EnergyWasteEmission,BioWasteEmissi
     #ElectricityRecycableEmission = ElectricityRecycableInput*ElectricityRecycable
     #HazardousEmission = HazardousInput*Hazardous
     
-    TotalwasteCO2 = MixedWasteEmission + EnergyWasteEmission + BioWasteEmission + CardboardEmission + GlassEmission + MetalEmission + PlasticEmission + PaperEmission + ElectricityRecycableEmission + HazardousEmission
+    TotalwasteCO2 = MixedWasteEmission + EnergyWasteEmission + BioWasteEmission
     return TotalwasteCO2
     #return MixedWasteEmission + EnergyWasteEmission + BioWasteEmission + CardboardEmission + GlassEmission + MetalEmission + PlasticEmission + PaperEmission + ElectricityRecycableEmission + HazardousEmission
     #class acquisitions:
     #kgCO2e/kpl
 
-UserEmissionMixedWaste = userEmissionMixedWaste()
+
 
 def userEmissionAquisitions():
-
+    hello=True
     #phoneEmission = phoneInput*phone
     #LaptopEmission = LaptopInput*laptop
     #TabletEmission = TabletInput*tablet
@@ -141,14 +141,14 @@ def userEmissionAquisitions():
     #paperKgEmission = paperKgInput*paperKg
     #TotalItemAquisitionCO2 = phoneEmission + LaptopEmission + TabletEmission + DesktopComputerEmission + MultifunctionPrinterEmission + PrinterEmission + OfficeChairEmission + ChairEmission + metalFrameTableEmission + electricDeskEmission + paperKgEmission
     #return TotalItemAquisitionCO2
-    return phoneEmission + LaptopEmission + TabletEmission + DesktopComputerEmission + MultifunctionPrinterEmission + PrinterEmission + OfficeChairEmission + ChairEmission + metalFrameTableEmission + electricDeskEmission + paperKgEmission
+    #return phoneEmission + LaptopEmission + TabletEmission + DesktopComputerEmission + MultifunctionPrinterEmission + PrinterEmission + OfficeChairEmission + ChairEmission + metalFrameTableEmission + electricDeskEmission + paperKgEmission
     
     #item/kgCO2e
 
 #userEmissionAquisition = userEmissionAquisitions()
 
 def userEmissionItems():
-
+    hello=True
     #EbookEmission = EbookInput*eBook
     #BookEmission = BookInput*book
 
@@ -158,12 +158,7 @@ def userEmissionItems():
     #postalEmission = postalInput*postal
     #TotalItemEmmission = EbookEmission + BookEmission + CleaningEmission + internetAndPhonesEmission + postalEmission
     #return TotalItemEmmission
-    return EbookEmission + BookEmission + CleaningEmission + internetAndPhonesEmission + postalEmission 
+    #return EbookEmission + BookEmission + CleaningEmission + internetAndPhonesEmission + postalEmission
 
-userEmissionItem = userEmissionItems()
 
-userEmissionEnergy()
-AircoditionarTypeuserInput()
-userEmissionMixedWaste()
-userEmissionAquisitions()
-userEmissionItems()
+

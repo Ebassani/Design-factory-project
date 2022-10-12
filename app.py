@@ -1,5 +1,5 @@
-from Calculator.infrastructure import userEmissionMixedWaste
-from Calculator.infrastructure import userEmissionEnergy
+# from Calculator.infrastructure import userEmissionMixedWaste
+# from Calculator.infrastructure import userEmissionEnergy
 from flask import Flask, render_template, redirect, request
 
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
@@ -7,7 +7,7 @@ from flask_login import LoginManager, login_required, login_user, logout_user, c
 from static.python.conn_functions import *
 from static.python.classes import Accounts
 from static.python.functions import *
-#from Calculator.infrastructure import *
+# from Calculator.infrastructure import *
 from Calculator.food import *
 
 app = Flask(__name__)
@@ -67,58 +67,44 @@ def infrastructure_form():
     return render_template('infrastructureform.html')
 
 
-@app.route('/infrastructure_form_handler', methods=['POST'])
-def infra_form_handle():
-    avgCons= float(request.form.get('val1'))
-    userEmissionEnergy(avgCons)
-    avgCons= float(request.form.get('val2'))
-    userEmissionEnergy(avgCons)
-    avgCons= float(request.form.get('val3'))
-    userEmissionEnergy(avgCons)
-    avgCons= float(request.form.get('val4'))
-    userEmissionEnergy(avgCons)
-    avgCons= float(request.form.get('val5'))
-    userEmissionEnergy(avgCons)
-    avgCons= float(request.form.get('val6'))
-    userEmissionEnergy(avgCons)
-    avgCons= float(request.form.get('val7'))
-    userEmissionMixedWaste(avgCons)
-    avgCons= float(request.form.get('val8'))
-    userEmissionMixedWaste(avgCons)
-    avgCons= float(request.form.get('val9'))
-    userEmissionMixedWaste(avgCons)
-    update_infra(current_user.school_id, 55)
-    return redirect('/dasboard')
+# @app.route('/infrastructure_form_handler', methods=['POST'])
+# def infra_form_handle():
+#     update_infra(current_user.school_id, 55)
+#     return redirect('/dasboard')
 
 
-@app.route('/trans_form_handler', methods=['POST'])
-def trans_form_handle():
-    #avgCons= request.form.get('val1')
-
-    update_infra(current_user.school_id, 55)
-    return redirect('/dasboard')
+# @app.route('/trans_form_handler', methods=['POST'])
+# def trans_form_handle():
+#     # avgCons= request.form.get('val1')
+#
+#     update_infra(current_user.school_id, 55)
+#     return redirect('/dasboard')
 
 
 @app.route('/food_form_handler', methods=['POST'])
 def food_form_handle():
-    meatMealProtein(request.form.get('meatProtein'))
-    meatmealEgg(request.form.get('meatEgg'))
-    meatmealDairy(request.form.get('meatDairy'))
-    meatmealSide(request.form.get('sides'))
+    num_students = get_school_students(current_user.school_id)
 
-    veggieMealProtein(request.form.get('veggieProtein'))
-    veggiemealSide(request.form.get('sides'))
-    veggiemealEgg(request.form.get('veggieEgg'))
-    veggiemealDairy(request.form.get('veggieDairy'))
+    m1 = meatMealProtein(request.form.get('meatProtein'))
+    m2 = mealEgg(request.form.get('meatEgg'))
+    m3 = mealDairy(request.form.get('meatDairy'))
+    m4 = mealSide(request.form.get('sides'))
 
-    veganMealProtein(request.form.get('veganProtein'))
-    veganmealSide(request.form.get("sides"))
+    ve1 = vegMealProtein(request.form.get('veggieProtein'))
+    ve2 = mealSide(request.form.get('sides'))
+    ve3 = mealEgg(request.form.get('veggieEgg'))
+    ve4 = mealDairy(request.form.get('veggieDairy'))
 
-    final = Co2OfMeatMeal(meatMealProtein, meatmealEgg, meatmealDairy, meatmealSide) + Co2OfVeganMeal(veggieMealProtein, veggiemealSide, veggiemealEgg, veggiemealDairy) + Co2ofVeggieMeal(veganMealProtein, veganmealSide)
+    vg1 = vegMealProtein(request.form.get('veganProtein'))
+    vg2 = veganmealSide(request.form.get("sides"))
+
+    meat_meal = co2OfMeatMeal(num_students, m1, m4, m2, m3)
+    veggie_meal = co2ofVeggieMeal(num_students, ve1, ve2, ve3, ve4)
+    vegan_meal = co2OfVeganMeal(num_students, vg2, vg1)
+    final = (meat_meal + veggie_meal + vegan_meal)/3
 
     update_food(current_user.school_id, final)
     return redirect('/dasboard')
-
 
 
 @app.route('/')

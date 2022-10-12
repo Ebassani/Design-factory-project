@@ -42,6 +42,18 @@ def get_schools():
     conn.close()
     return schools
 
+
+def get_school_students(school_id):
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+
+    cur.execute('select num_students from schools where id=' + str(school_id))
+    school = cur.fetchone()
+
+    conn.close()
+    print(school[0])
+
+
 def get_school_accounts():
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
