@@ -72,19 +72,19 @@ html, body {
 
 
 .menu__link--color-darkblue {
+    background: linear-gradient(lightgray, lightgray 50%, #1E5F74 50%, #1E5F74);
+    background-size: 100% 200%;
+    border-bottom: solid 0.4rem #1E5F74;
+}
+.menu__link--color-darkkblue {
     background: linear-gradient(lightgray, lightgray 50%, #27496D 50%, #27496D);
     background-size: 100% 200%;
     border-bottom: solid 0.4rem #27496D;
 }
-.menu__link--color-darkkblue {
-    background: linear-gradient(lightgray, lightgray 50%, #033E8A 50%, #033E8A);
-    background-size: 100% 200%;
-    border-bottom: solid 0.4rem #023E8A;
-}
 .menu__link--color-darkkbluee {
-    background: linear-gradient(lightgray, lightgray 50%, #142850 50%, #142850);
+    background: linear-gradient(lightgray, lightgray 50%, #0F4C75 50%, #0F4C75);
     background-size: 100% 200%;
-    border-bottom: solid 0.4rem #142850;
+    border-bottom: solid 0.4rem #0F4C75;
 }
 .menu__link:hover {
     background-position: 100% 98%;
