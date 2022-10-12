@@ -2,7 +2,7 @@ from functools import total_ordering
 from operator import mul
 from multipliers import *
 
-#class userInputs():
+"""#class userInputs():
 
     #Electricity(Megawatts)
 
@@ -67,9 +67,9 @@ BookInput=float(input("What is the Amount(pieces) of Book waste you produce?"))
 
 CleaningInput=float(input("What is the Amount(Euros) of Cleaning Equipment waste you produce?"))
 internetAndPhonesInput=float(input("What is the Amount(Euros) of Internet and Phone waste you produce?"))
-postalInput=float(input("What is the Amount(Euros) of Postal waste you produce?"))
+postalInput=float(input("What is the Amount(Euros) of Postal waste you produce?"))"""
 
-def userEmissionEnergy():
+def userEmissionEnergy(ElectricityconsumptionMWhUserInput,ZeroEmissionGreenElectricityUserInput,ElectricityHeatingInput,DistrictHeatingInput,ZeroEmissionDistrictHeatingInput,DistrictCoolingInput,ElectricCoolingInput):
     
     #Electricity consumption
     #kgCO2e/MWh
@@ -101,7 +101,7 @@ def AircoditionarTypeuserInput(HoursPerDay,AircoditionarTypeAnswer):
     return HoursPerDayEmission
 UserAiconditinorEmission=AircoditionarTypeuserInput()
     
-def userEmissionMixedWaste():
+def userEmissionMixedWaste(MixedWasteInput,EnergyWasteInput,BioWasteInput,CardboardInput,GlassInput,MetalInput,PlasticInput,PaperInput,ElectricityRecycableInput,HazardousInput):
     
     MixedWasteEmission = MixedWasteInput*mixedWaste
     EnergyWasteEmission = EnergyWasteInput*energyWaste
@@ -122,7 +122,7 @@ def userEmissionMixedWaste():
 
 UserEmissionMixedWaste = userEmissionMixedWaste()
 
-def userEmissionAquisitions():
+def userEmissionAquisitions(phoneInput,LaptopInput,TabletInput,DesktopComputerInput,MultifunctionPrinterInput,PrinterInput,OfficeChairInput,ChairInput,metalFrameTableInput,electricDeskInput,paperKgInput):
 
     phoneEmission = phoneInput*phone
     LaptopEmission = LaptopInput*laptop
@@ -147,7 +147,7 @@ def userEmissionAquisitions():
 
 userEmissionAquisition = userEmissionAquisitions()
 
-def userEmissionItems():
+def userEmissionItems(EbookInput,BookInput,CleaningInput,internetAndPhonesInput,postalInput):
 
     EbookEmission = EbookInput*eBook
     BookEmission = BookInput*book
