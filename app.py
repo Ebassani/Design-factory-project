@@ -30,24 +30,32 @@ def load_user(user_id):
 @app.route('/dashboard')
 @login_required
 def index():  # put application's code here
+    update_carbon()
     top3 = False
     topSchools = get_top_schools()[:3]
-    currentSchool = []
+    currentSchool = ()
+    currentSchoolAccount = ()
+
+    for i in get_school_accounts():
+        if i[5] == current_user.school_id:
+            currentSchoolAccount = i
 
     for i in get_schools():
         if i[0] == current_user.school_id:
-            currentSchool.append(i[1])
+            currentSchool = i
 
     for i in topSchools:
-        if i[0] == currentSchool[0]:
+        if i[0] == currentSchool[1]:
             top3 = True
             break
 
     if top3:
-        return render_template('dashboard.html', schools=topSchools, school=currentSchool)
+        return render_template('dashboard.html', schools=topSchools, school=currentSchool,
+                               schoolAccount=currentSchoolAccount)
 
     topSchools.append(currentSchool)
-    return render_template('dashboard.html', schools=topSchools, school=currentSchool)
+    return render_template('dashboard.html', schools=topSchools, school=currentSchool,
+                           schoolAccount=currentSchoolAccount)
 
 
 @app.route('/')

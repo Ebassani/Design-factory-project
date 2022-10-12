@@ -42,6 +42,27 @@ def get_schools():
     conn.close()
     return schools
 
+def get_school_accounts():
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+
+    cur.execute('select * from accounts where is_school = true')
+    schools = cur.fetchall()
+
+    conn.close()
+    return schools
+
+
+def update_carbon():
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+
+    cur.execute('update accounts set carbon_emission= carbon_emission_infra '
+                '+ carbon_emission_food+carbon_emission_trans')
+
+    conn.commit()
+    conn.close()
+
 
 def create_school_account(email, username, password, city, num_students):
     school_id = create_school(username, city, num_students)
