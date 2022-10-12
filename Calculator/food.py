@@ -1,7 +1,6 @@
 from audioop import mul
-import multipliers
-
-
+import Calculator.multipliers
+from Calculator import multipliers
 
 amountOfPortions = float(input("How many portions we're made"))
 

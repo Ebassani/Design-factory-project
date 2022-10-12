@@ -1,8 +1,8 @@
 from functools import total_ordering
 from operator import mul
-from multipliers import *
+from Calculator.multipliers import *
 
-"""#class userInputs():
+#class userInputs():
 
     #Electricity(Megawatts)
 
@@ -67,13 +67,13 @@ BookInput=float(input("What is the Amount(pieces) of Book waste you produce?"))
 
 CleaningInput=float(input("What is the Amount(Euros) of Cleaning Equipment waste you produce?"))
 internetAndPhonesInput=float(input("What is the Amount(Euros) of Internet and Phone waste you produce?"))
-postalInput=float(input("What is the Amount(Euros) of Postal waste you produce?"))"""
+postalInput=float(input("What is the Amount(Euros) of Postal waste you produce?"))
 
-def userEmissionEnergy(ElectricityconsumptionMWhUserInput,ZeroEmissionGreenElectricityUserInput,ElectricityHeatingInput,DistrictHeatingInput,ZeroEmissionDistrictHeatingInput,DistrictCoolingInput,ElectricCoolingInput):
+def userEmissionEnergy(ElectricityconsumptionEmission):
     
     #Electricity consumption
     #kgCO2e/MWh
-    ElectricityconsumptionEmission = ElectricityconsumptionMWhUserInput*AverageElectricity
+    #ElectricityconsumptionEmission = ElectricityconsumptionMWhUserInput*AverageElectricity
     ZeroEmissionGreenElectricityEmission = ZeroEmissionGreenElectricityUserInput*ZeroEmissionGreenElectricity
 
     ElectricityHeatingEmission = ElectricityHeatingInput*DistrictHeating
@@ -101,7 +101,7 @@ def AircoditionarTypeuserInput(HoursPerDay,AircoditionarTypeAnswer):
     return HoursPerDayEmission
 UserAiconditinorEmission=AircoditionarTypeuserInput()
     
-def userEmissionMixedWaste(MixedWasteInput,EnergyWasteInput,BioWasteInput,CardboardInput,GlassInput,MetalInput,PlasticInput,PaperInput,ElectricityRecycableInput,HazardousInput):
+def userEmissionMixedWaste():
     
     MixedWasteEmission = MixedWasteInput*mixedWaste
     EnergyWasteEmission = EnergyWasteInput*energyWaste
@@ -122,7 +122,7 @@ def userEmissionMixedWaste(MixedWasteInput,EnergyWasteInput,BioWasteInput,Cardbo
 
 UserEmissionMixedWaste = userEmissionMixedWaste()
 
-def userEmissionAquisitions(phoneInput,LaptopInput,TabletInput,DesktopComputerInput,MultifunctionPrinterInput,PrinterInput,OfficeChairInput,ChairInput,metalFrameTableInput,electricDeskInput,paperKgInput):
+def userEmissionAquisitions():
 
     phoneEmission = phoneInput*phone
     LaptopEmission = LaptopInput*laptop
@@ -147,7 +147,7 @@ def userEmissionAquisitions(phoneInput,LaptopInput,TabletInput,DesktopComputerIn
 
 userEmissionAquisition = userEmissionAquisitions()
 
-def userEmissionItems(EbookInput,BookInput,CleaningInput,internetAndPhonesInput,postalInput):
+def userEmissionItems():
 
     EbookEmission = EbookInput*eBook
     BookEmission = BookInput*book
