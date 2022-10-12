@@ -52,6 +52,11 @@ def meatMealProtein(meatAns):
 
 
 def co2OfMeatMeal(amountOfPortions, meatMealProtein, meatmealSide, meatmealEgg, meatmealDairy):
+    # amountOfPortions = int(amountOfPortions)
+    # meatMealProtein = float(meatMealProtein)
+    # meatmealSide = float(meatmealSide)
+    # meatmealEgg = float(meatmealEgg)
+    # meatmealDairy = float(meatmealDairy)
     return amountOfPortions * (meatMealProtein + meatmealSide + meatmealEgg + meatmealDairy)
 
 
@@ -73,7 +78,7 @@ def vegMealProtein(vegAns):
 
 def co2ofVeggieMeal(amountOfPortions, veggieMealProtein, veggiemealSide, veggiemealEgg, veggiemealDairy):
     co2 = (amountOfPortions * (veggieMealProtein + veggiemealSide + veggiemealEgg + veggiemealDairy))
-    return co2
+    return float(co2)
 
 
 # Vegan meal
@@ -91,7 +96,7 @@ def veganmealSide(veganmeal):
 
 def co2OfVeganMeal(amountOfPortions, veganmealSide, veganMealProtein):
     veganmeal = (amountOfPortions * (veganmealSide + veganMealProtein))
-    return veganmeal
+    return float(veganmeal)
 
 
 # WORKING

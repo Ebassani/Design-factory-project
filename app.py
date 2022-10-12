@@ -70,7 +70,7 @@ def infrastructure_form():
 # @app.route('/infrastructure_form_handler', methods=['POST'])
 # def infra_form_handle():
 #     update_infra(current_user.school_id, 55)
-#     return redirect('/dasboard')
+#     return redirect('/dashboard')
 
 
 # @app.route('/trans_form_handler', methods=['POST'])
@@ -78,33 +78,32 @@ def infrastructure_form():
 #     # avgCons= request.form.get('val1')
 #
 #     update_infra(current_user.school_id, 55)
-#     return redirect('/dasboard')
+#     return redirect('/dashboard')
 
 
 @app.route('/food_form_handler', methods=['POST'])
 def food_form_handle():
     num_students = get_school_students(current_user.school_id)
 
+    side_dish = mealSide(request.form.get('sides'))
+
     m1 = meatMealProtein(request.form.get('meatProtein'))
     m2 = mealEgg(request.form.get('meatEgg'))
     m3 = mealDairy(request.form.get('meatDairy'))
-    m4 = mealSide(request.form.get('sides'))
 
     ve1 = vegMealProtein(request.form.get('veggieProtein'))
-    ve2 = mealSide(request.form.get('sides'))
     ve3 = mealEgg(request.form.get('veggieEgg'))
     ve4 = mealDairy(request.form.get('veggieDairy'))
 
     vg1 = vegMealProtein(request.form.get('veganProtein'))
-    vg2 = veganmealSide(request.form.get("sides"))
 
-    meat_meal = co2OfMeatMeal(num_students, m1, m4, m2, m3)
-    veggie_meal = co2ofVeggieMeal(num_students, ve1, ve2, ve3, ve4)
-    vegan_meal = co2OfVeganMeal(num_students, vg2, vg1)
+    meat_meal = co2OfMeatMeal(num_students, m1, side_dish, m2, m3)
+    veggie_meal = co2ofVeggieMeal(num_students, ve1, side_dish, ve3, ve4)
+    vegan_meal = co2OfVeganMeal(num_students, side_dish, vg1)
     final = (meat_meal + veggie_meal + vegan_meal)/3
 
     update_food(current_user.school_id, final)
-    return redirect('/dasboard')
+    return redirect('/dashboard')
 
 
 @app.route('/')

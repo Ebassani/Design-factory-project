@@ -51,7 +51,7 @@ def get_school_students(school_id):
     school = cur.fetchone()
 
     conn.close()
-    print(school[0])
+    return int(school[0])
 
 
 def get_school_accounts():
@@ -80,7 +80,8 @@ def update_infra(school_id, value):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
 
-    cur.execute('update accounts set carbon_emission_infra = ' + str(value) + ' where school_id = '+str(school_id))
+    cur.execute('update accounts set carbon_emission_infra = ' + str(value) + ' where school_id = ' + str(school_id) +
+                " and is_school=1")
 
     conn.commit()
     conn.close()
@@ -90,7 +91,8 @@ def update_trans(school_id, value):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
 
-    cur.execute('update accounts set carbon_emission_trans = ' + str(value) + ' where school_id = '+str(school_id))
+    cur.execute('update accounts set carbon_emission_trans = ' + str(value) + ' where school_id = ' + str(school_id) +
+                " and is_school=1")
 
     conn.commit()
     conn.close()
@@ -100,7 +102,8 @@ def update_food(school_id, value):
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
 
-    cur.execute('update accounts set carbon_emission_food = ' + str(value) + ' where school_id = ' + str(school_id))
+    cur.execute('update accounts set carbon_emission_food = ' + str(value) + ' where school_id = ' + str(school_id) +
+                " and is_school=1")
 
     conn.commit()
     conn.close()

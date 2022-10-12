@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/login.css') }}">
     <title>Food form</title>
-  <link rel="icon" type="image/x-icon" href="./static/images/logo.png">
+    <link rel="icon" type="image/x-icon" href="./static/images/logo.png">
 </head>
 <body>
 
@@ -13,55 +13,55 @@
 {% include 'mobileMenu.html' %}
 
 
-  <div class="wrap">
+<div class="wrap">
     <div class="form">
-      <h1>Food Form</h1>
-          <form method="post" action="/food_form_handler">
-          <div class="form-area">
-            <p>Which protein does the meat meal have: Fish, pork, beef, chicken or sausage?</p>
-                  <div class="form-list">
-                  <input type="text" required="required" placeholder="Enter" class="form-input" name="meatProtein"/>
-                  <div class="form-background"></div>
+        <h1>Food Form</h1>
+        <form method="post" action="/food_form_handler">
+            <div class="form-area">
+                <p>Which protein does the meat meal have: Fish, pork, beef, chicken or sausage?</p>
+                <div class="form-list">
+                    <input type="text" required="required" placeholder="Enter" class="form-input" name="meatProtein"/>
+                    <div class="form-background"></div>
                 </div>
-          <p>Which protein does the veggie meal have: Soygrits, Tofu, Vegetables or Broad bean?</p>
-          <div class="form-list">
-                  <input type="text" required="required" placeholder="Enter" class="form-input" name ="veggieProtein"/>
-                  <div class="form-background"></div>
-                    </div>
-                    <p>Does the meat meal have eggs? Yes or No</p>
-                    <div class="form-list">
-                  <input type="text" required="required" placeholder="Enter" class="form-input" name="meatEgg"/>
-                  <div class="form-background"></div>
+                <p>Which protein does the veggie meal have: Soygrits, Tofu, Vegetables or Broad bean?</p>
+                <div class="form-list">
+                    <input type="text" required="required" placeholder="Enter" class="form-input" name="veggieProtein"/>
+                    <div class="form-background"></div>
                 </div>
-                  <p>Does the meat meal have a cream? Yes or No</p>
-                  <div class="form-list">
-                  <input type="text" required="required" placeholder="Enter" class="form-input" name = "meatDairy"/>
-                  <div class="form-background"></div>
+                <p>Does the meat meal have eggs? Yes or No</p>
+                <div class="form-list">
+                    <input type="text" required="required" placeholder="Enter" class="form-input" name="meatEgg"/>
+                    <div class="form-background"></div>
                 </div>
-                  <p>Choose the side of the meal: Rice, pasta, potato or vegetables?</p>
-                  <div class="form-list">
-                  <input type="text" required="required" placeholder="Enter" class="form-input" name = "sides"/>
-                  <div class="form-background"></div>
+                <p>Does the meat meal have a cream? Yes or No</p>
+                <div class="form-list">
+                    <input type="text" required="required" placeholder="Enter" class="form-input" name="meatDairy"/>
+                    <div class="form-background"></div>
                 </div>
-                  <p>Does the veggie meal have eggs? Yes or No</p>
-                  <div class="form-list">
-                  <input type="text" required="required" placeholder="Enter" class="form-input" name = "veggieEgg"/>
-                  <div class="form-background"></div>
+                <p>Choose the side of the meal: Rice, pasta, potato or vegetables?</p>
+                <div class="form-list">
+                    <input type="text" required="required" placeholder="Enter" class="form-input" name="sides"/>
+                    <div class="form-background"></div>
                 </div>
-                  <p>Does the veggie meal have dairy products? Yes or No</p>
-                  <div class="form-list">
-                  <input type="text" required="required" placeholder="Enter" class="form-input" name = "veggieDairy"/>
-                  <div class="form-background"></div>
+                <p>Does the veggie meal have eggs? Yes or No</p>
+                <div class="form-list">
+                    <input type="text" required="required" placeholder="Enter" class="form-input" name="veggieEgg"/>
+                    <div class="form-background"></div>
                 </div>
-                  <p>Which protein does the vegan meal have: Soygrits, Tofu, Vegetables or Broad bean?</p>
-                  <div class="form-list">
-                  <input type="text" required="required" placeholder="Enter" class="form-input" vegan = "veganProtein"/>
-                  <div class="form-background"></div>
-                  </div>
-              </div>
-              <input type="submit" class="form-button" value="Submit" onclick="window.location.href = '/food';"/>
-          </div>
-      </div>
-    </form>
+                <p>Does the veggie meal have dairy products? Yes or No</p>
+                <div class="form-list">
+                    <input type="text" required="required" placeholder="Enter" class="form-input" name="veggieDairy"/>
+                    <div class="form-background"></div>
+                </div>
+                <p>Which protein does the vegan meal have: Soygrits, Tofu, Vegetables or Broad bean?</p>
+                <div class="form-list">
+                    <input type="text" required="required" placeholder="Enter" class="form-input" vegan="veganProtein"/>
+                    <div class="form-background"></div>
+                </div>
+            </div>
+            <input type="submit" class="form-button" value="Submit" onclick="window.location.href = '/food';"/>
+    </div>
+</div>
+</form>
 </body>
 </html>
