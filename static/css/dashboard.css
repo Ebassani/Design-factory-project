@@ -104,3 +104,22 @@ canvas {
     max-height: 20rem;
     max-width: 50%;
 }
+
+.dashboard__cards {
+    position: relative;
+    border: 2px solid black;
+    margin: 0.2rem;
+    padding: 0.5rem 1em;
+    border-radius: 1rem;
+    transition: 0.2s;
+    min-height: 15rem;
+    min-width: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard__cards:hover {
+    box-shadow: 0 0.2rem 1rem;
+}
