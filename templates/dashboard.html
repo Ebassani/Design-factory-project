@@ -116,6 +116,12 @@
                                 </svg>
                                 <span>The school emits carbon around the average in this category</span>
                             {% endif %}
+                            {% if current_user.is_school %}
+                                <div class="menu__log hover__pointer"
+                                     onclick="window.location.href = '/infrastructure_form';">
+                                     <span>Survey</span>
+                                </div>
+                            {% endif %}
                         {% else %}
                             {% if current_user.is_school %}
                                 <span>Click here to fill the survey about infrastucture</span>
@@ -126,12 +132,6 @@
                             {% else %}
                                 <span>Your school has yet to answer the survey about infrastructure</span>
                             {% endif %}
-                        {% endif %}
-                        {% if current_user.is_school %}
-                            <div class="menu__log hover__pointer"
-                                 onclick="window.location.href = '/infrastructure_form';">
-                                 <span>Survey</span>
-                            </div>
                         {% endif %}
                     </div>
 
@@ -154,6 +154,12 @@
                                 </svg>
                                 <span>The school emits carbon around the average in this category</span>
                             {% endif %}
+                            {% if current_user.is_school %}
+                            <div class="menu__log hover__pointer"
+                                 onclick="window.location.href = '/food_form';">
+                                 <span>Survey</span>
+                            </div>
+                            {% endif %}
                         {% else %}
                             {% if current_user.is_school %}
                                 <span>Click here to fill the survey about food</span>
@@ -164,12 +170,6 @@
                             {% else %}
                                 <span>Your school has yet to answer the survey about food</span>
                             {% endif %}
-                        {% endif %}
-                        {% if current_user.is_school %}
-                            <div class="menu__log hover__pointer"
-                                 onclick="window.location.href = '/food_form';">
-                                 <span>Survey</span>
-                            </div>
                         {% endif %}
                     </div>
 
@@ -192,6 +192,12 @@
                                 </svg>
                                 <span>The school emits carbon around the average in this category</span>
                             {% endif %}
+                            {% if current_user.is_school %}
+                            <div class="menu__log hover__pointer"
+                                 onclick="window.location.href = '/transport_form';">
+                                 <span>Survey</span>
+                            </div>
+                        {% endif %}
                         {% else %}
                             {% if current_user.is_school %}
                                 <span>Click here to fill the survey about transportation</span>
@@ -202,12 +208,6 @@
                             {% else %}
                                 <span>Your school has yet to answer the survey about infrastructure</span>
                             {% endif %}
-                        {% endif %}
-                        {% if current_user.is_school %}
-                            <div class="menu__log hover__pointer"
-                                 onclick="window.location.href = '/transport_form';">
-                                 <span>Survey</span>
-                            </div>
                         {% endif %}
                     </div>
                 </div>
