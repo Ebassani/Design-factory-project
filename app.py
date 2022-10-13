@@ -66,12 +66,19 @@ def index():  # put application's code here
 
 
 @app.route('/infrastructure_form')
+@login_required
 def infrastructure_form():
+    if not current_user.is_school:
+        return redirect('/dashboard')
+
     return render_template('infrastructureform.html')
 
 
 @app.route('/infrastructure_form_handler', methods=['POST'])
 def infra_form_handle():
+    if not current_user.is_school:
+        return redirect('/dashboard')
+
     val1 = float(request.form.get('val1'))
     val2 = float(request.form.get('val2'))
     val3 = float(request.form.get('val3'))
@@ -90,7 +97,11 @@ def infra_form_handle():
 
 
 @app.route('/trans_form_handler', methods=['POST'])
+@login_required
 def trans_form_handle():
+    if not current_user.is_school:
+        return redirect('/dashboard')
+
     Passengers = float(request.form.get('Passengers'))
     FuelUsed = request.form.get('FuelUsed')
     ShortFlightsAnswer = float(request.form.get('ShortFlightsAnswer'))
@@ -128,21 +139,24 @@ def trans_form_handle():
     KickboardInput = float(request.form.get('KickboardInput'))
 
     final = carEmissions(Passengers, FuelUsed)
-    final = userEmissionsFlights(ShortFlightsAnswer, LongFlightsHomelandAnswer, LongFlightsAbroadAnswer, LongFlightsOver3700Answer)
-    final = userEmissionsPublicTransport(ShortDistanceBus, LongDistanceBus, LongDistanceTrain, ShortDistanceTrain, MetroInput, TramInput)
-    final = userEmissionsPublicTransportAbroad(TrainAbroadInput, BusAbroadInput)
-    final = userEmissionsCarTraffic(UnknownFuelInput, DieselInput, PetrolInput, NaturalGasInput, BioGasInput, ElectricCarInput, HybridInput, ChargingHybridInput)
-    final = userEmissionsBusinessAndClassTrips(RentalBusInput, HotelStaysInput, TaxiInput)
-    final = userEmissionsOtherVehicles(MopedInput, MopedCarInput, MotorcycleInput, ATVInput, TractorInput, SnowmobileInput)
-    final = otherEmissions(ElectricKickboardRentalInput, ElectricBycycleInput, BycycleInput, KickboardInput)
+    final += userEmissionsFlights(ShortFlightsAnswer, LongFlightsHomelandAnswer, LongFlightsAbroadAnswer, LongFlightsOver3700Answer)
+    final += userEmissionsPublicTransport(ShortDistanceBus, LongDistanceBus, LongDistanceTrain, ShortDistanceTrain, MetroInput, TramInput)
+    final += userEmissionsPublicTransportAbroad(TrainAbroadInput, BusAbroadInput)
+    final += userEmissionsCarTraffic(UnknownFuelInput, DieselInput, PetrolInput, NaturalGasInput, BioGasInput, ElectricCarInput, HybridInput, ChargingHybridInput)
+    final += userEmissionsBusinessAndClassTrips(RentalBusInput, HotelStaysInput, TaxiInput)
+    final += userEmissionsOtherVehicles(MopedInput, MopedCarInput, MotorcycleInput, ATVInput, TractorInput, SnowmobileInput)
+    final += otherEmissions(ElectricKickboardRentalInput, ElectricBycycleInput, BycycleInput, KickboardInput)
 
     update_infra(current_user.school_id, final)
     return redirect('/dashboard')
 
 
-
 @app.route('/food_form_handler', methods=['POST'])
+@login_required
 def food_form_handle():
+    if not current_user.is_school:
+        return redirect('/dashboard')
+
     num_students = get_school_students(current_user.school_id)
 
     side_dish = mealSide(request.form.get('sides'))
@@ -176,13 +190,13 @@ def currentstate():
     return render_template('currentstate.html')
 
 
-@app.route('/create')
-def generate_db():
-    create_table()
-    create_school('sup', 'hello', 222)
-    create_school_account('name@test', 'hello', 'password', 'sup', 654)
-    create_account('test@feu', 'user1', 'edu', 'Bassani', 1, 'pass')
-    return 'created'
+# @app.route('/create')
+# def generate_db():
+#     create_table()
+#     create_school('sup', 'hello', 222)
+#     create_school_account('name@test', 'hello', 'password', 'sup', 654)
+#     create_account('test@feu', 'user1', 'edu', 'Bassani', 1, 'pass')
+#     return 'created'
 
 
 @app.route('/login')
@@ -211,7 +225,11 @@ def infrastructure():
 
 
 @app.route('/transport_form')
+@login_required
 def transport_form():
+    if not current_user.is_school:
+        return redirect('/dashboard')
+
     return render_template('transport_form.html')
 
 
@@ -244,7 +262,11 @@ def school_register_page():
 
 
 @app.route('/food_form')
+@login_required
 def food_form():
+    if not current_user.is_school:
+        return redirect('/dashboard')
+
     return render_template('food_form.html')
 
 

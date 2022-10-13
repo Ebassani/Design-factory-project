@@ -76,8 +76,7 @@ def carEmissions(Passengers, FuelUsed):
         return Passengers*hybrid/carPassengersUserInput
     elif (carFuelAnswer == "chargingHybrid"):
         return (Passengers*chargingHybrid)/carPassengersUserInput
-carEmissions()
-Car = carEmissions()
+
 
 
 def userEmissionsFlights(ShortFlightsAnswer, LongFlightsHomelandAnswer, LongFlightsAbroadAnswer, LongFlightsOver3700Answer):
@@ -87,8 +86,7 @@ def userEmissionsFlights(ShortFlightsAnswer, LongFlightsHomelandAnswer, LongFlig
     longFlightsAbroadOver463kmEmission = LongFlightsAbroadAnswer*shortFlightUnder463km
     longFlightsOver3700kmEmission = LongFlightsOver3700Answer*shortFlightUnder463km
     return shortFlightUnder463kmEmission + longFligtsOverHomelandOver463kmEmission + longFlightsAbroadOver463kmEmission + longFlightsOver3700kmEmission
-userEmissionsFlights()
-flights = userEmissionsFlights()
+
 
 def userEmissionsPublicTransport(ShortDistanceBus, LongDistanceBus, LongDistanceTrain, ShortDistanceTrain, MetroInput, TramInput):
     #kgCO2e
@@ -99,15 +97,13 @@ def userEmissionsPublicTransport(ShortDistanceBus, LongDistanceBus, LongDistance
     MetroEmission = MetroInput*Metro
     TramEmission = TramInput*Tram
     return BusShortDistanceEmission + BusLongDistanceEmission + TrainLongDistanceEmission + TrainShortDistanceEmission + MetroEmission + TramEmission
-userEmissionsPublicTransport()
-publicTransportEmission = userEmissionsPublicTransport()
+
 
 def userEmissionsPublicTransportAbroad(TrainAbroadInput, BusAbroadInput):
     TrainAbroadEmission = TrainAbroadInput*TrainAbroad
     BusAbroadEmission = BusAbroadInput*BusAbroad
     return TrainAbroadEmission + BusAbroadEmission
-userEmissionsPublicTransportAbroad()
-publicTransportEmissionAbroad = userEmissionsPublicTransportAbroad()
+
 
 def userEmissionsCarTraffic(UnknownFuelInput, DieselInput, PetrolInput, NaturalGasInput, BioGasInput, ElectricCarInput, HybridInput, ChargingHybridInput):      
     #kgCO2e
@@ -120,7 +116,6 @@ def userEmissionsCarTraffic(UnknownFuelInput, DieselInput, PetrolInput, NaturalG
     hybridEmission = HybridInput*hybrid
     chargingHybridEmission = ChargingHybridInput*chargingHybrid
     return unknownFuelEmission + dieselEmission + petrolEmission + naturalGasEmission + bioGasEmission + electricCarEmission + hybridEmission + chargingHybridEmission
-carTraffic = userEmissionsCarTraffic()
     
 def userEmissionsBusinessAndClassTrips(RentalBusInput, HotelStaysInput, TaxiInput):
     #kgCO2e
@@ -128,13 +123,11 @@ def userEmissionsBusinessAndClassTrips(RentalBusInput, HotelStaysInput, TaxiInpu
     hotelStaysEmission = HotelStaysInput*hotelStays
     taxiEmission = TaxiInput*taxi
     return rentalBusEmission + hotelStaysEmission + taxiEmission
-userEmissionsBusinessAndClassTrips()
-BusinessAndClassTrips = userEmissionsBusinessAndClassTrips()
 
-def schoolCarbonFootprints():
+
+def schoolCarbonFootprints(Car, flights, publicTransportEmission, publicTransportEmissionAbroad, carTraffic, BusinessAndClassTrips):
     return Car + flights + publicTransportEmission + publicTransportEmissionAbroad + carTraffic + BusinessAndClassTrips
 
-SchoolCarbonFootprints = schoolCarbonFootprints()
 
 #def schoolCarbonFootprintsPerParticipant():
 #    return SchoolCarbonFootprints/tripsAndWorkParticipants
@@ -150,8 +143,7 @@ def userEmissionsOtherVehicles(MopedInput, MopedCarInput, MotorcycleInput, ATVIn
     TractorEmission = TractorInput*Tractor
     SnowMobileEmission = SnowmobileInput*SnowMobile
     return MopedEmission + MopedCarEmission + MotorcycleEmission + ATVEmission + TractorEmission + SnowMobileEmission
-userEmissionsOtherVehicles()
-UserEmissionsOtherVehicles = userEmissionsOtherVehicles()
+
 
 
 
@@ -173,8 +165,7 @@ def otherEmissions(ElectricKickboardRentalInput, ElectricBycycleInput, BycycleIn
     BicycleEmission = BycycleInput*0
     Kickboard = KickboardInput*0
     return ElectricKickboardRentEmission + ElectricBicycleEmission + BicycleEmission + Kickboard
-OtherEmissions = otherEmissions()
-otherEmissions()
+
 
 
 #def tripToSchoolEmissions():
