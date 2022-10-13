@@ -48,7 +48,7 @@
             <div class="dashboard__page__myschool">
                 <h2>My school</h2>
                 <div class="myschool__content">
-                    <h2>//TEXT//TEXT//TEXT//</h2>
+                    <h2 style="min-width: 50%">TOP SCHOOLS</h2>
                     <svg width="50%" height="20rem">
                         {% if  schools|length==3 %}
                             {% for i in range(schools|length) %}
@@ -94,8 +94,9 @@
                 </div>
                 <div class="myschool__content">
                     <canvas id="myChart"></canvas>
+                    <h2 style="min-width: 50%">The school total carbon emission is:<br>{{ schoolAccount[7] }}</h2>
                 </div>
-                <div class="myschool__content">
+                <div class="myschool__content" style="flex-wrap: wrap">
                     <div class="dashboard__cards">
                         <h3>Infrastructure</h3>
                         {% if schoolAccount[8] != 0 %}

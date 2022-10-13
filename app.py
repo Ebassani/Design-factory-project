@@ -92,7 +92,7 @@ def infra_form_handle():
     final = userEmissionEnergy(val1, val2, val3, val4, val5, val6)
     final += userEmissionMixedWaste(val7, val8, val9)
 
-    update_infra(current_user.school_id, final)
+    update_trans(current_user.school_id, final)
     return redirect('/dashboard')
 
 

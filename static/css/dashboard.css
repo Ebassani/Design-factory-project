@@ -96,6 +96,7 @@ h2, h1, .biggerSpan {
     display: flex;
     text-align: center;
     align-items: center;
+    justify-content: center;
     padding-top: 1rem;
     overflow: hidden;
 }
@@ -114,6 +115,7 @@ canvas {
     transition: 0.2s;
     min-height: 15rem;
     min-width: 10rem;
+    max-width: 15rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
