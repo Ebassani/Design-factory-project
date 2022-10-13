@@ -40,6 +40,7 @@ def index():  # put application's code here
     topSchools = get_top_schools()[:3]
     currentSchool = ()
     currentSchoolAccount = ()
+    avgs = [avg_carbon_schools(), avg_carbon_schools_food(), avg_carbon_schools_infra(), avg_carbon_schools_trans()]
 
     for i in get_school_accounts():
         if i[5] == current_user.school_id:
@@ -56,11 +57,11 @@ def index():  # put application's code here
 
     if top3:
         return render_template('dashboard.html', schools=topSchools, school=currentSchool,
-                               schoolAccount=currentSchoolAccount)
+                               schoolAccount=currentSchoolAccount, avgs=avgs)
 
     topSchools.append(currentSchool)
     return render_template('dashboard.html', schools=topSchools, school=currentSchool,
-                           schoolAccount=currentSchoolAccount)
+                           schoolAccount=currentSchoolAccount, avgs=avgs)
 
 
 @app.route('/infrastructure_form')

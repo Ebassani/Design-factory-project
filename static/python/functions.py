@@ -35,7 +35,7 @@ def avg_carbon_schools_infra():
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
 
-    cur.execute('select carbon_emission_infra from accounts where is_school==true and carbon_emission>0')
+    cur.execute('select carbon_emission_infra from accounts where is_school==true and carbon_emission_infra>0')
     schools = cur.fetchall()
 
     return avg(schools)
@@ -45,8 +45,17 @@ def avg_carbon_schools_food():
     conn = sqlite3.connect('database.db')
     cur = conn.cursor()
 
-    cur.execute('select carbon_emission_food from accounts where is_school==true and carbon_emission>0')
+    cur.execute('select carbon_emission_food from accounts where is_school==true and carbon_emission_food>0')
     schools = cur.fetchall()
 
     return avg(schools)
 
+
+def avg_carbon_schools_trans():
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+
+    cur.execute('select carbon_emission_food from accounts where is_school==true and carbon_emission_trans>0')
+    schools = cur.fetchall()
+
+    return avg(schools)

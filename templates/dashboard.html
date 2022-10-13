@@ -23,19 +23,19 @@
         <!--
         Radio menu with a slide animation on the bar below it
         -->
-        {% if current_user.is_school==False %}
-
-            <input type="radio" id="dashboard__option_myschool" class="dashboard__selection slide-toggle" name="radio">
-            <label for="dashboard__option_myschool"><span class="biggerSpan hover__pointer">My school</span></label>
-
-            <input type="radio" id="dashboard__option_myprogress" class="dashboard__selection slide-toggle"
-                   name="radio">
-            <label for="dashboard__option_myprogress"><span class="biggerSpan hover__pointer">My progress</span></label>
-
-            <div class="dashboard__slider">
-                <div class="dashboard__slider__bar"></div>
-            </div>
-        {% endif %}
+        {#        {% if current_user.is_school==False %}#}
+        {##}
+        {#            <input type="radio" id="dashboard__option_myschool" class="dashboard__selection slide-toggle" name="radio">#}
+        {#            <label for="dashboard__option_myschool"><span class="biggerSpan hover__pointer">My school</span></label>#}
+        {##}
+        {#            <input type="radio" id="dashboard__option_myprogress" class="dashboard__selection slide-toggle"#}
+        {#                   name="radio">#}
+        {#            <label for="dashboard__option_myprogress"><span class="biggerSpan hover__pointer">My progress</span></label>#}
+        {##}
+        {#            <div class="dashboard__slider">#}
+        {#                <div class="dashboard__slider__bar"></div>#}
+        {#            </div>#}
+        {#        {% endif %}#}
 
         <!--
         Div containing pages, these pages should be separate as they are supposed to appear one at a time.
@@ -46,6 +46,7 @@
             All page 1 should be inside div page1
             -->
             <div class="dashboard__page__myschool">
+                <h2>My school</h2>
                 <div class="myschool__content">
                     <h2>//TEXT//TEXT//TEXT//</h2>
                     <svg width="50%" height="20rem">
@@ -91,8 +92,105 @@
                         {% endif %}
                     </svg>
                 </div>
-                <div>
+                <div class="myschool__content">
                     <canvas id="myChart"></canvas>
+                </div>
+                <div class="myschool__content">
+                    <div class="dashboard__cards">
+                        <h3>Infrastructure</h3>
+                        {% if schoolAccount[8] != 0 %}
+                            {% if schoolAccount[8] > (avgs[2]+(avgs[2]/15)) %}
+                                <svg width="7rem">
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"></circle>
+                                </svg>
+                                <span>The school emits more carbon than average in this category</span>
+                            {% elif (avgs[2]-(avgs[2]/15)) > schoolAccount[8] %}
+                                <svg width="7rem">
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="green"></circle>
+                                </svg>
+                                <span>The school emits less carbon than average in this category</span>
+                            {% else %}
+                                <svg width="7rem">
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="yellow"></circle>
+                                </svg>
+                                <span>The school emits carbon around the average in this category</span>
+                            {% endif %}
+                        {% else %}
+                            {% if current_user.is_school %}
+                                <span>Click here to fill the survey about infrastucture</span>
+                                <div class="menu__log hover__pointer"
+                                     onclick="window.location.href = '/infrastructure_form';">
+                                    <span>Survey</span>
+                                </div>
+                            {% else %}
+                                <span>Your school has yet to answer the survey about infrastructure</span>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+                    <div class="dashboard__cards">
+                        <h3>Food</h3>
+                        {% if schoolAccount[9] != 0 %}
+                            {% if schoolAccount[9]> (avgs[1]+(avgs[1]/15)) %}
+                                <svg width="7rem">
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"></circle>
+                                </svg>
+                                <span>The school emits more carbon than average in this category</span>
+                            {% elif (avgs[1]-(avgs[1]/15)) > schoolAccount[8] %}
+                                <svg width="7rem">
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="green"></circle>
+                                </svg>
+                                <span>The school emits less carbon than average in this category</span>
+                            {% else %}
+                                <svg width="7rem">
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="yellow"></circle>
+                                </svg>
+                                <span>The school emits carbon around the average in this category</span>
+                            {% endif %}
+                        {% else %}
+                            {% if current_user.is_school %}
+                                <span>Click here to fill the survey about food</span>
+                                <div class="menu__log hover__pointer"
+                                     onclick="window.location.href = '/food_form';">
+                                    <span>Survey</span>
+                                </div>
+                            {% else %}
+                                <span>Your school has yet to answer the survey about food</span>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+                    <div class="dashboard__cards">
+                        <h3>Transportation</h3>
+                        {% if schoolAccount[10] != 0 %}
+                            {% if schoolAccount[10] > (avgs[3]+(avgs[3]/15)) %}
+                                <svg width="7rem">
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"></circle>
+                                </svg>
+                                <span>The school emits more carbon than average in this category</span>
+                            {% elif (avgs[3]-(avgs[3]/15)) > schoolAccount[10]%}
+                                <svg width="7rem">
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="green"></circle>
+                                </svg>
+                                 <span>The school emits less carbon than average in this category</span>
+                            {% else %}
+                                <svg width="7rem">
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="yellow"></circle>
+                                </svg>
+                                <span>The school emits carbon around the average in this category</span>
+                            {% endif %}
+                        {% else %}
+                            {% if current_user.is_school %}
+                                <span>Click here to fill the survey about transportation</span>
+                                <div class="menu__log hover__pointer"
+                                     onclick="window.location.href = '/transport_form';">
+                                    <span>Survey</span>
+                                </div>
+                            {% else %}
+                                <span>Your school has yet to answer the survey about infrastructure</span>
+                            {% endif %}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
 
@@ -102,46 +200,46 @@
             more additions will be necessary these additions being proper positioning for the page
             and more animations.
             -->
-            {% if current_user.is_school==False %}
-                <div class="dashboard__page__myprogress">
-                    <div class="myschool__content">
-                        <h2>//TEXT//TEXT//TEXT//2</h2>
-                        <img src="{{ url_for('static', filename= 'images/photo.png') }}" alt="">
-                    </div>
-                </div>
-            {% endif %}
+            {#            {% if current_user.is_school==False %}#}
+            {#                <div class="dashboard__page__myprogress">#}
+            {#                    <div class="myschool__content">#}
+            {#                        <h2>//TEXT//TEXT//TEXT//2</h2>#}
+            {#                        <img src="{{ url_for('static', filename= 'images/photo.png') }}" alt="">#}
+            {#                    </div>#}
+            {#                </div>#}
+            {#            {% endif %}#}
         </div>
 
     </div>
 </div>
 <script>
-  const data = {
-  labels: [
-    'Infraestructure',
-    'Food',
-    'Transportation'
-  ],
-  datasets: [{
-    label: 'My First Dataset',
-    data: [{{ schoolAccount[8] }}, {{ schoolAccount[9] }}, {{ schoolAccount[10] }}],
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'
-    ],
-    hoverOffset: 4
-  }]
-};
+    const data = {
+        labels: [
+            'Infraestructure',
+            'Food',
+            'Transportation'
+        ],
+        datasets: [{
+            label: 'My First Dataset',
+            data: [{{ schoolAccount[8] }}, {{ schoolAccount[9] }}, {{ schoolAccount[10] }}],
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+        }]
+    };
 
-  const config = {
-    type: 'doughnut',
-    data: data,
-  };
+    const config = {
+        type: 'doughnut',
+        data: data,
+    };
 
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
 </script>
 </body>
 </html>
