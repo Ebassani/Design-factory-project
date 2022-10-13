@@ -99,6 +99,7 @@ h2, h1, .biggerSpan {
     justify-content: center;
     padding-top: 1rem;
     overflow: hidden;
+    padding-bottom: 1rem;
 }
 
 canvas {

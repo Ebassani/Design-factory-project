@@ -65,7 +65,7 @@
                                 {% set texty = y-4 %}
                                 <text x="{{ percentX }}%" y="{{ texty }}%">{{ schools[i][0] }}</text>
                                 <rect x="{{ percentX }}%" y="{{ y }}%" width="20%" height="{{ height }}%"
-                                      style="fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9"></rect>
+                                      style="fill:royalblue;stroke:royalblue;stroke-width:5" ry="10"></rect>
                             {% endfor %}
                         {% else %}
                             {% for i in range(schools|length) %}
@@ -87,7 +87,7 @@
                                 {% set texty = y-4 %}
                                 <text x="{{ percentX }}%" y="{{ texty }}%">{{ schools[i][name] }}</text>
                                 <rect x="{{ percentX }}%" y="{{ y }}%" width="15%" height="{{ height }}%"
-                                      style="fill:blue;stroke:pink;stroke-width:5;fill-opacity:0.1;stroke-opacity:0.9"></rect>
+                                      style="fill:royalblue;stroke:royalblue;stroke-width:5" ry="10"></rect>
                             {% endfor %}
                         {% endif %}
                     </svg>
@@ -102,17 +102,17 @@
                         {% if schoolAccount[8] != 0 %}
                             {% if schoolAccount[8] > (avgs[2]+(avgs[2]/15)) %}
                                 <svg width="7rem">
-                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"></circle>
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="1" fill="red"></circle>
                                 </svg>
                                 <span>The school emits more carbon than average in this category</span>
                             {% elif (avgs[2]-(avgs[2]/15)) > schoolAccount[8] %}
                                 <svg width="7rem">
-                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="green"></circle>
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="1" fill="green"></circle>
                                 </svg>
                                 <span>The school emits less carbon than average in this category</span>
                             {% else %}
                                 <svg width="7rem">
-                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="yellow"></circle>
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="1" fill="yellow"></circle>
                                 </svg>
                                 <span>The school emits carbon around the average in this category</span>
                             {% endif %}
@@ -127,6 +127,12 @@
                                 <span>Your school has yet to answer the survey about infrastructure</span>
                             {% endif %}
                         {% endif %}
+                        {% if current_user.is_school %}
+                            <div class="menu__log hover__pointer"
+                                 onclick="window.location.href = '/infrastructure_form';">
+                                 <span>Survey</span>
+                            </div>
+                        {% endif %}
                     </div>
 
                     <div class="dashboard__cards">
@@ -134,17 +140,17 @@
                         {% if schoolAccount[9] != 0 %}
                             {% if schoolAccount[9]> (avgs[1]+(avgs[1]/15)) %}
                                 <svg width="7rem">
-                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"></circle>
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="1" fill="red"></circle>
                                 </svg>
                                 <span>The school emits more carbon than average in this category</span>
                             {% elif (avgs[1]-(avgs[1]/15)) > schoolAccount[8] %}
                                 <svg width="7rem">
-                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="green"></circle>
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="1" fill="green"></circle>
                                 </svg>
                                 <span>The school emits less carbon than average in this category</span>
                             {% else %}
                                 <svg width="7rem">
-                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="yellow"></circle>
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="1" fill="yellow"></circle>
                                 </svg>
                                 <span>The school emits carbon around the average in this category</span>
                             {% endif %}
@@ -159,6 +165,12 @@
                                 <span>Your school has yet to answer the survey about food</span>
                             {% endif %}
                         {% endif %}
+                        {% if current_user.is_school %}
+                            <div class="menu__log hover__pointer"
+                                 onclick="window.location.href = '/food_form';">
+                                 <span>Survey</span>
+                            </div>
+                        {% endif %}
                     </div>
 
                     <div class="dashboard__cards">
@@ -166,17 +178,17 @@
                         {% if schoolAccount[10] != 0 %}
                             {% if schoolAccount[10] > (avgs[3]+(avgs[3]/15)) %}
                                 <svg width="7rem">
-                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"></circle>
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="1" fill="red"></circle>
                                 </svg>
                                 <span>The school emits more carbon than average in this category</span>
                             {% elif (avgs[3]-(avgs[3]/15)) > schoolAccount[10]%}
                                 <svg width="7rem">
-                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="green"></circle>
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="1" fill="green"></circle>
                                 </svg>
                                  <span>The school emits less carbon than average in this category</span>
                             {% else %}
                                 <svg width="7rem">
-                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="yellow"></circle>
+                                    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="1" fill="yellow"></circle>
                                 </svg>
                                 <span>The school emits carbon around the average in this category</span>
                             {% endif %}
@@ -190,6 +202,12 @@
                             {% else %}
                                 <span>Your school has yet to answer the survey about infrastructure</span>
                             {% endif %}
+                        {% endif %}
+                        {% if current_user.is_school %}
+                            <div class="menu__log hover__pointer"
+                                 onclick="window.location.href = '/transport_form';">
+                                 <span>Survey</span>
+                            </div>
                         {% endif %}
                     </div>
                 </div>
