@@ -13,5 +13,12 @@
          <h3 onclick="window.location.href = '/motion';" >Motion</h3>
         <h3 onclick="window.location.href = '/currentstate';">Current State</h3>
 
+        {% if current_user.is_authenticated %}
+            <h3 onclick="window.location.href = '/logout';">Log out</h3>
+            <h3 onclick="window.location.href = '/dashboard';">Dashboard</h3>
+        {% else %}
+            <h3 onclick="window.location.href = '/login';">Log In</h3>
+            <h3 onclick="window.location.href = '/register';">Register</h3>
+        {% endif %}
     </div>
 </div>
