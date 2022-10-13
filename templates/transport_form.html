@@ -1,10 +1,9 @@
-<!DOCTYPE html>
++<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/common.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/login.css') }}">
-    <script src="{{ url_for('static', filename= 'javascript/scripts.js') }}"></script>
     <title>Transport form</title>
   <link rel="icon" type="image/x-icon" href="./static/images/logo.png">
 </head>
@@ -19,169 +18,189 @@
       <h1>Transport Form</h1>
           <form method="post" action="/">
           <div class="form-area">
-            <p>Total number of persons?</p>
+            <p>Total number of passengers?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter" class="form-input" name="Passengers"/>
                   <div class="form-background"></div>
                 </div>
+                <p>FuelUsed?</p>
+                <div class="form-list">
+                <input type="number" required="required" placeholder="Enter" class="form-input" name="FuelUsed"/>
+                <div class="form-background"></div>
+              </div>
               <h2>Flights :</h2>
           <p> Short flights under 463 kms?  </p>
           <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="ShortFlightsAnswer"/>
                   <div class="form-background"></div>
                     </div>
                     <p>Long Fligts Over Homeland Over 463km?</p>
                     <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="LongFlightsHomelandAnswer"/>
                   <div class="form-background"></div>
                 </div>
                   <p>Long Flights Abroad Over 463km?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="LongFlightsAbroadAnswer"/>
                   <div class="form-background"></div>
                 </div>
                   <p>Long Flights Over 3700km?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="LongFlightsOver3700Answer"/>
                   <div class="form-background"></div>
                 </div>
               <h2>Public transport :</h2>
                   <p>Short Distance Bus?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="ShortDistanceBus"/>
                   <div class="form-background"></div>
                 </div>
                   <p>Long Distance Bus?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="LongDistanceBus"/>
                   <div class="form-background"></div>
                 </div>
                   <p>Long Distance Train?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="LongDistanceTrain"/>
                   <div class="form-background"></div>
                   </div>
                   <p>Short Distance Train?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="ShortDistanceTrain"/>
                   <div class="form-background"></div>
                 </div>
                   <p>Metro ?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="MetroInput"/>
                   <div class="form-background"></div>
                 </div>
                   <p>Tram ?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="TramInput"/>
                   <div class="form-background"></div>
                   </div>
               <h2>Public transport(abroad)</h2>
                   <p>Train in Abroad?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="TrainAbroadInput"/>
                   <div class="form-background"></div>
                 </div>
                     <p>Bus in Abroad??</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="BusAbroadInput"/>
                   <div class="form-background"></div>
                 </div>
               <h2>Car Traffic(km):</h2>
                   <p>unknown Fuel?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter" class="form-input" name="UnknownFuelInput"/>
                   <div class="form-background"></div>
                   </div>
                   <p>Diesel?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="DieselInput"/>
                   <div class="form-background"></div>
                 </div>
                   <p>petrol?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="PetrolInput"/>
                   <div class="form-background"></div>
                 </div>
+                <p>Natural Gas ?</p>
+                <div class="form-list">
+                <input type="number" required="required" placeholder="Enter kms" class="form-input" name="NaturalGasInput"/>
+                <div class="form-background"></div>
+              </div>
               <p>Bio Gas ?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="BioGasInput"/>
                   <div class="form-background"></div>
                 </div>
                   <p>Electric Car?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="ElectricCarInput"/>
                   <div class="form-background"></div>
                 </div>
                   <p>Hybrid ?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="HybridInput"/>
                   <div class="form-background"></div>
                   </div>
                   <p>Charging Hybrid?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="ChargingHybridInput"/>
                   <div class="form-background"></div>
                 </div>
                <h2>Other (km):</h2>
                   <p>Rental Bus?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="RentalBusInput"/>
                   <div class="form-background"></div>
                   </div>
               <h2>Amount(€):</h2>
                   <p>Hotel Stays?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter €" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter €" class="form-input" name="HotelStaysInput"/>
                   <div class="form-background"></div>
                   </div>
                   <p>Taxi ?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter €" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter €" class="form-input" name="TaxiInput"/>
                   <div class="form-background"></div>
                 </div>
               <h2> Other vehicles(km) :</h2>
                   <p>Moped ?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="MopedInput"/>
                   <div class="form-background"></div>
                 </div>
               <p>Moped Car ?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="MopedCarInput"/>
                   <div class="form-background"></div>
                 </div>
               <p>Motorcycle ?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="MotorcycleInput"/>
                   <div class="form-background"></div>
                 </div>
                   <p>Electric Kickboard Rental?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="ElectricKickboardRentalInput"/>
                   <div class="form-background"></div>
                 </div>
                   <p>Electric Bicycle?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter kms" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter kms" class="form-input" name="ElectricBycycleInput"/>
                   <div class="form-background"></div>
                   </div>
               <h2>  Liters :</h2>
                   <p>ATV?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter litres" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter litres" class="form-input" name="ATVInput"/>
                   <div class="form-background"></div>
                 </div>
                 <p>Tractor ?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter litres" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter litres" class="form-input" name="TractorInput"/>
                   <div class="form-background"></div>
                 </div>
               <p>SnowMobile ?</p>
                   <div class="form-list">
-                  <input type="number" required="required" placeholder="Enter litres" class="form-input"/>
+                  <input type="number" required="required" placeholder="Enter litres" class="form-input" name="SnowmobileInput"/>
                   <div class="form-background"></div>
                 </div>
+                <p>Bycycle ?</p>
+                <div class="form-list">
+                <input type="number" required="required" placeholder="Enter litres" class="form-input" name="BycycleInput"/>
+                <div class="form-background"></div>
+              </div>
+              <p>Kickboard ?</p>
+              <div class="form-list">
+              <input type="number" required="required" placeholder="Enter litres" class="form-input" name="KickboardInput"/>
+              <div class="form-background"></div>
+            </div>
 
 
               </div>
