@@ -147,7 +147,8 @@ def trans_form_handle():
     final += userEmissionsOtherVehicles(MopedInput, MopedCarInput, MotorcycleInput, ATVInput, TractorInput, SnowmobileInput)
     final += otherEmissions(ElectricKickboardRentalInput, ElectricBycycleInput, BycycleInput, KickboardInput)
 
-    update_infra(current_user.school_id, final)
+    print(final)
+    update_trans(current_user.school_id, final)
     return redirect('/dashboard')
 
 
